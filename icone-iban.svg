@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <!-- Carte/document -->
+  <rect x="10" y="20" width="80" height="60" rx="6" stroke="#B99048" stroke-width="3" fill="rgba(247,239,227,0.5)"/>
+  <!-- Texte IBAN -->
+  <text x="50" y="48" text-anchor="middle" font-family="serif" font-size="16" font-weight="bold" fill="#B99048" letter-spacing="2">IBAN</text>
+  <!-- Lignes -->
+  <line x1="20" y1="58" x2="80" y2="58" stroke="#D8AE67" stroke-width="2"/>
+  <line x1="20" y1="67" x2="65" y2="67" stroke="#D8AE67" stroke-width="1.5"/>
+  <!-- Médaille/sceau -->
+  <circle cx="75" cy="72" r="10" stroke="#B99048" stroke-width="2" fill="rgba(216,174,103,0.3)"/>
+  <path d="M71 72 L74 75 L79 68" stroke="#B99048" stroke-width="2" stroke-linecap="round"/>
+  <!-- Bandes magnétiques style -->
+  <rect x="10" y="30" width="80" height="8" fill="rgba(183,143,67,0.15)" rx="0"/>
+</svg>

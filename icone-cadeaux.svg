@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <rect x="18" y="42" width="64" height="50" rx="3" stroke="#B99048" stroke-width="3" fill="rgba(247,239,227,0.5)"/>
+  <rect x="12" y="32" width="76" height="14" rx="3" stroke="#B99048" stroke-width="3" fill="rgba(247,239,227,0.5)"/>
+  <line x1="50" y1="32" x2="50" y2="92" stroke="#D8AE67" stroke-width="2.5"/>
+  <line x1="12" y1="39" x2="88" y2="39" stroke="#D8AE67" stroke-width="2.5"/>
+  <!-- Ruban haut -->
+  <path d="M50 32 C42 18, 28 14, 28 22 C28 30, 42 32, 50 32" stroke="#B99048" stroke-width="2.5" fill="rgba(216,174,103,0.25)"/>
+  <path d="M50 32 C58 18, 72 14, 72 22 C72 30, 58 32, 50 32" stroke="#B99048" stroke-width="2.5" fill="rgba(216,174,103,0.25)"/>
+  <!-- Nœud -->
+  <circle cx="50" cy="32" r="4" fill="#D8AE67"/>
+</svg>
