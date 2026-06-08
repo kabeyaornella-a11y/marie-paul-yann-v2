@@ -1030,6 +1030,7 @@ function finishMedal(medalEl, idx) {
         setTimeout(function(){
           finalConfettiStream();
           document.getElementById('revealBlock').classList.add('calendar-ready');
+          try { if (window.parent && window.parent !== window) window.parent.postMessage({type:'eventia-scratch-complete'}, '*'); } catch(e) {}
         }, 1450);
       }, 420);
     }, 2000);

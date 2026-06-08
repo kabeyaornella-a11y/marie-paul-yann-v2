@@ -12,7 +12,7 @@
 <meta content="Marie-Paul &amp; Yann · Mariage" name="twitter:title"/>
 <meta content="https://res.cloudinary.com/didid8vcu/image/upload/mpyann/couple-hero.png" name="twitter:image"/>
 <meta content="width=device-width,initial-scale=1,maximum-scale=5,viewport-fit=cover" name="viewport"/>
-<title>Marie-Paul &amp; Yann · 2027 · v30</title>
+<title>Marie-Paul &amp; Yann · 2027 · v31</title>
 <link href="https://fonts.googleapis.com/css2?family=Gloock&amp;family=Tenor+Sans&amp;family=Questrial&amp;family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&amp;family=Great+Vibes&amp;family=Cinzel:wght@400;500&amp;display=swap" rel="stylesheet"/>
 <style id="eventia-master-clean-css">/* ===== EVENTIA MASTER CLEAN · Sections natives validées ===== */
 
@@ -9866,6 +9866,31 @@ h2{font-size:clamp(28px,6.5vw,46px);font-weight:300;color:#452819;margin-bottom:
 <div class="anav-dot" data-label="REMERCIEMENTS" data-target="remerciements"></div>
 </nav>
 <audio id="audio" loop="" preload="auto" src="musique.m4a"></audio>
+<script>
+/* ── toggleMusic — v31 ── */
+window.toggleMusic = function() {
+  var a = document.getElementById('audio');
+  var btn = document.getElementById('mus-btn');
+  var iconOn = document.getElementById('mus-icon-on');
+  var iconOff = document.getElementById('mus-icon-off');
+  if (!a) return;
+  function sync() {
+    var playing = !a.paused && !a.muted;
+    if (btn) btn.classList.toggle('is-playing', playing);
+    if (iconOn) iconOn.style.display = playing ? '' : 'none';
+    if (iconOff) iconOff.style.display = playing ? 'none' : '';
+  }
+  if (a.paused || a.muted) {
+    a.muted = false;
+    if (!a.volume) a.volume = 1;
+    a.play().catch(function(){}).finally ? a.play().catch(function(){}).finally(sync) : a.play().catch(function(){}).then(sync, sync);
+  } else {
+    a.pause();
+    sync();
+  }
+  sync();
+};
+</script>
 <canvas id="gp-canvas"></canvas>
 <nav aria-label="Navigation" id="topnav">
 <div aria-label="Langue" id="lang-sw" role="group">
@@ -10271,6 +10296,7 @@ setTimeout(fitRomans,250);setTimeout(fitRomans,900);
             <span class="c3-dist">· Environ 20 à 25 min du Domaine des Rois</span>
             <span class="c3-price">Dès 121 € env. / nuit</span>
             <span class="c3-note">Prix indicatif, à vérifier selon la date et le nombre de chambres.</span>
+            <a class="gold-btn" href="https://www.mercure.com/fr/hotel-5064-mercure-chateau-fontainebleau-demeures-de-campagne/index.shtml" target="_blank" rel="noopener">Réserver</a>
           </div>
         </div>
       </div>
@@ -10285,6 +10311,7 @@ setTimeout(fitRomans,250);setTimeout(fitRomans,900);
             <span class="c3-dist">· Environ 25 min du Domaine des Rois</span>
             <span class="c3-price">Dès 170 € env. / nuit</span>
             <span class="c3-note">Prix indicatif, à vérifier selon la date et les disponibilités.</span>
+            <a class="gold-btn" href="https://www.hotel-de-cavoye.com" target="_blank" rel="noopener">Réserver</a>
           </div>
         </div>
       </div>
@@ -10297,8 +10324,9 @@ setTimeout(fitRomans,250);setTimeout(fitRomans,900);
             <span class="c3-stars">★★★★</span>
             <p class="c3-desc">Une adresse plus premium, face au château de Fontainebleau, parfaite pour les invités qui veulent une vraie parenthèse élégante.</p>
             <span class="c3-dist">· Environ 25 min du Domaine des Rois</span>
-            <span class="c3-price">Dès 212 $ env. / nuit</span>
+            <span class="c3-price">Dès 212 € env. / nuit</span>
             <span class="c3-note">Prix indicatif, variable selon la période et le site de réservation.</span>
+            <a class="gold-btn" href="https://www.hotel-aigle-noir.com" target="_blank" rel="noopener">Réserver</a>
           </div>
         </div>
       </div>
@@ -11715,6 +11743,174 @@ html {
     });
   } else {
     setTimeout(initReveal, 120);
+  }
+})();
+</script>
+
+
+<style id="eventia-v31-corrections">
+/* ================================================================
+   EVENTIA v31 — Corrections ciblées
+   Dress code centrage · Breathing hebergements · Activités polish
+   ================================================================ */
+
+/* ── DRESS CODE CENTERING (v5 reference) ── */
+#dresscode .page {
+  text-align: center !important;
+  margin: 0 auto !important;
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+}
+#dresscode .dress-wrap {
+  overflow: visible !important;
+  max-width: min(1120px, 100vw) !important;
+  width: 100% !important;
+  margin: 0 auto !important;
+  padding-bottom: clamp(40px, 8vw, 90px) !important;
+  position: relative !important;
+}
+#dresscode .podium-img {
+  width: 112% !important;
+  max-width: none !important;
+  margin-left: -6% !important;
+  -webkit-transform: none !important;
+  -ms-transform: none !important;
+  transform: none !important;
+  -webkit-transform-origin: center bottom !important;
+  transform-origin: center bottom !important;
+  display: block !important;
+}
+#dresscode .silhouettes-img {
+  width: 118% !important;
+  left: -9% !important;
+  right: auto !important;
+  bottom: 7% !important;
+  max-width: none !important;
+  -webkit-transform: none !important;
+  -ms-transform: none !important;
+  transform: none !important;
+}
+
+/* ── HEBERGEMENTS & ACTIVITES — TDY breathing ── */
+/* Override the compact-padding rules from previous sessions (higher specificity wins) */
+section#hebergements.es-section {
+  padding-top:    var(--ev-gap, clamp(90px, 11vw, 140px)) !important;
+  padding-bottom: var(--ev-gap, clamp(90px, 11vw, 140px)) !important;
+  margin-top: 0 !important;
+}
+section#autour.es-section {
+  padding-top:    var(--ev-gap, clamp(90px, 11vw, 140px)) !important;
+  padding-bottom: var(--ev-gap, clamp(90px, 11vw, 140px)) !important;
+  margin-top: 0 !important;
+}
+@media (max-width: 768px) {
+  section#hebergements.es-section,
+  section#autour.es-section {
+    padding-top:    clamp(60px, 10vw, 90px) !important;
+    padding-bottom: clamp(60px, 10vw, 90px) !important;
+  }
+}
+@media (max-width: 480px) {
+  section#hebergements.es-section,
+  section#autour.es-section {
+    padding-top:    clamp(50px, 12vw, 72px) !important;
+    padding-bottom: clamp(50px, 12vw, 72px) !important;
+  }
+}
+
+/* ── HEBERGEMENTS — carte rect, photo haute ── */
+#hebergements .c3-card {
+  min-height: 430px !important;
+  max-height: none !important;
+  border-radius: 0 !important;
+}
+#hebergements .c3-photo {
+  height: 210px !important;
+}
+#hebergements .c3-wrap {
+  max-width: none !important;
+  overflow: visible !important;
+}
+
+/* ── ACTIVITES — photo overflow ── */
+.act-card {
+  overflow: hidden !important;
+}
+.act-photo {
+  overflow: hidden !important;
+  display: block !important;
+}
+
+/* ── GLASS EFFECT on card hover (activités) ── */
+.act-card:hover {
+  -webkit-box-shadow: 0 22px 52px rgba(69,40,25,.14) !important;
+  box-shadow: 0 22px 52px rgba(69,40,25,.14) !important;
+  -webkit-transform: translateY(-2px) !important;
+  -ms-transform: translateY(-2px) !important;
+  transform: translateY(-2px) !important;
+  -webkit-transition: -webkit-box-shadow .35s ease, -webkit-transform .35s ease !important;
+  transition: box-shadow .35s ease, transform .35s ease !important;
+}
+
+/* ── PROGRAMME/DRESSCODE transition — keep tight spacing ── */
+#programme + #dresscode.es-section {
+  padding-top: clamp(10px, 2vh, 22px) !important;
+}
+
+/* ── RSVP + REMERCIEMENTS — no TDY gap between these two ── */
+section#remerciements {
+  padding-top: clamp(24px, 4vw, 48px) !important;
+}
+
+/* ── HEBERGEMENTS booking buttons ── */
+.c3-body .gold-btn {
+  margin-top: auto !important;
+  align-self: flex-start !important;
+  font-size: 9px !important;
+  padding: 10px 18px !important;
+}
+</style>
+
+<script id="eventia-v31-js">
+(function() {
+  /* ── Confettis depuis la révélation des médaillons ── */
+  window.addEventListener('message', function(e) {
+    if (!e.data || e.data.type !== 'eventia-scratch-complete') return;
+    eventiaScratchConfetti();
+  });
+
+  function eventiaScratchConfetti() {
+    var colors = ['#F3D391','#D8AE67','#FFF7DD','#F8E7B5','#B88A3A','#FFFBE8','#ECD17A'];
+    var n = 55;
+    for (var i = 0; i < n; i++) {
+      (function() {
+        var p = document.createElement('i');
+        var size = 5 + Math.random() * 6;
+        p.style.cssText = [
+          'position:fixed',
+          'pointer-events:none',
+          'z-index:99999',
+          'border-radius:' + (Math.random() > .5 ? '2px' : '50%'),
+          'left:' + (8 + Math.random() * 84) + 'vw',
+          'top:-14px',
+          'width:' + size + 'px',
+          'height:' + (size * (1.4 + Math.random()*.8)) + 'px',
+          'background:' + colors[Math.floor(Math.random() * colors.length)]
+        ].join(';');
+        var delay = Math.random() * 1400;
+        var dur   = 1500 + Math.random() * 1300;
+        document.body.appendChild(p);
+        if (p.animate) {
+          p.animate([
+            {top:'-14px', opacity:1, transform:'rotate(' + (Math.random()*60-30) + 'deg)'},
+            {top:(55 + Math.random()*30) + 'vh', opacity:0, transform:'rotate(' + (200 + Math.random()*200) + 'deg)'}
+          ], {duration:dur, delay:delay, fill:'forwards', easing:'cubic-bezier(.12,.72,.14,1)'})
+          .onfinish = function(){ if (p.parentNode) p.parentNode.removeChild(p); };
+        } else {
+          setTimeout(function(){ if (p.parentNode) p.parentNode.removeChild(p); }, dur + delay);
+        }
+      })();
+    }
   }
 })();
 </script>
