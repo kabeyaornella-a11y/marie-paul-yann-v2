@@ -10023,13 +10023,6 @@ window.toggleMusic = function() {
     <div class="para-wrap"><div class="roman">I</div><p class="story-text">Il y a plusieurs années, deux chemins se sont rencontrés pour ne plus jamais se quitter. Au fil des saisons, notre amour a grandi dans la tendresse, les épreuves, les éclats de rire et les rêves partagés.</p></div>
   </article>
   <div class="photo-frame-wrap"><img class="story-img" src="https://res.cloudinary.com/didid8vcu/image/upload/mpyann/couple-story-1.jpg" alt="Marie-Paul et Yann"></div>
-  <section class="sacred">
-    <div class="ornament" aria-hidden="true"></div>
-    <p class="kicker">Parole sacrée</p>
-    <p class="verse"><span class="sweep-line">« Ainsi ils ne sont plus deux, mais une seule chair.</span><span class="sweep-line">Que l’homme donc ne sépare pas ce que Dieu a uni. »</span></p>
-    <p class="ref">MATTHIEU 19:6</p>
-    <div class="ornament" aria-hidden="true"></div>
-  </section>
   <div class="photo-frame-wrap"><img class="story-img" src="https://res.cloudinary.com/didid8vcu/image/upload/mpyann/couple-story-2.jpg" alt="Marie-Paul et Yann"></div>
   <article class="chapter">
     <p class="chapter-label">La bénédiction</p>
@@ -10041,12 +10034,6 @@ window.toggleMusic = function() {
     <div class="para-wrap"><div class="roman">III</div><p class="story-text">Aujourd’hui, il est temps pour nous de consacrer cette promesse devant Dieu et devant ceux que nous aimons. Ce jour marquera bien plus qu’un mariage, il sera la naissance officielle d’une seule et même famille, unie pour toujours dans l’amour, la foi et la fidélité.</p></div>
   </article>
   <div class="photo-frame-wrap"><img class="story-img" src="https://res.cloudinary.com/didid8vcu/image/upload/mpyann/couple-story-5.jpg" alt="Marie-Paul et Yann"></div>
-  <section class="sacred">
-    <div class="ornament" aria-hidden="true"></div>
-    <p class="verse"><span class="sweep-line">Que l’amour soit le lien</span><span class="sweep-line">qui nous unit parfaitement.</span></p>
-    <div class="ornament" aria-hidden="true"></div>
-    <p class="ref">COLOSSIENS 3:14</p>
-  </section>
 </section>
 <script>
 function fitRomans(){
@@ -11715,7 +11702,7 @@ section#remerciements {
 }
 
 /* ── Hero overflow pour boucles Y ── */
-#hero{overflow:visible!important;overflow-x:clip!important;}
+#hero{overflow:visible!important;}
 #hero .hero-content,.hero-content{overflow:visible!important;}
 
 /* ── Nav buttons — plus petit, icônes forcées visibles ── */
@@ -11753,6 +11740,14 @@ section#hebergements.es-section,section#autour.es-section{padding-top:var(--ev-g
 #notre-histoire .photo-frame-wrap::before{left:clamp(18px,4vw,34px);right:clamp(18px,4vw,34px);top:clamp(18px,4vw,34px);bottom:clamp(18px,4vw,34px);}
 #notre-histoire .photo-frame-wrap::after{left:clamp(28px,5.8vw,52px);right:clamp(28px,5.8vw,52px);top:clamp(28px,5.8vw,52px);bottom:clamp(28px,5.8vw,52px);border-color:rgba(232,201,130,.20);}
 @media(max-width:640px){#notre-histoire .photo-frame-wrap::before{left:16px;right:16px;top:16px;bottom:16px}#notre-histoire .photo-frame-wrap::after{left:26px;right:26px;top:26px;bottom:26px}}
+/* Fondue bas photos — masque dégradé sur chaque photo */
+#notre-histoire .photo-frame-wrap{
+  -webkit-mask-image:linear-gradient(to bottom,#000 62%,transparent 100%);
+  mask-image:linear-gradient(to bottom,#000 62%,transparent 100%);
+}
+/* Réduction espace après dernière photo (vers + supprimés) */
+#notre-histoire>.photo-frame-wrap:last-child{margin-bottom:0!important;}
+#notre-histoire{padding-bottom:clamp(8px,1.5vh,18px)!important;}
 /* Sacred sections */
 #notre-histoire .sacred{opacity:1!important;visibility:visible!important;transform:none!important;background:transparent!important;}
 #notre-histoire .sacred .kicker{opacity:1!important;visibility:visible!important;}
