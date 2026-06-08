@@ -8670,33 +8670,7 @@ body.eventia-scrolled #topnav #lang-sw {
   display: flex !important;
 }
 
-/* ============================================================
-   Eventia V45 — corrections visuelles (ex-inline index.html)
-   ============================================================ */
-:root{--ev-gap:clamp(22px,4vh,44px);--ev-brown:#452819;--ev-gold:#B99048;--ev-cream:#F7EFE3;}
-html,body{max-width:100%;overflow-x:hidden!important;}
-.es-section,.date-chapter,.countdown-chapter,.story2-chapter,.program-chapter,.dress-chapter,.gifts-chapter,.rsvp-chapter,.thanks-chapter,.final-chapter{padding-top:var(--ev-gap)!important;padding-bottom:var(--ev-gap)!important;}
-.es-section + .es-section,.program-chapter + .dress-chapter,.dress-chapter + #hebergements,#autour + #empreintes,#programme + #dresscode,#rsvp + #remerciements{margin-top:0!important;}
-#compte-a-rebours + #notre-histoire{margin-top:0!important;padding-top:clamp(18px,3vh,32px)!important;}
-#programme{padding-bottom:0!important;margin-bottom:0!important;}
-#programme + #dresscode{padding-top:clamp(10px,2vh,22px)!important;}
-#dresscode + #hebergements,#hebergements{padding-top:clamp(8px,1.8vh,20px)!important;margin-top:clamp(-28px,-3vh,-8px)!important;}
-#autour{padding-bottom:clamp(10px,2vh,22px)!important;margin-bottom:0!important;}
-#empreintes{padding-top:clamp(10px,2vh,24px)!important;margin-top:0!important;}
-
-/* Top nav */
-#topnav{position:fixed!important;top:calc(env(safe-area-inset-top,0px) + 12px)!important;right:12px!important;z-index:2147483000!important;display:flex!important;align-items:center!important;gap:10px!important;background:transparent!important;border:0!important;box-shadow:none!important;pointer-events:none!important;}
-#topnav #lang-sw{display:flex!important;visibility:visible!important;opacity:1!important;pointer-events:auto!important;position:relative!important;transform:none!important;height:36px!important;border-radius:999px!important;transition:opacity .22s ease, visibility .22s ease!important;}
-body.eventia-lang-hidden #topnav #lang-sw,body.eventia-hide-lang #topnav #lang-sw,body.eventia-scrolled #topnav #lang-sw{opacity:0!important;visibility:hidden!important;pointer-events:none!important;}
-#topnav #mus-btn{display:flex!important;visibility:visible!important;opacity:1!important;pointer-events:auto!important;}
-
-/* Hero intro text */
-#hero .h-intro,#txt-intro{top:7.2%!important;left:50%!important;width:60vw!important;max-width:60vw!important;transform:translateX(-50%)!important;text-align:center!important;white-space:nowrap!important;overflow:visible!important;font-size:clamp(7px,1.65vw,14px)!important;letter-spacing:.10em!important;line-height:1!important;color:rgba(255,248,238,.96)!important;-webkit-text-fill-color:rgba(255,248,238,.96)!important;text-shadow:0 1px 10px rgba(0,0,0,.55)!important;}
-@media(max-width:430px){#hero .h-intro,#txt-intro{width:66vw!important;max-width:66vw!important;font-size:clamp(6.6px,1.85vw,9.8px)!important;letter-spacing:.055em!important;}}
-
-/* Shimmer prénoms */
-#hero .h-names,#photo-finale .final-h-names,.h-names,.final-h-names{font-family:'ChopinScript','Great Vibes',cursive!important;background:linear-gradient(105deg,#7A4B20 0%,#B99048 18%,#F3D391 34%,#FFF3C1 48%,#C99A45 63%,#8A5B1E 82%,#F3D391 100%)!important;background-size:300% auto!important;-webkit-background-clip:text!important;background-clip:text!important;-webkit-text-fill-color:transparent!important;color:transparent!important;animation:eventiaV44Shimmer 4.4s ease-in-out infinite!important;}
-@keyframes eventiaV44Shimmer{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+/* V45 : seules les particules héro ont des valeurs mises à jour ci-dessous (reste = doublon V44 supprimé) */
 
 /* Particules héro */
 .hero-snow{mix-blend-mode:screen!important;opacity:.78!important;}
