@@ -36,8 +36,9 @@ body{font-family:'Jost',sans-serif;font-weight:200;color:var(--or);overflow-x:hi
 .tl-axis{
   position:absolute;left:50%;top:0;bottom:0;
   width:1px;transform:translateX(-50%);
-  z-index:1;overflow:visible;
-  opacity:0;pointer-events:none;
+  z-index:1;overflow:visible;pointer-events:none;
+  background:linear-gradient(to bottom,transparent,#B99048 6%,#D7B56D 50%,#B99048 94%,transparent);
+  opacity:.42;
 }
 .tl-axis::before,.tl-axis::after{display:none;}
 @keyframes lB{0%,100%{opacity:0}50%{opacity:0}}

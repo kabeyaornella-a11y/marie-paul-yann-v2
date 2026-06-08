@@ -449,17 +449,7 @@ body.eventia-scrolled .lang-sw{opacity:0!important;pointer-events:none!important
   backdrop-filter:blur(10px)!important;box-shadow:0 10px 24px rgba(0,0,0,.18)!important;
 }
 
-/* Hébergements natifs : compact, pas de doublon, pas d'espace énorme */
-#hebergements{padding:64px 16px 58px!important;overflow:hidden!important}
-#hebergements .es-inner{max-width:560px!important;margin:0 auto!important;text-align:center!important}
-#hebergements .es-copy{max-width:430px!important;margin:14px auto 18px!important;line-height:1.55!important}
-#hebergements .c3-wrap{height:520px!important;max-width:430px!important;margin:16px auto 8px!important;overflow:visible!important}
-#hebergements .c3-card{width:min(82vw,330px)!important;min-height:455px!important;max-height:455px!important;margin:0 auto!important;border-radius:22px!important;overflow:hidden!important}
-#hebergements .c3-photo{height:180px!important;object-fit:cover!important}
-#hebergements .c3-body{padding:16px 16px 14px!important;gap:5px!important}
-#hebergements .c3-desc{line-height:1.38!important;margin:6px 0!important}
-#hebergements .c3-note{font-size:10px!important;line-height:1.25!important;margin-top:4px!important}
-#hebergements .c3-nav{margin-top:4px!important}
+/* Hébergements : supprimé — remplacé par #stay-wrap CSS block ci-dessous */
 
 /* Activités natives : fond harmonisé, pas de page dans la page */
 #autour.es-activities-option3{padding:64px 16px 60px!important;background:var(--eventia-bg)!important}
@@ -9156,30 +9146,33 @@ section>.es-inner,section>.date-inner,section>.countdown-inner{position:relative
   min-height:46px!important;padding:0 22px!important;border-radius:999px!important;white-space:nowrap!important;transition:opacity .55s ease,transform .55s ease!important;
 }
 
-/* Hébergements : code repris du fichier isolé, carrousel 3D vertical stable */
+/* ── Hébergements — carrousel 3D v2 ── */
 #hebergements{overflow:hidden!important;padding-top:clamp(46px,6vh,76px)!important;padding-bottom:clamp(44px,6vh,72px)!important;}
-#hebergements .es-inner{max-width:940px!important;margin:0 auto!important;overflow:visible!important;}
-#hebergements .es-copy{margin-bottom:38px!important;position:relative!important;z-index:6!important;}
-#stay-wrap.c3-wrap{position:relative!important;width:100%!important;height:clamp(590px,76vw,690px)!important;perspective:1100px!important;margin:22px auto 18px!important;overflow:visible!important;isolation:isolate!important;}
-#stay-wrap .c3-item{position:absolute!important;top:52%!important;width:clamp(235px,62vw,330px)!important;cursor:pointer!important;transition:all .55s cubic-bezier(.25,.46,.45,.94)!important;transform-origin:center center!important;-webkit-tap-highlight-color:transparent!important;}
-#stay-wrap .c3-item.is-active{left:50%!important;transform:translate(-50%,-50%) scale(1) translateZ(0)!important;z-index:10!important;opacity:1!important;filter:none!important;visibility:visible!important;pointer-events:auto!important;}
-#stay-wrap .c3-item.is-prev{left:50%!important;transform:translate(-118%,-50%) scale(.66) translateZ(-100px) rotateY(16deg)!important;z-index:5!important;opacity:.5!important;filter:brightness(.76) saturate(.62)!important;visibility:visible!important;pointer-events:auto!important;}
-#stay-wrap .c3-item.is-next{left:50%!important;transform:translate(18%,-50%) scale(.66) translateZ(-100px) rotateY(-16deg)!important;z-index:5!important;opacity:.5!important;filter:brightness(.76) saturate(.62)!important;visibility:visible!important;pointer-events:auto!important;}
-#stay-wrap .c3-item.is-hidden{left:50%!important;transform:translate(-50%,-50%) scale(.4) translateZ(-260px)!important;z-index:1!important;opacity:0!important;visibility:hidden!important;pointer-events:none!important;}
-#stay-wrap .c3-card{background:#F7EFE3!important;border:1px solid rgba(183,143,67,.22)!important;overflow:hidden!important;box-shadow:0 6px 24px rgba(69,40,25,.08)!important;transition:box-shadow .4s!important;height:clamp(540px,84vw,620px)!important;display:flex!important;flex-direction:column!important;}
+#hebergements .es-inner{max-width:940px!important;margin:0 auto!important;overflow:visible!important;text-align:center!important;}
+#hebergements .es-copy{max-width:680px!important;margin:0 auto 0!important;}
+#stay-wrap.c3-wrap{position:relative!important;width:100%!important;height:clamp(460px,72vw,530px)!important;perspective:1100px!important;margin:28px auto 0!important;overflow:visible!important;}
+#stay-wrap .c3-item{position:absolute!important;top:50%!important;width:clamp(240px,60vw,320px)!important;cursor:pointer!important;transition:all .55s cubic-bezier(.25,.46,.45,.94)!important;transform-origin:center center!important;-webkit-tap-highlight-color:transparent!important;}
+#stay-wrap .c3-item.is-active{left:50%!important;transform:translate(-50%,-50%) scale(1) translateZ(0)!important;z-index:10!important;opacity:1!important;filter:none!important;}
+#stay-wrap .c3-item.is-prev{left:50%!important;transform:translate(-118%,-50%) scale(.65) translateZ(-100px) rotateY(16deg)!important;z-index:5!important;opacity:.48!important;filter:brightness(.75) saturate(.6)!important;}
+#stay-wrap .c3-item.is-next{left:50%!important;transform:translate(18%,-50%) scale(.65) translateZ(-100px) rotateY(-16deg)!important;z-index:5!important;opacity:.48!important;filter:brightness(.75) saturate(.6)!important;}
+#stay-wrap .c3-item.is-hidden{left:50%!important;transform:translate(-50%,-50%) scale(.4) translateZ(-260px)!important;z-index:1!important;opacity:0!important;pointer-events:none!important;}
+#stay-wrap .c3-card{background:#F7EFE3!important;border:1px solid rgba(183,143,67,.22)!important;overflow:hidden!important;box-shadow:0 6px 24px rgba(69,40,25,.08)!important;transition:box-shadow .4s!important;display:flex!important;flex-direction:column!important;}
 #stay-wrap .c3-item.is-active .c3-card{box-shadow:0 20px 52px rgba(69,40,25,.17),0 0 0 1px rgba(183,143,67,.28)!important;}
-#stay-wrap .c3-photo{width:100%!important;height:clamp(255px,42vw,315px)!important;object-fit:cover!important;display:block!important;background:#EDE4D6!important;flex:0 0 auto!important;}
-#stay-wrap .c3-body{padding:18px 18px 20px!important;min-height:0!important;display:flex!important;flex-direction:column!important;gap:4px!important;overflow:visible!important;}
-#stay-wrap .c3-label{font-family:'Cinzel',serif!important;font-size:9px!important;letter-spacing:2.2px!important;color:#B99048!important;text-transform:uppercase!important;}
-#stay-wrap .c3-name{font-family:'Cormorant Garamond',serif!important;font-size:clamp(24px,5.6vw,34px)!important;line-height:1.02!important;margin:2px 0!important;color:#452819!important;}
-#stay-wrap .c3-stars{font-size:12px!important;letter-spacing:2px!important;color:#B99048!important;display:block!important;margin-bottom:4px!important;}
-#stay-wrap .c3-desc{font-size:clamp(12px,2.6vw,16px)!important;line-height:1.5!important;margin:0 0 3px!important;color:#674638!important;}
-#stay-wrap .c3-dist,#stay-wrap .c3-price,#stay-wrap .c3-note{font-size:clamp(9px,2.2vw,12px)!important;line-height:1.35!important;color:#7a5136!important;}
-#stay-nav.c3-nav{display:flex!important;align-items:center!important;justify-content:center!important;gap:10px!important;margin:10px 0 0!important;position:relative!important;z-index:30!important;}
-#stay-nav .c3-arrow{width:36px!important;height:36px!important;border-radius:50%!important;border:1px solid rgba(183,143,67,.4)!important;background:transparent!important;color:#8E642B!important;font-size:18px!important;cursor:pointer!important;display:flex!important;align-items:center!important;justify-content:center!important;pointer-events:auto!important;}
-#stay-nav .c3-dot{width:6px!important;height:6px!important;border-radius:50%!important;background:rgba(183,143,67,.22)!important;border:0!important;cursor:pointer!important;padding:0!important;pointer-events:auto!important;}
-#stay-nav .c3-dot.is-active{background:#B99048!important;transform:scale(1.35)!important;}
-@media(max-width:640px){#stay-wrap.c3-wrap{height:620px!important;margin-top:16px!important;}#stay-wrap .c3-item{width:min(78vw,310px)!important;}#stay-wrap .c3-item.is-prev{transform:translate(-106%,-50%) scale(.58) translateZ(-120px) rotateY(14deg)!important;}#stay-wrap .c3-item.is-next{transform:translate(6%,-50%) scale(.58) translateZ(-120px) rotateY(-14deg)!important;}#stay-wrap .c3-card{height:550px!important;}}
+#stay-wrap .c3-photo{width:100%!important;height:clamp(200px,38vw,260px)!important;object-fit:cover!important;display:block!important;background:#EDE4D6!important;flex:0 0 auto!important;}
+#stay-wrap .c3-body{padding:16px 18px 18px!important;text-align:left!important;display:flex!important;flex-direction:column!important;}
+#stay-wrap .c3-label{font-family:'Cinzel',serif!important;font-size:9px!important;letter-spacing:3px!important;color:#9A7A38!important;text-transform:uppercase!important;display:block!important;margin-bottom:6px!important;}
+#stay-wrap .c3-name{font-family:'Cormorant Garamond',serif!important;font-size:clamp(20px,4vw,26px)!important;font-weight:300!important;line-height:1.1!important;margin:0 0 6px!important;color:#3A1F10!important;}
+#stay-wrap .c3-stars{color:#B99048!important;font-size:12px!important;letter-spacing:2px!important;display:block!important;margin-bottom:10px!important;}
+#stay-wrap .c3-desc{font-family:'Cormorant Garamond',serif!important;font-style:italic!important;font-size:clamp(13px,2.8vw,15px)!important;line-height:1.55!important;color:#5C3D26!important;margin:0 0 10px!important;}
+#stay-wrap .c3-sep{display:block!important;width:40px!important;height:1px!important;background:linear-gradient(90deg,rgba(196,165,90,.5),transparent)!important;margin:0 0 10px!important;}
+#stay-wrap .c3-dist{font-family:'Cinzel',serif!important;font-size:8px!important;letter-spacing:2px!important;color:#9A7A38!important;text-transform:uppercase!important;display:block!important;margin-bottom:10px!important;line-height:1.5!important;}
+#stay-wrap .c3-price{font-family:'Cinzel',serif!important;font-size:9px!important;letter-spacing:2.5px!important;color:#7A4F2A!important;text-transform:uppercase!important;display:block!important;margin-bottom:4px!important;}
+#stay-wrap .c3-note{font-family:'Tenor Sans',sans-serif!important;font-size:10px!important;line-height:1.4!important;color:#8A6040!important;}
+#stay-nav.c3-nav{display:flex!important;align-items:center!important;justify-content:center!important;gap:10px!important;margin:8px 0 0!important;position:relative!important;z-index:30!important;}
+#stay-nav .c3-arrow{width:36px!important;height:36px!important;border-radius:50%!important;border:1px solid rgba(183,143,67,.4)!important;background:transparent!important;color:#8E642B!important;font-size:18px!important;cursor:pointer!important;display:flex!important;align-items:center!important;justify-content:center!important;transition:background .2s!important;}
+#stay-nav .c3-dot{width:6px!important;height:6px!important;border-radius:50%!important;background:rgba(183,143,67,.25)!important;border:0!important;cursor:pointer!important;padding:0!important;transition:background .3s,transform .2s!important;}
+#stay-nav .c3-dot.is-active{background:#B99048!important;transform:scale(1.4)!important;}
+@media(max-width:640px){#stay-wrap.c3-wrap{height:clamp(460px,120vw,540px)!important;margin-top:16px!important;}#stay-wrap .c3-item{width:min(78vw,300px)!important;}#stay-wrap .c3-item.is-prev{transform:translate(-106%,-50%) scale(.56) translateZ(-120px) rotateY(14deg)!important;}#stay-wrap .c3-item.is-next{transform:translate(6%,-50%) scale(.56) translateZ(-120px) rotateY(-14deg)!important;}#stay-wrap .c3-photo{height:190px!important;}}
 
 /* Activités : code isolé stabilisé */
 #autour.es-activities-option3{padding:58px 12px 62px!important;background:var(--eventia-cream)!important;}
@@ -9248,19 +9241,7 @@ html,body{overflow-x:hidden!important;}
 }
 #calendarBtnParent.eventia-calendar-ready:active{transform:translateY(1px)!important;}
 
-/* 3) Hébergements : version mobile stable, centrée, une carte visible. Fin des débordements latéraux. */
-#hebergements{padding-top:clamp(38px,5vh,60px)!important;padding-bottom:clamp(40px,5vh,62px)!important;overflow:hidden!important;}
-#hebergements .es-inner{max-width:760px!important;width:100%!important;margin:0 auto!important;padding-inline:18px!important;text-align:center!important;overflow:visible!important;}
-#hebergements .es-copy{max-width:620px!important;margin:0 auto 24px!important;text-align:center!important;font-size:clamp(18px,4.2vw,24px)!important;line-height:1.65!important;}
-#stay-wrap.c3-wrap{height:clamp(560px,132vw,650px)!important;width:100%!important;max-width:420px!important;margin:18px auto 16px!important;perspective:none!important;overflow:visible!important;}
-#stay-wrap .c3-item{position:absolute!important;inset:0!important;width:100%!important;max-width:360px!important;margin:auto!important;top:0!important;left:50%!important;transform:translateX(-50%)!important;transition:opacity .38s ease,transform .38s ease!important;}
-#stay-wrap .c3-item.is-active{opacity:1!important;visibility:visible!important;pointer-events:auto!important;z-index:3!important;transform:translateX(-50%) scale(1)!important;filter:none!important;}
-#stay-wrap .c3-item.is-prev,#stay-wrap .c3-item.is-next,#stay-wrap .c3-item.is-hidden{opacity:0!important;visibility:hidden!important;pointer-events:none!important;z-index:1!important;transform:translateX(-50%) scale(.96)!important;filter:none!important;}
-#stay-wrap .c3-card{height:auto!important;min-height:540px!important;border-radius:34px!important;background:rgba(255,250,239,.78)!important;overflow:hidden!important;}
-#stay-wrap .c3-photo{height:245px!important;object-fit:cover!important;}
-#stay-wrap .c3-title{font-size:clamp(31px,7.4vw,44px)!important;line-height:1.05!important;text-align:center!important;white-space:normal!important;}
-#stay-wrap .c3-text,#stay-wrap .c3-distance,#stay-wrap .c3-price,#stay-wrap .c3-note{text-align:center!important;}
-#stay-nav{margin-top:12px!important;display:flex!important;justify-content:center!important;align-items:center!important;gap:12px!important;position:relative!important;z-index:5!important;}
+/* 3) Activités : en-tête */
 
 /* 4) Activités : recentrage propre, typographies Eventia, pas de contenu décalé. */
 #autour.es-activities-option3{padding-top:clamp(42px,5vh,64px)!important;padding-bottom:clamp(42px,5vh,66px)!important;overflow:hidden!important;background:linear-gradient(180deg,#F7EFE3,#fff8ed 54%,#F7EFE3)!important;}
@@ -10023,6 +10004,13 @@ window.toggleMusic = function() {
     <div class="para-wrap"><div class="roman">I</div><p class="story-text">Il y a plusieurs années, deux chemins se sont rencontrés pour ne plus jamais se quitter. Au fil des saisons, notre amour a grandi dans la tendresse, les épreuves, les éclats de rire et les rêves partagés.</p></div>
   </article>
   <div class="photo-frame-wrap"><img class="story-img" src="https://res.cloudinary.com/didid8vcu/image/upload/mpyann/couple-story-1.jpg" alt="Marie-Paul et Yann"></div>
+  <section class="sacred">
+    <div class="ornament" aria-hidden="true"></div>
+    <p class="kicker">Parole sacrée</p>
+    <p class="verse"><span class="sweep-line">« Ainsi ils ne sont plus deux, mais une seule chair.</span><span class="sweep-line">Que l'homme donc ne sépare pas ce que Dieu a uni. »</span></p>
+    <p class="ref">MATTHIEU 19:6</p>
+    <div class="ornament" aria-hidden="true"></div>
+  </section>
   <div class="photo-frame-wrap"><img class="story-img" src="https://res.cloudinary.com/didid8vcu/image/upload/mpyann/couple-story-2.jpg" alt="Marie-Paul et Yann"></div>
   <article class="chapter">
     <p class="chapter-label">La bénédiction</p>
@@ -10242,55 +10230,62 @@ setTimeout(fitRomans,250);setTimeout(fitRomans,900);
     <p class="es-copy">Pour prolonger la célébration dans les meilleures conditions, voici trois adresses sélectionnées entre Échouboulains et Fontainebleau, adaptées aux invités qui souhaitent dormir à proximité du Domaine des Rois.</p>
 
     <div class="c3-wrap" id="stay-wrap">
+
       <div class="c3-item is-active" data-idx="0">
         <div class="c3-card">
-          <img class="c3-photo" src="https://www.ahstatic.com/photos/1627_ho_00_p_1024x768.jpg" alt="Mercure Château Fontainebleau Demeures de Campagne" loading="lazy">
+          <img class="c3-photo" src="https://www.ahstatic.com/photos/1627_ho_00_p_1024x768.jpg" alt="Mercure Château Fontainebleau" loading="eager">
           <div class="c3-body">
             <span class="c3-label">Fontainebleau</span>
             <h3 class="c3-name">Mercure Château Fontainebleau</h3>
             <span class="c3-stars">★★★★</span>
             <p class="c3-desc">Une adresse pratique et confortable, avec esprit maison de campagne, piscine, jardin et chambres familiales.</p>
-            <span class="c3-dist">· Environ 20 à 25 min du Domaine des Rois</span>
+            <span class="c3-sep"></span>
+            <span class="c3-dist">· Environ 20–25 min du Domaine des Rois</span>
             <span class="c3-price">Dès 121 € env. / nuit</span>
             <span class="c3-note">Prix indicatif, à vérifier selon la date et le nombre de chambres.</span>
           </div>
         </div>
       </div>
+
       <div class="c3-item is-next" data-idx="1">
         <div class="c3-card">
-          <img class="c3-photo" src="https://static.apidae-tourisme.com/filestore/objets-touristiques/images/47/214/8377903-diaporama.jpg" alt="Hôtel de Cavoye Fontainebleau" loading="lazy">
+          <img class="c3-photo" src="https://static.apidae-tourisme.com/filestore/objets-touristiques/images/47/214/8377903-diaporama.jpg" alt="Hôtel de Cavoye" loading="lazy">
           <div class="c3-body">
             <span class="c3-label">Fontainebleau</span>
             <h3 class="c3-name">Hôtel de Cavoye</h3>
             <span class="c3-stars">★★★★</span>
             <p class="c3-desc">Un boutique-hôtel élégant, lumineux et calme, idéal pour les invités qui veulent rester dans un cadre raffiné.</p>
+            <span class="c3-sep"></span>
             <span class="c3-dist">· Environ 25 min du Domaine des Rois</span>
             <span class="c3-price">Dès 170 € env. / nuit</span>
             <span class="c3-note">Prix indicatif, à vérifier selon la date et les disponibilités.</span>
           </div>
         </div>
       </div>
+
       <div class="c3-item is-prev" data-idx="2">
         <div class="c3-card">
-          <img class="c3-photo" src="https://www.ahstatic.com/photos/b7q1_ho_00_p_1024x768.jpg" alt="Aigle Noir Fontainebleau MGallery" loading="lazy">
+          <img class="c3-photo" src="https://www.ahstatic.com/photos/b7q1_ho_00_p_1024x768.jpg" alt="Aigle Noir MGallery" loading="lazy">
           <div class="c3-body">
             <span class="c3-label">Fontainebleau</span>
             <h3 class="c3-name">Aigle Noir MGallery</h3>
             <span class="c3-stars">★★★★</span>
             <p class="c3-desc">Une adresse plus premium, face au château de Fontainebleau, parfaite pour les invités qui veulent une vraie parenthèse élégante.</p>
+            <span class="c3-sep"></span>
             <span class="c3-dist">· Environ 25 min du Domaine des Rois</span>
             <span class="c3-price">Dès 212 € env. / nuit</span>
             <span class="c3-note">Prix indicatif, variable selon la période et le site de réservation.</span>
           </div>
         </div>
       </div>
+
     </div>
-    <div class="c3-nav" aria-label="Navigation hébergements">
-      <button class="c3-arrow" type="button" data-dir="prev" aria-label="Hébergement précédent">‹</button>
-      <button class="c3-dot is-active" type="button" data-go="0" aria-label="Voir Mercure Château Fontainebleau"></button>
-      <button class="c3-dot" type="button" data-go="1" aria-label="Voir Hôtel de Cavoye"></button>
-      <button class="c3-dot" type="button" data-go="2" aria-label="Voir Aigle Noir MGallery"></button>
-      <button class="c3-arrow" type="button" data-dir="next" aria-label="Hébergement suivant">›</button>
+    <div class="c3-nav" id="stay-nav" aria-label="Navigation hébergements">
+      <button class="c3-arrow" type="button" data-dir="prev" aria-label="Précédent">‹</button>
+      <button class="c3-dot is-active" type="button" data-go="0" aria-label="Mercure"></button>
+      <button class="c3-dot" type="button" data-go="1" aria-label="Hôtel de Cavoye"></button>
+      <button class="c3-dot" type="button" data-go="2" aria-label="Aigle Noir"></button>
+      <button class="c3-arrow" type="button" data-dir="next" aria-label="Suivant">›</button>
     </div>
   </div>
 </section>
@@ -11771,18 +11766,6 @@ section#hebergements.es-section,section#autour.es-section{padding-top:var(--ev-g
 #dresscode .dress-wrap{overflow:visible!important;max-width:min(960px,100vw)!important;margin:0 auto!important;position:relative!important;}
 #dresscode .podium-img{width:100%!important;max-width:100%!important;margin-left:0!important;display:block!important;object-fit:contain!important;position:relative!important;z-index:1!important;transform:none!important;}
 #dresscode .silhouettes-img{position:absolute!important;left:-6%!important;right:-6%!important;bottom:9%!important;width:112%!important;max-width:none!important;z-index:2!important;transform:none!important;}
-
-/* ── Hébergements — layout référence ── */
-#hebergements .c3-item{width:min(76vw,300px)!important;}
-#hebergements .c3-card{min-height:500px!important;max-height:none!important;border-radius:0!important;}
-#hebergements .c3-photo{height:215px!important;object-fit:cover!important;}
-#hebergements .c3-wrap{height:510px!important;}
-@media(max-width:640px){
-  #hebergements .c3-item{width:min(80vw,300px)!important;}
-  #hebergements .c3-card{min-height:480px!important;}
-  #hebergements .c3-photo{height:200px!important;}
-  #hebergements .c3-wrap{height:500px!important;}
-}
 
 /* ── RSVP — OUI AVEC JOIE commence blanc ── */
 #rsvp .presence-oui-gold{
