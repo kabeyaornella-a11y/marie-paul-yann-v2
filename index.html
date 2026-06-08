@@ -9879,7 +9879,7 @@ window.toggleMusic = function() {
   <video id="vid" muted playsinline webkit-playsinline preload="auto" src="https://res.cloudinary.com/didid8vcu/video/upload/q_auto/f_auto/v1780082988/2026-05-29_21_29_06_aciw5j.mp4"></video>
   <canvas id="glow"></canvas>
   <div id="wash"></div>
-  <div id="cta"><span class="cta-text">Vivre l'expérience</span><div class="cta-line"></div></div>
+  <div id="cta"><span id="cta-text">VIVRE L'EXPÉRIENCE</span><div class="cta-line"></div></div>
 </div>
 <section id="hero" aria-label="Hero Marie-Paul et Yann">
   <img class="photo" src="https://res.cloudinary.com/didid8vcu/image/upload/mpyann/couple-hero.png" alt="Marie-Paul & Yann">
@@ -9963,7 +9963,7 @@ window.toggleMusic = function() {
       el.dataset.svgShimmer='1';
       var safeId='eventiaHeroNameGradV5_'+idx;
       el.innerHTML=''
-        +'<svg class="eventia-svg-name" viewBox="0 0 1280 340" preserveAspectRatio="xMidYMid meet" aria-hidden="true">'
+        +'<svg class="eventia-svg-name" viewBox="0 0 1280 390" preserveAspectRatio="xMidYMid meet" aria-hidden="true">'
         +'<defs><linearGradient id="'+safeId+'" gradientUnits="userSpaceOnUse" x1="-1280" y1="0" x2="0" y2="0">'
         +'<stop offset="0%" stop-color="#7A4B20"/>'
         +'<stop offset="18%" stop-color="#B99048"/>'
@@ -9973,7 +9973,7 @@ window.toggleMusic = function() {
         +'<stop offset="74%" stop-color="#B99048"/>'
         +'<stop offset="100%" stop-color="#7A4B20"/>'
         +'</linearGradient></defs>'
-        +'<text x="640" y="215" text-anchor="middle" font-size="132" fill="url(#'+safeId+')">'+label.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')+'</text>'
+        +'<text x="640" y="205" text-anchor="middle" font-size="132" font-family="ChopinScript,\'Great Vibes\',cursive" fill="url(#'+safeId+')">'+label.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')+'</text>'
         +'</svg>';
       var grad=el.querySelector('linearGradient');
       var start=performance.now()+idx*180;
@@ -10030,7 +10030,7 @@ window.toggleMusic = function() {
     <div class="ornament" aria-hidden="true"></div>
     <p class="kicker">Parole sacrée</p>
     <p class="verse"><span class="sweep-line">« Ainsi ils ne sont plus deux, mais une seule chair.</span><span class="sweep-line">Que l’homme donc ne sépare pas ce que Dieu a uni. »</span></p>
-    <p class="ref">Matthieu 19:6</p>
+    <p class="ref">MATTHIEU 19:6</p>
     <div class="ornament" aria-hidden="true"></div>
   </section>
   <div class="photo-frame-wrap"><img class="story-img" src="https://res.cloudinary.com/didid8vcu/image/upload/mpyann/couple-story-2.jpg" alt="Marie-Paul et Yann"></div>
@@ -10048,7 +10048,7 @@ window.toggleMusic = function() {
     <section class="sacred final-verse">
       <p class="verse"><span class="sweep-line">Que l’amour soit le lien</span><span class="sweep-line">qui nous unit parfaitement.</span></p>
       <div class="ornament" aria-hidden="true"></div>
-      <p class="ref">Colossiens 3:14</p>
+      <p class="ref">COLOSSIENS 3:14</p>
     </section>
   </div>
 </section>
@@ -11886,6 +11886,175 @@ section#remerciements {
       })();
     }
   }
+})();
+</script>
+
+<style id="eventia-v33-fixes">
+/* ============================================================
+   EVENTIA V33 — Corrections globales
+   ============================================================ */
+
+/* ── CTA Porte — bigger, gold, visible ── */
+#cta-text{
+  font-family:'Cinzel',serif!important;
+  font-size:clamp(18px,5.5vw,38px)!important;
+  letter-spacing:.38em!important;
+  text-transform:uppercase!important;
+  color:#E8D08A!important;
+  text-shadow:0 0 18px rgba(243,213,138,.65),0 2px 4px rgba(0,0,0,.55)!important;
+  white-space:nowrap!important;
+  animation:blink 2.2s ease-in-out infinite!important;
+  display:block!important;
+}
+
+/* ── Nav buttons — plus petit ── */
+#topnav #lang-sw,#lang-sw{height:28px!important;font-size:9px!important;}
+#topnav #mus-btn,#mus-btn{width:28px!important;height:28px!important;font-size:12px!important;}
+
+/* ── Breathing global réduit ── */
+:root{--ev-gap:clamp(44px,6vw,72px)!important;}
+.es-section,.date-chapter,.countdown-chapter,.story2-chapter,.places-chapter,.program-chapter,.dress-chapter,.gifts-chapter,.rsvp-chapter,.thanks-chapter,.final-chapter{padding-top:var(--ev-gap)!important;padding-bottom:var(--ev-gap)!important;}
+section#hebergements.es-section,section#autour.es-section{padding-top:var(--ev-gap)!important;padding-bottom:var(--ev-gap)!important;margin-top:0!important;}
+#empreintes{padding-top:var(--ev-gap)!important;margin-top:0!important;}
+#cadeaux{padding-top:var(--ev-gap)!important;margin-top:0!important;}
+#dresscode + #hebergements,#dresscode+#hebergements{margin-top:0!important;padding-top:var(--ev-gap)!important;}
+
+/* ── Notre Histoire — Parole sacrée forcée visible ── */
+#notre-histoire .sacred{opacity:1!important;visibility:visible!important;transform:none!important;}
+#notre-histoire .sacred .kicker{opacity:1!important;visibility:visible!important;}
+#notre-histoire .verse{opacity:1!important;visibility:visible!important;color:#F3D58A!important;-webkit-text-fill-color:#F3D58A!important;}
+#notre-histoire .verse .sweep-line{
+  opacity:0;
+  clip-path:inset(0 100% 0 0);
+  animation:v33sweep 1.4s cubic-bezier(.16,1,.3,1) forwards!important;
+}
+#notre-histoire .verse .sweep-line:nth-child(1){animation-delay:.2s!important;}
+#notre-histoire .verse .sweep-line:nth-child(2){animation-delay:.75s!important;}
+#notre-histoire .verse .sweep-line:nth-child(3){animation-delay:1.2s!important;}
+@keyframes v33sweep{
+  0%{opacity:0;transform:translateY(14px);clip-path:inset(0 100% 0 0)}
+  35%{opacity:1}
+  100%{opacity:1;transform:translateY(0);clip-path:inset(0 0 0 0)}
+}
+#notre-histoire .ref{color:#B99048!important;-webkit-text-fill-color:#B99048!important;text-transform:uppercase!important;letter-spacing:.45em!important;opacity:1!important;visibility:visible!important;}
+
+/* ── Dress Code v3 — silhouettes sur podium ── */
+#dresscode .dress-wrap{overflow:visible!important;max-width:min(960px,100vw)!important;margin:0 auto!important;position:relative!important;}
+#dresscode .podium-img{width:100%!important;max-width:100%!important;margin-left:0!important;display:block!important;object-fit:contain!important;position:relative!important;z-index:1!important;transform:none!important;}
+#dresscode .silhouettes-img{position:absolute!important;left:-6%!important;right:-6%!important;bottom:9%!important;width:112%!important;max-width:none!important;z-index:2!important;transform:none!important;}
+
+/* ── Hébergements — cards plus propres ── */
+#hebergements .c3-card{min-height:480px!important;max-height:none!important;border-radius:0!important;width:min(86vw,360px)!important;}
+#hebergements .c3-photo{height:220px!important;}
+#hebergements .c3-wrap{height:540px!important;}
+
+/* ── RSVP — OUI AVEC JOIE commence blanc ── */
+#rsvp .presence-oui-gold{
+  background:rgba(255,250,235,.95)!important;
+  color:#452819!important;
+  -webkit-text-fill-color:#452819!important;
+  border:1.5px solid rgba(183,143,67,.5)!important;
+  box-shadow:none!important;
+  overflow:hidden!important;
+  position:relative!important;
+  transition:background .5s ease,color .5s ease,border-color .5s ease,box-shadow .4s ease!important;
+}
+#rsvp .presence-oui-gold span{color:#452819!important;-webkit-text-fill-color:#452819!important;}
+#rsvp .presence-oui-gold::before{display:none!important;animation:none!important;}
+
+/* Gold après sélection */
+#rsvp .presence-oui-gold.eventia-oui-selected{
+  background:linear-gradient(135deg,#8f6429 0%,#c99a47 48%,#f0d486 100%)!important;
+  color:#fff8ec!important;
+  -webkit-text-fill-color:#fff8ec!important;
+  border-color:rgba(244,214,139,.65)!important;
+  box-shadow:0 10px 26px rgba(180,138,50,.24),inset 0 1px 0 rgba(255,255,255,.42)!important;
+}
+#rsvp .presence-oui-gold.eventia-oui-selected span{color:#fff8ec!important;-webkit-text-fill-color:#fff8ec!important;}
+/* Sweep doré à la sélection */
+#rsvp .presence-oui-gold.eventia-oui-selected::before{
+  display:block!important;
+  content:''!important;position:absolute!important;top:-20%!important;left:0!important;
+  width:45%!important;height:140%!important;
+  background:linear-gradient(105deg,transparent 10%,rgba(255,255,255,.52) 50%,transparent 90%)!important;
+  animation:v33ouiSweep .65s ease forwards!important;
+  z-index:1!important;
+}
+@keyframes v33ouiSweep{from{transform:translateX(-100%) skewX(-8deg)}to{transform:translateX(280%) skewX(-8deg)}}
+/* Étoiles continues dans le bouton OUI sélectionné */
+#rsvp .presence-oui-gold.eventia-oui-selected::after{
+  content:''!important;position:absolute!important;inset:0!important;z-index:2!important;pointer-events:none!important;border-radius:inherit!important;
+  background:
+    radial-gradient(circle at 10% 30%,rgba(255,252,220,.95) 0 1.5px,transparent 2px),
+    radial-gradient(circle at 28% 72%,rgba(243,211,145,.9) 0 1.3px,transparent 1.9px),
+    radial-gradient(circle at 52% 25%,rgba(255,255,235,.9) 0 1.2px,transparent 1.8px),
+    radial-gradient(circle at 72% 65%,rgba(255,238,185,.88) 0 1.4px,transparent 2px),
+    radial-gradient(circle at 90% 38%,rgba(255,250,225,.82) 0 1px,transparent 1.7px)!important;
+  animation:v33ouiStars 4.5s ease-in-out infinite!important;
+  mix-blend-mode:screen!important;
+}
+@keyframes v33ouiStars{
+  0%,100%{opacity:.65;transform:translateY(0) translateX(0) scale(1)}
+  25%{opacity:1;transform:translateY(-2px) translateX(2px) scale(1.06)}
+  50%{opacity:.85;transform:translateY(-3px) translateX(3px) scale(.97)}
+  75%{opacity:1;transform:translateY(-1px) translateX(-2px) scale(1.09)}
+}
+</style>
+
+<script id="eventia-v33-js">
+/* ── setLang — manquant ── */
+window.setLang = (function(){
+  var TRANS = {
+    fr:{
+      date_kicker:'NOTRE DATE',date_title:'Les Médaillons du Destin',
+      date_copy:'Derrière ces médaillons de lumière se révèle le jour où nos âmes s\'uniront.',
+      countdown_kicker:'COMPTE À REBOURS',countdown_title:'L\'attente sacrée',
+      countdown_copy:'La date s\'est révélée.<br/>Désormais, le temps avance doucement vers ce jour choisi, celui où nos familles, nos prières et nos promesses se réuniront dans une même lumière.',
+      places_kicker:'LES LIEUX',gifts_kicker:'POUR ORNER NOTRE UNION',gifts_title:'Une petite attention',
+      gifts_copy:'Pour ceux qui souhaitent accompagner notre nouvelle vie d\'une délicate attention, quelques possibilités ont été préparées avec tendresse.'
+    },
+    en:{
+      date_kicker:'OUR DATE',date_title:'The Medallions of Destiny',
+      date_copy:'Behind these medallions of light lies the day when our souls will unite.',
+      countdown_kicker:'COUNTDOWN',countdown_title:'The Sacred Wait',
+      countdown_copy:'The date has been revealed.<br/>Now, time moves gently toward that chosen day when our families, prayers and promises will reunite in one light.',
+      places_kicker:'THE VENUES',gifts_kicker:'A LITTLE ATTENTION',gifts_title:'A small token',
+      gifts_copy:'For those who wish to accompany our new life with a delicate gesture, a few possibilities have been prepared with tenderness.'
+    }
+  };
+  var cur = 'fr';
+  return function(lang){
+    if(!TRANS[lang]) return;
+    cur = lang;
+    document.querySelectorAll('[data-lang]').forEach(function(b){
+      b.classList.toggle('active', b.dataset.lang === lang);
+    });
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      var key = el.dataset.i18n;
+      if(TRANS[lang][key] !== undefined) el.innerHTML = TRANS[lang][key];
+    });
+    document.documentElement.lang = lang;
+  };
+})();
+
+/* ── Musique : déclencher au premier clic sur la porte ── */
+(function(){
+  var done = false;
+  var enter = document.getElementById('enter');
+  if(!enter) return;
+  enter.addEventListener('click', function(){
+    if(done) return; done = true;
+    var a = document.getElementById('audio');
+    if(!a) return;
+    a.muted = false; a.volume = 1;
+    a.play().catch(function(){});
+    var btn = document.getElementById('mus-btn');
+    var iconOn  = document.getElementById('mus-icon-on');
+    var iconOff = document.getElementById('mus-icon-off');
+    if(btn) btn.classList.add('is-playing');
+    if(iconOn)  iconOn.style.display  = '';
+    if(iconOff) iconOff.style.display = 'none';
+  }, true);
 })();
 </script>
 

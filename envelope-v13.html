@@ -135,7 +135,7 @@ body{display:flex;align-items:center;justify-content:center;min-height:100vh;fon
 
 /* HINT — rapproché de l'enveloppe, sans vide sous la consigne */
 .hint{
-  position:absolute;left:0;right:0;top:70.8%;z-index:20;
+  position:absolute;left:0;right:0;top:87%;z-index:20;
   margin:0 auto;border:0;background:transparent;
   color:#a27d3d;font:400 clamp(7.8px,2.1vw,9px)/1 'Tenor Sans',sans-serif;
   letter-spacing:.32em;text-transform:uppercase;
@@ -283,7 +283,7 @@ body{display:flex;align-items:center;justify-content:center;min-height:100vh;fon
     <div class="stars" id="stars"></div>
 
   <!-- HINT rapproché de l'enveloppe -->
-  <button class="hint" id="hint" type="button">Toucher le cachet</button>
+  <button class="hint" id="hint" type="button">TOUCHER LE SCEAU</button>
   </div>
 </div>
 
@@ -532,7 +532,7 @@ body{display:flex;align-items:center;justify-content:center;min-height:100vh;fon
     // Particules démarrent à l'ouverture et tournent en continu
     setTimeout(startParticles,850);
     setTimeout(function(){
-      hint.textContent='Touchez chaque carte';
+      hint.textContent='TOUCHEZ CHAQUE CARTE';
       hint.style.opacity='.48';
     },3800);
   }
@@ -672,7 +672,7 @@ body{display:flex;align-items:center;justify-content:center;min-height:100vh;fon
       if(type==='album') openAlbum();
       if(type==='audio') openAudio();
       if(type==='music') openMusic();
-      hint.textContent='↺ Rejouer';hint.style.opacity='.4';
+      hint.textContent='↺ REJOUER';hint.style.opacity='.4';
     });
   });
 
