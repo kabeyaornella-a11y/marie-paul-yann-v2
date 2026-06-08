@@ -32,24 +32,16 @@ body{font-family:'Jost',sans-serif;font-weight:200;color:var(--or);overflow-x:hi
 /* WRAP */
 .tl-wrap{position:relative;padding:8px 0 0}
 
-/* AXE */
+/* AXE — invisible, sert uniquement à aligner les gouttes */
 .tl-axis{
   position:absolute;left:50%;top:0;bottom:0;
-  width:1.5px;transform:translateX(-50%);
+  width:1px;transform:translateX(-50%);
   z-index:1;overflow:visible;
-  animation:lB 4s ease-in-out infinite;
+  opacity:0;pointer-events:none;
 }
-.tl-axis::before{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(180deg,transparent,rgba(200,165,106,.45) 4%,rgba(200,165,106,.45) 96%,transparent);
-}
-.tl-axis::after{
-  content:'';position:absolute;left:-2px;top:0;right:-2px;bottom:0;
-  background:linear-gradient(180deg,transparent,rgba(200,165,106,.3) 4%,rgba(200,165,106,.3) 96%,transparent);
-  filter:blur(3px);animation:gB 4s ease-in-out infinite;mix-blend-mode:screen;
-}
-@keyframes lB{0%,100%{width:1.5px;opacity:.7}50%{width:2.5px;opacity:1}}
-@keyframes gB{0%,100%{opacity:0}50%{opacity:.8}}
+.tl-axis::before,.tl-axis::after{display:none;}
+@keyframes lB{0%,100%{opacity:0}50%{opacity:0}}
+@keyframes gB{0%,100%{opacity:0}50%{opacity:0}}
 
 /* GOUTTE */
 .drop-wrap{position:absolute;left:50%;top:0;bottom:0;width:0;transform:translateX(-50%);z-index:3;pointer-events:none;overflow:visible}
@@ -149,10 +141,15 @@ body{font-family:'Jost',sans-serif;font-weight:200;color:var(--or);overflow-x:hi
   transition-delay:.18s;
   position:relative;z-index:1;
 }
-.tl-item.vis .icon-img{opacity:1;transform:scale(1) rotate(0deg)}
+.tl-item.vis .icon-img{opacity:1;transform:scale(1) rotate(0deg);animation:iconPulse 3.2s ease-in-out infinite;}
 .tl-item:hover .icon-img{
   filter:drop-shadow(0 0 7px rgba(200,165,106,.9)) brightness(1.05);
   transform:scale(1.1) rotate(0deg);
+  animation:none;
+}
+@keyframes iconPulse{
+  0%,100%{filter:drop-shadow(0 0 2px rgba(200,165,106,.3));transform:scale(1) rotate(0deg);}
+  50%{filter:drop-shadow(0 0 8px rgba(200,165,106,.7));transform:scale(1.05) rotate(0deg);}
 }
 
 /* TEXTES */

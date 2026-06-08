@@ -9872,7 +9872,7 @@ h2{font-size:clamp(28px,6.5vw,46px);font-weight:300;color:#452819;margin-bottom:
 <button class="active" data-lang="fr" id="btn-fr" onclick="setLang('fr')">FR</button>
 <button data-lang="en" id="btn-en" onclick="setLang('en')">EN</button>
 </div>
-<button aria-label="Activer ou couper la musique" id="mus-btn" onclick="toggleMusic()" title="Musique">♪</button>
+<button aria-label="Activer ou couper la musique" id="mus-btn" onclick="toggleMusic()" title="Musique"><svg id="mus-icon-on" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg><svg id="mus-icon-off" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="display:none"><path d="M11 5L6 9H2v6h4l5 4V5z"/><line x1="23" y1="9" x2="17" y2="15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="17" y1="9" x2="23" y2="15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
 </nav>
 <!-- PORTE -->
 <div id="enter" aria-label="Ouvrir l’expérience">
@@ -9926,7 +9926,7 @@ h2{font-size:clamp(28px,6.5vw,46px);font-weight:300;color:#452819;margin-bottom:
       var w=hero.offsetWidth||window.innerWidth, h=hero.offsetHeight||window.innerHeight;
       return {x:w*(.06+Math.random()*.88),y:initial?h*(.36+Math.random()*.58):h*(1.02+Math.random()*.16),vx:(Math.random()-.5)*.10,vy:-(.20+Math.random()*.35),r:1.25+Math.random()*1.9,a:.16+Math.random()*.42,tw:Math.random()*Math.PI*2,spin:(Math.random()-.5)*.018};
     }
-    for(var i=0;i<58;i++) stars.push(mk(true));
+    for(var i=0;i<100;i++) stars.push(mk(true));
     function draw(s){
       var pulse=(Math.sin(s.tw)+1)/2;
       var alpha=s.a*(.35+pulse*.85);
@@ -9964,7 +9964,7 @@ h2{font-size:clamp(28px,6.5vw,46px);font-weight:300;color:#452819;margin-bottom:
       el.dataset.svgShimmer='1';
       var safeId='eventiaHeroNameGradV5_'+idx;
       el.innerHTML=''
-        +'<svg class="eventia-svg-name" viewBox="0 0 1280 260" preserveAspectRatio="xMidYMid meet" aria-hidden="true">'
+        +'<svg class="eventia-svg-name" viewBox="0 0 1280 340" preserveAspectRatio="xMidYMid meet" aria-hidden="true">'
         +'<defs><linearGradient id="'+safeId+'" gradientUnits="userSpaceOnUse" x1="-1280" y1="0" x2="0" y2="0">'
         +'<stop offset="0%" stop-color="#7A4B20"/>'
         +'<stop offset="18%" stop-color="#B99048"/>'
@@ -9974,7 +9974,7 @@ h2{font-size:clamp(28px,6.5vw,46px);font-weight:300;color:#452819;margin-bottom:
         +'<stop offset="74%" stop-color="#B99048"/>'
         +'<stop offset="100%" stop-color="#7A4B20"/>'
         +'</linearGradient></defs>'
-        +'<text x="640" y="158" text-anchor="middle" font-size="132" fill="url(#'+safeId+')">'+label.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')+'</text>'
+        +'<text x="640" y="215" text-anchor="middle" font-size="132" fill="url(#'+safeId+')">'+label.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')+'</text>'
         +'</svg>';
       var grad=el.querySelector('linearGradient');
       var start=performance.now()+idx*180;
@@ -10318,7 +10318,7 @@ setTimeout(fitRomans,250);setTimeout(fitRomans,900);
     <span class="es-kicker">ACTIVITÉS</span>
     <h2 class="es-title">Autour de la célébration</h2>
     <div class="line-main"></div><div class="line-sec"></div>
-    <p class="es-copy">Si vous souhaitez prolonger votre séjour, voici trois idées pour découvrir les environs et partager un moment doux avant ou après la célébration.</p>
+    <p class="es-copy">Si vous souhaitez prolonger votre séjour, voici quelques idées pour découvrir les environs.</p>
 
     <div class="act-tabs" data-tabs="activities">
       <div class="act-tab-list" role="tablist" aria-label="Activités autour de la célébration">
@@ -10434,7 +10434,7 @@ setTimeout(fitRomans,250);setTimeout(fitRomans,900);
 <div class="rsvp-field rsvp-presence full">
 <div class="presence-title">Présence</div>
 <div class="presence-options">
-<label class="presence-pill"><input name="presence" type="radio" value="oui"/> <span>Oui, avec joie</span></label>
+<label class="presence-pill presence-oui-gold"><input name="presence" type="radio" value="oui"/> <span>Oui, avec joie</span></label>
 <label class="presence-pill"><input name="presence" type="radio" value="non"/> <span>Non, avec regret</span></label>
 </div>
 </div>
@@ -10444,7 +10444,7 @@ setTimeout(fitRomans,250);setTimeout(fitRomans,900);
 </div>
 <div class="rsvp-field rsvp-row full compact-row">
 <select><option>Choix du menu</option><option>Viande</option><option>Poisson</option><option>Végétarien</option></select>
-<input placeholder="Allergies, halal, sans porc, kasher"/>
+<input placeholder="Allergies"/>
 </div>
 <div class="rsvp-field full"><textarea placeholder="Un message pour les mariés"></textarea></div>
 <button class="rsvp-submit gold-btn" id="rsvp-btn" onclick="sendRsvp()" type="button">Envoyer ma réponse</button>
@@ -10498,53 +10498,20 @@ setTimeout(fitRomans,250);setTimeout(fitRomans,900);
   render();
 })();
 
-// EVENTIA SIGNATURE · ACTIVITÉS OPTION 3
+// EVENTIA · ACTIVITÉS TABS
 (function(){
-  const root = document.querySelector('.es-activities-option3');
-  if(!root) return;
-
-  const places = {
-    fontainebleau: {
-      tag: 'Patrimoine',
-      title: 'Château de Fontainebleau',
-      text: 'Un incontournable royal, entre jardins majestueux, galeries historiques et architecture remarquable.'
-    },
-    foret: {
-      tag: 'Nature',
-      title: 'Forêt de Fontainebleau',
-      text: 'Une parenthèse paisible pour se promener, respirer et découvrir les paysages emblématiques de la région.'
-    },
-    parrot: {
-      tag: 'Famille',
-      title: 'Parrot World',
-      text: 'Une expérience immersive et colorée, parfaite pour les familles et les amoureux de la nature.'
-    }
-  };
-
-  const buttons = root.querySelectorAll('.es-act-selector button');
-  const images = root.querySelectorAll('.es-act-panorama img');
-  const tag = root.querySelector('#esActTag');
-  const title = root.querySelector('#esActTitle');
-  const text = root.querySelector('#esActText');
-
-  buttons.forEach(button => {
-    button.addEventListener('click', () => {
-      const key = button.dataset.actPlace;
-      if(!places[key]) return;
-
-      buttons.forEach(btn => btn.classList.remove('active'));
-      button.classList.add('active');
-
-      images.forEach(img => img.classList.toggle('active', img.dataset.actImg === key));
-
-      tag.textContent = places[key].tag;
-      title.textContent = places[key].title;
-      text.textContent = places[key].text;
-
-      if(title.animate){
-        title.animate([{opacity:0, transform:'translateY(8px)'},{opacity:1, transform:'translateY(0)'}],{duration:360,easing:'ease',fill:'both'});
-        text.animate([{opacity:0, transform:'translateY(8px)'},{opacity:1, transform:'translateY(0)'}],{duration:420,easing:'ease',fill:'both'});
-      }
+  var tabs = document.querySelectorAll('.act-tab-btn');
+  var panels = document.querySelectorAll('.act-tab-panel');
+  if(!tabs.length || !panels.length) return;
+  tabs.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var idx = btn.dataset.actTab;
+      tabs.forEach(function(b){ b.classList.remove('is-active'); b.setAttribute('aria-selected','false'); });
+      panels.forEach(function(p){ p.classList.remove('is-active'); });
+      btn.classList.add('is-active');
+      btn.setAttribute('aria-selected','true');
+      var target = document.querySelector('.act-tab-panel[data-act-panel="'+idx+'"]');
+      if(target) target.classList.add('is-active');
     });
   });
 })();
@@ -10561,21 +10528,22 @@ setTimeout(fitRomans,250);setTimeout(fitRomans,900);
   window.addEventListener('load', onScrollLang);
   onScrollLang();
 
-  /* Sound icon mute/unmute */
-  var soundButtons = document.querySelectorAll('[data-sound-icon="true"], .hero-mus-btn');
-  var audio = document.querySelector('audio');
-  soundButtons.forEach(function(btn){
-    btn.textContent = (audio && !audio.muted) ? '🔊' : '🔇';
-    btn.addEventListener('click', function(){
-      if(audio){
-        audio.muted = !audio.muted;
-        if(!audio.muted && audio.paused){ audio.play().catch(function(){}); }
-        btn.textContent = audio.muted ? '🔇' : '🔊';
-      } else {
-        btn.textContent = btn.textContent.trim()==='🔊' ? '🔇' : '🔊';
-      }
-    });
-  });
+  /* Sound icon mute/unmute — SVG */
+  var musBtnEl = document.getElementById('mus-btn');
+  var iconOnEl = document.getElementById('mus-icon-on');
+  var iconOffEl = document.getElementById('mus-icon-off');
+  var audioEl = document.getElementById('audio');
+  function syncMusIcon(){
+    var playing = audioEl && !audioEl.paused && !audioEl.muted;
+    if(iconOnEl) iconOnEl.style.display = playing ? '' : 'none';
+    if(iconOffEl) iconOffEl.style.display = playing ? 'none' : '';
+  }
+  syncMusIcon();
+  if(audioEl){
+    audioEl.addEventListener('play', syncMusIcon);
+    audioEl.addEventListener('pause', syncMusIcon);
+    audioEl.addEventListener('volumechange', syncMusIcon);
+  }
 
   /* fallback shimmer Safari : redémarre l'animation si le navigateur la fige */
   setInterval(function(){
@@ -10722,10 +10690,10 @@ setTimeout(fitRomans,250);setTimeout(fitRomans,900);
 
 <style id="eventia-final-corrections">
 /* ===================================================================
-   CORRECTIONS FINALES — haute spécificité — placées EN DERNIER
+   CORRECTIONS FINALES — haute spécificité — EN DERNIER
    =================================================================== */
 
-/* 1. HERO NAMES — position absolue + largeur 100vw comme l'original */
+/* ── HERO NAMES — largeur 100vw, SVG visible ── */
 #hero .h-names {
   position: absolute !important;
   top: 72% !important;
@@ -10733,7 +10701,6 @@ setTimeout(fitRomans,250);setTimeout(fitRomans,900);
   transform: translateX(-50%) !important;
   width: 100vw !important;
   max-width: 100vw !important;
-  min-width: 0 !important;
   text-align: center !important;
   white-space: nowrap !important;
   overflow: visible !important;
@@ -10743,19 +10710,59 @@ setTimeout(fitRomans,250);setTimeout(fitRomans,900);
   line-height: 1.22 !important;
   padding: 0 !important;
 }
-/* SVG shimmer : remplissage complet du conteneur */
-#hero .h-names > svg,
-#hero .h-names .eventia-svg-name {
-  width: 100% !important;
-  height: auto !important;
-  display: block !important;
-  overflow: visible !important;
-}
-@media (max-width: 420px) {
-  #hero .h-names { font-size: clamp(36px, 10.2vw, 58px) !important; }
+#hero .h-names > svg, #hero .h-names .eventia-svg-name {
+  width: 100% !important; height: auto !important;
+  display: block !important; overflow: visible !important;
 }
 
-/* 2. NOTRE HISTOIRE — story-text adapté au reste de l'invitation */
+/* ── LANGUE : visible dans le hero, disparaît au scroll ── */
+#lang-sw {
+  transition: opacity 0.38s ease, transform 0.38s ease, visibility 0.38s ease !important;
+}
+body.eventia-scrolled #lang-sw {
+  opacity: 0 !important;
+  pointer-events: none !important;
+  visibility: hidden !important;
+  transform: translateY(-8px) !important;
+}
+
+/* ── BOUTON SON : icône SVG ── */
+#mus-btn { font-size: 0 !important; }
+#mus-btn svg { width: 16px !important; height: 16px !important; display: inline-block !important; vertical-align: middle !important; }
+
+/* ── LIGNES DORÉES uniformes sous chaque sous-titre ── */
+.date-title-line-main, .line-main {
+  display: block !important;
+  width: clamp(80px, 18vw, 120px) !important;
+  height: 1px !important;
+  background: linear-gradient(90deg, transparent, #C4922A, #F3D58A, #C4922A, transparent) !important;
+  margin: 12px auto 4px !important;
+  border: none !important;
+  box-shadow: 0 0 10px rgba(180,138,50,.18) !important;
+}
+.date-title-line-secondary, .line-sec {
+  display: block !important;
+  width: clamp(40px, 9vw, 62px) !important;
+  height: 1px !important;
+  background: linear-gradient(90deg, transparent, rgba(184,146,42,.55), transparent) !important;
+  margin: 0 auto 20px !important;
+  border: none !important;
+}
+
+/* ── NOTRE HISTOIRE : supprimer voile sur titre ── */
+#notre-histoire .title, #notre-histoire h1.title {
+  color: #3A1F14 !important;
+  -webkit-text-fill-color: #3A1F14 !important;
+  background: none !important;
+  background-image: none !important;
+  filter: none !important;
+  opacity: 1 !important;
+}
+#notre-histoire .kicker {
+  color: #B99048 !important;
+  -webkit-text-fill-color: #B99048 !important;
+  opacity: 1 !important;
+}
 #notre-histoire .story-text {
   font-size: clamp(15px, 2.6vw, 21px) !important;
   line-height: 1.7 !important;
@@ -10763,14 +10770,12 @@ setTimeout(fitRomans,250);setTimeout(fitRomans,900);
 @media (max-width: 640px) {
   #notre-histoire .story-text { font-size: clamp(14px, 4.5vw, 18px) !important; }
 }
-
-/* 3. CHIFFRES ROMAINS — taille proportionnelle au paragraphe */
 #notre-histoire .roman {
   font-size: var(--roman-size, 100px) !important;
   line-height: var(--roman-line, 1) !important;
 }
 
-/* 4. PHOTOS NOTRE HISTOIRE — même taille, même cadre doré */
+/* ── PHOTOS NOTRE HISTOIRE — même rendu de fondu/dégradé ── */
 #notre-histoire .photo-frame-wrap {
   position: relative !important;
   max-width: 760px !important;
@@ -10779,95 +10784,62 @@ setTimeout(fitRomans,250);setTimeout(fitRomans,900);
   line-height: 0 !important;
 }
 #notre-histoire .photo-frame-wrap .story-img {
-  width: 100% !important;
-  max-width: 100% !important;
-  height: auto !important;
-  aspect-ratio: 4/3 !important;
-  object-fit: cover !important;
-  object-position: center top !important;
-  margin: 0 !important;
-  border: 0 !important;
-  display: block !important;
+  width: 100% !important; max-width: 100% !important;
+  height: auto !important; aspect-ratio: 4/3 !important;
+  object-fit: cover !important; object-position: center top !important;
+  margin: 0 !important; border: 0 !important; display: block !important;
+  filter: none !important;
 }
 #notre-histoire .photo-frame-wrap::before,
 #notre-histoire .photo-frame-wrap::after {
-  content: '' !important;
-  position: absolute !important;
-  pointer-events: none !important;
-  z-index: 2 !important;
-  left: clamp(18px,4vw,34px) !important;
-  right: clamp(18px,4vw,34px) !important;
-  top: clamp(18px,4vw,34px) !important;
-  bottom: clamp(18px,4vw,34px) !important;
+  content: '' !important; position: absolute !important;
+  pointer-events: none !important; z-index: 2 !important;
+  left: clamp(18px,4vw,34px) !important; right: clamp(18px,4vw,34px) !important;
+  top: clamp(18px,4vw,34px) !important; bottom: clamp(18px,4vw,34px) !important;
   border: 1px solid rgba(185,144,72,.34) !important;
 }
 #notre-histoire .photo-frame-wrap::after {
-  left: clamp(28px,5.8vw,52px) !important;
-  right: clamp(28px,5.8vw,52px) !important;
-  top: clamp(28px,5.8vw,52px) !important;
-  bottom: clamp(28px,5.8vw,52px) !important;
+  left: clamp(28px,5.8vw,52px) !important; right: clamp(28px,5.8vw,52px) !important;
+  top: clamp(28px,5.8vw,52px) !important; bottom: clamp(28px,5.8vw,52px) !important;
   border-color: rgba(232,201,130,.20) !important;
 }
 
-/* 5. DERNIÈRE PHOTO — filtre sombre + verset superposé */
+/* ── DERNIÈRE PHOTO — grisée + fondu bas + verset ── */
 #notre-histoire .final-photo-wrap {
-  position: relative !important;
-  max-width: 760px !important;
-  margin: 18px auto 0 !important;
-  overflow: hidden !important;
-  background: #1d1714 !important;
-  width: 100% !important;
-  aspect-ratio: unset !important;
-  border-radius: 0 !important;
-  border: 0 !important;
-  box-shadow: none !important;
-  transform: none !important;
-  clip-path: none !important;
-  height: auto !important;
-  min-height: 0 !important;
+  position: relative !important; max-width: 760px !important;
+  margin: 18px auto 0 !important; overflow: hidden !important;
+  background: #1d1714 !important; width: 100% !important;
+  aspect-ratio: unset !important; border-radius: 0 !important;
+  border: 0 !important; box-shadow: none !important;
+  transform: none !important; clip-path: none !important;
+  height: auto !important; min-height: 0 !important;
 }
 #notre-histoire .final-photo-wrap .story-img.final-img {
-  width: 100% !important;
-  max-width: none !important;
-  height: auto !important;
-  aspect-ratio: 4/3 !important;
-  object-fit: cover !important;
-  object-position: center top !important;
-  margin: 0 !important;
-  border: 0 !important;
-  display: block !important;
+  width: 100% !important; max-width: none !important;
+  height: auto !important; aspect-ratio: 4/3 !important;
+  object-fit: cover !important; object-position: center top !important;
+  margin: 0 !important; border: 0 !important; display: block !important;
   filter: grayscale(.42) brightness(.42) contrast(.96) !important;
-  clip-path: none !important;
-  border-radius: 0 !important;
-  transform: none !important;
-  position: relative !important;
-  left: auto !important;
-  top: auto !important;
+  clip-path: none !important; border-radius: 0 !important;
+  transform: none !important; position: relative !important;
+  left: auto !important; top: auto !important;
 }
 #notre-histoire .final-photo-wrap::before {
-  content: '' !important;
-  position: absolute !important;
-  inset: 0 !important;
-  z-index: 1 !important;
+  content: '' !important; position: absolute !important; inset: 0 !important;
+  z-index: 1 !important; pointer-events: none !important; border: 0 !important;
   background: linear-gradient(180deg,rgba(20,14,10,.28) 0%,rgba(20,14,10,.15) 38%,rgba(247,239,227,.88) 100%) !important;
-  pointer-events: none !important;
-  border: 0 !important;
 }
 #notre-histoire .final-photo-wrap::after { display: none !important; content: none !important; }
 #notre-histoire .final-photo-wrap .final-verse {
-  position: absolute !important;
-  left: 0 !important; right: 0 !important;
-  top: 50% !important;
-  transform: translateY(-50%) !important;
-  z-index: 3 !important;
-  padding: 0 24px !important;
-  background: transparent !important;
-  text-align: center !important;
+  position: absolute !important; left: 0 !important; right: 0 !important;
+  top: 50% !important; transform: translateY(-50%) !important;
+  z-index: 3 !important; padding: 0 24px !important;
+  background: transparent !important; text-align: center !important;
 }
 
-/* 6. PAROLE SACRÉE — couleur dorée, taille adaptée, animation au scroll */
+/* ── PAROLE SACRÉE — visible, or doré ── */
 #notre-histoire .verse {
-  font-family: 'ChopinScript', 'Great Vibes', cursive !important;
+  font-family: 'Chopin Script','Great Vibes',cursive !important;
   font-size: clamp(20px, 4.2vw, 32px) !important;
   line-height: 1.35 !important;
   color: #F3D58A !important;
@@ -10875,67 +10847,151 @@ setTimeout(fitRomans,250);setTimeout(fitRomans,900);
   margin: 10px auto 6px !important;
   max-width: 700px !important;
   text-shadow: 0 2px 16px rgba(0,0,0,.45), 0 0 22px rgba(243,213,138,.3) !important;
-  background: none !important;
-  background-image: none !important;
-  -webkit-background-clip: unset !important;
-  background-clip: unset !important;
+  background: none !important; background-image: none !important;
+  -webkit-background-clip: unset !important; background-clip: unset !important;
 }
-/* Verse inside final-photo-wrap (on dark photo background) */
 #notre-histoire .final-photo-wrap .verse {
-  color: #F3D58A !important;
-  -webkit-text-fill-color: #F3D58A !important;
+  color: #F3D58A !important; -webkit-text-fill-color: #F3D58A !important;
   text-shadow: 0 2px 20px rgba(0,0,0,.7), 0 0 28px rgba(243,213,138,.38) !important;
   font-size: clamp(22px, 4.8vw, 36px) !important;
 }
 #notre-histoire .final-photo-wrap .ref {
-  color: #D7B56D !important;
-  -webkit-text-fill-color: #D7B56D !important;
+  color: #D7B56D !important; -webkit-text-fill-color: #D7B56D !important;
   text-shadow: 0 1px 12px rgba(0,0,0,.6) !important;
 }
-#notre-histoire .ref {
-  color: #B99048 !important;
-  -webkit-text-fill-color: #B99048 !important;
-}
+#notre-histoire .ref { color: #B99048 !important; -webkit-text-fill-color: #B99048 !important; }
 
-/* Sweep animation au scroll via JS — état initial caché */
+/* ── SWEEP animation au scroll ── */
 .sweep-line { opacity: 0 !important; clip-path: inset(0 100% 0 0) !important; transform: translateY(12px) !important; transition: none !important; animation: none !important; }
 .sweep-line.swept { animation: sweepIn 1.1s cubic-bezier(.16,1,.3,1) forwards !important; }
 @keyframes sweepIn {
-  0%   { opacity: 0; transform: translateY(12px); clip-path: inset(0 100% 0 0); }
-  30%  { opacity: 1; }
-  100% { opacity: 1; transform: translateY(0); clip-path: inset(0 0 0 0); }
+  0%  { opacity:0; transform:translateY(12px); clip-path:inset(0 100% 0 0); }
+  30% { opacity:1; }
+  100%{ opacity:1; transform:translateY(0); clip-path:inset(0 0 0 0); }
 }
 
-/* 7. BOUTONS — harmonisés sur le style "Envoyer ma réponse" */
-.gold-btn, .place-btn, .rsvp-send, .rsvp-submit, .gift-trio-btn, .replay-experience,
-.gift-accord-header .gold-btn, a.gold-btn {
-  background: linear-gradient(105deg, #8A5B1E 0%, #B99048 35%, #E7C978 55%, #B99048 75%, #8A5B1E 100%) !important;
-  color: #FFF8EC !important;
-  -webkit-text-fill-color: #FFF8EC !important;
-  border: none !important;
-}
-/* RESET hébergements — restaure le style d'origine de ces boutons */
-#hebergements .gold-btn {
-  background: linear-gradient(135deg, #F3D391 0%, #D8AE67 48%, #B68A36 100%) !important;
-  color: #2A221F !important;
-  -webkit-text-fill-color: #2A221F !important;
-  border: 0 !important;
-  box-shadow: 0 16px 36px rgba(180,138,50,.30), inset 0 1px 0 rgba(255,255,255,.45) !important;
-}
+/* ── PROGRAMME : espace entre Les Lieux et Programme réduit ── */
+#les-lieux { padding-bottom: clamp(8px, 1.5vh, 18px) !important; margin-bottom: 0 !important; }
+#programme { padding-top: clamp(8px, 1.5vh, 18px) !important; margin-top: 0 !important; }
+#programme .programme-intro { padding-top: 0 !important; padding-bottom: 4px !important; }
 
-/* 8. PROGRAMME — remonte, affiche le brunch */
-#programme .programme-intro {
-  padding-top: 0 !important;
-  padding-bottom: 4px !important;
-}
+/* ── TIMELINE : hauteur suffisante pour afficher le brunch ── */
 .timeline-exact-frame, #timelineExactFrame {
-  height: 1120px !important;
-  min-height: 1120px !important;
-  max-height: 1160px !important;
+  height: 1380px !important;
+  min-height: 1380px !important;
+  max-height: 1420px !important;
   overflow: hidden !important;
 }
 
-/* 9. REMERCIEMENTS — remonte au maximum sans espace vide */
+/* ── DRESS CODE : centrer correctement le bloc ── */
+#dresscode .es-inner,
+section#dresscode > .es-inner {
+  margin: 0 auto !important;
+  text-align: center !important;
+  align-items: center !important;
+}
+#dresscode .dress-chapter { margin: 0 auto !important; text-align: center !important; }
+
+/* ── HÉBERGEMENT : cartes rectangulaires ── */
+#hebergements .c3-card,
+#hebergements .c3-item .c3-card {
+  border-radius: 0 !important;
+}
+#hebergements .c3-wrap { padding-bottom: 0 !important; }
+#hebergements { padding-bottom: clamp(12px, 2vh, 24px) !important; }
+
+/* ── ESPACE : Dresscode → Hébergement → Activités ── */
+#hebergements { margin-top: 0 !important; padding-top: clamp(10px, 1.8vh, 20px) !important; padding-bottom: clamp(10px, 1.8vh, 20px) !important; }
+#hebergements .c3-wrap { margin-bottom: 0 !important; }
+#autour { padding-top: clamp(10px, 1.8vh, 20px) !important; padding-bottom: clamp(10px, 1.8vh, 20px) !important; margin-bottom: 0 !important; margin-top: 0 !important; }
+
+/* ── ESPACE : Activités → Empreintes ── */
+#empreintes { padding-top: clamp(8px, 1.5vh, 16px) !important; margin-top: 0 !important; }
+#empreintes .envelope-v13-host, #empreintes .master-envelope-wrap {
+  margin-top: 0 !important;
+}
+
+/* ── CADEAUX : titres en casse normale ── */
+.gift-accord-title {
+  text-transform: none !important;
+  font-family: 'Cormorant Garamond', serif !important;
+}
+.gift-accord-header {
+  text-transform: none !important;
+}
+
+/* ── ESPACE : Empreintes → Cadeaux ── */
+#cadeaux { padding-top: clamp(8px, 1.5vh, 16px) !important; margin-top: 0 !important; }
+
+/* ── BOUTONS UNIFORMES — style "Envoyer ma réponse" ── */
+.gold-btn, .place-btn, .rsvp-send, .rsvp-submit, .gift-trio-btn, .replay-experience, a.gold-btn {
+  background: linear-gradient(135deg, #F3D391 0%, #D8AE67 48%, #B68A36 100%) !important;
+  color: #2A221F !important;
+  -webkit-text-fill-color: #2A221F !important;
+  font-family: 'Tenor Sans', 'Cinzel', sans-serif !important;
+  font-size: 11px !important;
+  letter-spacing: .2em !important;
+  text-transform: uppercase !important;
+  padding: 15px 26px !important;
+  border-radius: 999px !important;
+  border: none !important;
+  box-shadow: 0 14px 32px rgba(180,138,50,.28), inset 0 1px 0 rgba(255,255,255,.42) !important;
+  cursor: pointer !important;
+  text-decoration: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  position: relative !important;
+  overflow: hidden !important;
+  transition: transform .22s ease, box-shadow .22s ease !important;
+  white-space: nowrap !important;
+}
+.gold-btn:hover, .rsvp-submit:hover, .replay-experience:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 20px 44px rgba(180,138,50,.38), inset 0 1px 0 rgba(255,255,255,.42) !important;
+}
+
+/* ── "OUI AVEC JOIE" = gold button animé par défaut ── */
+#rsvp .presence-oui-gold {
+  background: linear-gradient(135deg, #F3D391 0%, #D8AE67 48%, #B68A36 100%) !important;
+  color: #2A221F !important;
+  -webkit-text-fill-color: #2A221F !important;
+  border: none !important;
+  box-shadow: 0 10px 26px rgba(180,138,50,.24), inset 0 1px 0 rgba(255,255,255,.42) !important;
+  font-family: 'Tenor Sans', sans-serif !important;
+  font-size: 11px !important;
+  letter-spacing: .18em !important;
+  text-transform: uppercase !important;
+  overflow: hidden !important;
+  position: relative !important;
+}
+#rsvp .presence-oui-gold input { display: none !important; }
+#rsvp .presence-oui-gold span {
+  position: relative !important; z-index: 2 !important;
+  color: #2A221F !important; -webkit-text-fill-color: #2A221F !important;
+}
+#rsvp .presence-oui-gold::before {
+  content: '' !important; position: absolute !important;
+  top: -20% !important; left: 0 !important; width: 40% !important; height: 140% !important;
+  background: linear-gradient(105deg, transparent 10%, rgba(255,255,255,.34) 50%, transparent 90%) !important;
+  animation: btnReflect 3.8s ease-in-out infinite !important;
+  pointer-events: none !important; z-index: 1 !important;
+}
+
+/* ── RSVP RIDEAUX iPad : contenu dans l'ouverture des rideaux ── */
+@media (min-width: 641px) and (max-width: 1024px) {
+  #rsvp .es-inner {
+    width: clamp(260px, 52vw, 380px) !important;
+    max-width: 380px !important;
+    padding-top: clamp(260px, 38vw, 340px) !important;
+  }
+}
+
+/* ── REMERCIEMENTS — remonte ── */
+#rsvp + #remerciements {
+  margin-top: 0 !important;
+  padding-top: clamp(16px, 2vh, 24px) !important;
+}
 #remerciements {
   margin-top: 0 !important;
   padding-top: clamp(16px, 2vh, 24px) !important;
@@ -10944,34 +11000,55 @@ setTimeout(fitRomans,250);setTimeout(fitRomans,900);
   background: #F7EFE3 !important;
 }
 
-/* 10. PHOTO FINALE — agrandie, centrée */
+/* ── PRÉNOMS FINAUX — dégradé doré animé ── */
+.final-h-names {
+  font-family: 'Chopin Script', cursive !important;
+  font-size: clamp(34px, 8vw, 62px) !important;
+  background-image: linear-gradient(90deg,#8f6424 0%,#bf8c35 18%,#f6da8a 36%,#fff6ca 49%,#d8ae67 58%,#b88a3a 72%,#f4d987 86%,#8f6424 100%) !important;
+  background-size: 420% 100% !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+  animation: finalNamesShimmer 5s linear infinite !important;
+  display: block !important;
+  text-align: center !important;
+  margin: 0 auto 6px !important;
+}
+@keyframes finalNamesShimmer {
+  0%   { background-position: 0% 50%; }
+  100% { background-position: 420% 50%; }
+}
+
+/* ── PHOTO FINALE — centrée ── */
 #photo-finale .final-photo-wrap {
   width: min(520px, 90vw) !important;
   max-width: 90vw !important;
-  aspect-ratio: unset !important;
-  height: auto !important;
+  aspect-ratio: unset !important; height: auto !important;
   margin: 18px auto 12px !important;
-  transform: none !important;
-  overflow: visible !important;
-  background: transparent !important;
-  border: 0 !important;
-  box-shadow: none !important;
+  transform: none !important; overflow: visible !important;
+  background: transparent !important; border: 0 !important; box-shadow: none !important;
 }
 #photo-finale .final-photo-wrap::before,
 #photo-finale .final-photo-wrap::after { display: none !important; content: none !important; }
 #photo-finale .final-photo-wrap img.final-couple {
-  position: relative !important;
-  left: auto !important; top: auto !important;
-  width: 100% !important;
-  height: auto !important;
-  max-width: 100% !important;
-  object-fit: contain !important;
-  object-position: center center !important;
-  clip-path: none !important;
-  border-radius: 0 !important;
-  transform: none !important;
-  display: block !important;
-  margin: 0 auto !important;
+  position: relative !important; left: auto !important; top: auto !important;
+  width: 100% !important; height: auto !important; max-width: 100% !important;
+  object-fit: contain !important; object-position: center center !important;
+  clip-path: none !important; border-radius: 0 !important;
+  transform: none !important; display: block !important; margin: 0 auto !important;
+}
+
+/* ── RESPONSIVE iPad (768-1024px) global ── */
+@media (min-width: 768px) and (max-width: 1024px) {
+  #hero .h-names { top: 70% !important; }
+  .es-inner { width: min(88vw, 680px) !important; }
+  #hebergements .c3-item { min-height: 340px !important; }
+  .timeline-exact-frame, #timelineExactFrame { height: 1400px !important; min-height: 1400px !important; max-height: 1440px !important; }
+}
+@media (max-width: 420px) {
+  #hero .h-names { font-size: clamp(36px, 10.2vw, 58px) !important; }
+  .gold-btn, .rsvp-submit { padding: 13px 18px !important; font-size: 10px !important; }
 }
 </style>
 

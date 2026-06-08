@@ -160,11 +160,11 @@ canvas.sc{
   z-index:1;
   left:50%;top:50%;
   transform:translate(-50%,-50%);
-  width:72%;
-  max-width:72%;
+  width:78%;
+  max-width:78%;
   text-align:center;
   white-space:nowrap;
-  overflow:visible;
+  overflow:hidden;
   font-family:'ChopinScript','Cormorant Garamond',Georgia,serif;
   font-size:clamp(38px,7.6vw,56px);
   font-weight:400;
@@ -305,12 +305,13 @@ canvas.sc{
   display:block!important;
   margin:clamp(14px,3vh,24px) auto clamp(10px,2.2vh,18px);
   width:100%;
+  max-width:100%;
   text-align:center;
   font-family:'Cinzel',serif;
-  font-size:clamp(9px,2.45vw,12px);
-  letter-spacing:.34em;
+  font-size:clamp(8px,1.9vw,11px);
+  letter-spacing:.28em;
   text-transform:uppercase;
-  white-space:nowrap;
+  white-space:normal;
   color:rgba(87,55,31,.62);
   opacity:1!important;
   visibility:visible!important;
@@ -592,7 +593,7 @@ function spawnDust(screenX, screenY) {
    SCRATCH ENGINE NETTOYÉ
    ================================================================ */
 var doneCount = 0;
-var REVEAL_THRESHOLD = 76;
+var REVEAL_THRESHOLD = 55;
 
 /* V28 : positions critiques relatives au conteneur 9:16 */
 function getScratchStage(){ return document.getElementById('scratchStage') || document.body; }
@@ -722,8 +723,8 @@ function initMedal(medalEl) {
     spawnDust(p.cx, p.cy);
     ctx.save();
     ctx.globalCompositeOperation = 'destination-out';
-    var r1 = 102 + Math.random()*26;
-    var r2 = 68 + Math.random()*20;
+    var r1 = 130 + Math.random()*35;
+    var r2 = 90 + Math.random()*28;
     var g = ctx.createRadialGradient(p.x,p.y,0,p.x,p.y,r1);
     g.addColorStop(0,'rgba(0,0,0,1)');
     g.addColorStop(.68,'rgba(0,0,0,.92)');

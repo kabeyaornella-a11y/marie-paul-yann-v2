@@ -36,15 +36,22 @@ function setLang(l){
   if(el('cta-text')) el('cta-text').textContent = t.cta;
   document.querySelectorAll('#lang-sw button').forEach(function(b){b.classList.toggle('active',b.getAttribute('data-lang')===l);});
 }
+function _syncMusIcon(a){
+  var on=document.getElementById('mus-icon-on'),off=document.getElementById('mus-icon-off');
+  var playing=a&&!a.paused&&!a.muted;
+  if(on)on.style.display=playing?'':'none';
+  if(off)off.style.display=playing?'none':'';
+}
 function toggleMusic(){
   var a=document.getElementById('audio'),b=document.getElementById('mus-btn');
   if(!a)return;
   if(a.paused){
     a.volume=0.22;
-    a.play().then(function(){ if(b){b.textContent='♫';b.classList.add('is-playing');} }).catch(function(){});
+    a.play().then(function(){ if(b)b.classList.add('is-playing'); _syncMusIcon(a); }).catch(function(){});
   } else {
     a.pause();
-    if(b){b.textContent='♪';b.classList.remove('is-playing');}
+    if(b)b.classList.remove('is-playing');
+    _syncMusIcon(a);
   }
 }
 function startEventiaMusic(){
@@ -52,8 +59,8 @@ function startEventiaMusic(){
   if(!a)return;
   try{ a.volume=0.22; a.currentTime = a.currentTime || 0; }catch(e){}
   var p=a.play();
-  if(p && p.then){ p.then(function(){ if(b){b.textContent='♫';b.classList.add('is-playing');} }).catch(function(){}); }
-  else { if(b){b.textContent='♫';b.classList.add('is-playing');} }
+  if(p && p.then){ p.then(function(){ if(b)b.classList.add('is-playing'); _syncMusIcon(a); }).catch(function(){}); }
+  else { if(b)b.classList.add('is-playing'); _syncMusIcon(a); }
 }
 
 /* ═══ PORTE ═══ */
