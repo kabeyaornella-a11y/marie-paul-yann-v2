@@ -12,7 +12,7 @@
 <meta content="Marie-Paul &amp; Yann · Mariage" name="twitter:title"/>
 <meta content="https://res.cloudinary.com/didid8vcu/image/upload/mpyann/couple-hero.png" name="twitter:image"/>
 <meta content="width=device-width,initial-scale=1,maximum-scale=5,viewport-fit=cover" name="viewport"/>
-<title>Marie-Paul &amp; Yann · 2027 · v29</title>
+<title>Marie-Paul &amp; Yann · 2027 · v30</title>
 <link href="https://fonts.googleapis.com/css2?family=Gloock&amp;family=Tenor+Sans&amp;family=Questrial&amp;family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&amp;family=Great+Vibes&amp;family=Cinzel:wght@400;500&amp;display=swap" rel="stylesheet"/>
 <style id="eventia-master-clean-css">/* ===== EVENTIA MASTER CLEAN · Sections natives validées ===== */
 
@@ -11219,6 +11219,503 @@ section#dresscode > .es-inner {
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
+})();
+</script>
+
+
+<style id="eventia-tdy-premium">
+/* ================================================================
+   EVENTIA TDY PREMIUM — v1
+   Respiration · Scroll Reveal · Typographie · Espacements
+   Inspiré de The Digital Yes — qualité invitation de référence
+   ================================================================ */
+
+/* ── 1. VARIABLES DE DESIGN ───────────────────────────────────── */
+:root {
+  /* Breathing principal — was clamp(22px,4vh,44px) */
+  --ev-gap:              clamp(90px, 11vw, 140px);
+  --ev-gap-medium:       clamp(60px,  8vw, 100px);
+  --ev-gap-compact:      clamp(40px,  6vw,  70px);
+  /* Container widths */
+  --ev-inner:            min(92vw, 960px);
+  --ev-inner-medium:     min(92vw, 760px);
+  /* Gold system */
+  --ev-gold-tdy:         #C4A55A;
+  --ev-gold-light:       #D8B97A;
+  --ev-gold-pale:        #F3D391;
+  --ev-brown-deep:       #2C1810;
+  /* Typography */
+  --ev-font-display:     'Cormorant Garamond', 'Playfair Display', serif;
+  --ev-font-kicker:      'Cinzel', 'Tenor Sans', serif;
+  --ev-font-body:        'Tenor Sans', 'Lato', sans-serif;
+  /* Transitions */
+  --ev-transition-slow:  0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  --ev-transition-mid:   0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ── 2. SCROLL REVEAL — STATES CSS ───────────────────────────── */
+.ev-reveal {
+  opacity: 0;
+  -webkit-transform: translateY(36px);
+  -ms-transform: translateY(36px);
+  transform: translateY(36px);
+  -webkit-transition: opacity var(--ev-transition-slow), -webkit-transform var(--ev-transition-slow);
+  transition: opacity var(--ev-transition-slow), transform var(--ev-transition-slow);
+  will-change: opacity, transform;
+}
+.ev-reveal.ev-visible {
+  opacity: 1 !important;
+  -webkit-transform: translateY(0) !important;
+  -ms-transform: translateY(0) !important;
+  transform: translateY(0) !important;
+}
+/* Variantes de délai */
+.ev-delay-1 { -webkit-transition-delay: 0.10s; transition-delay: 0.10s; }
+.ev-delay-2 { -webkit-transition-delay: 0.20s; transition-delay: 0.20s; }
+.ev-delay-3 { -webkit-transition-delay: 0.30s; transition-delay: 0.30s; }
+.ev-delay-4 { -webkit-transition-delay: 0.45s; transition-delay: 0.45s; }
+.ev-delay-5 { -webkit-transition-delay: 0.60s; transition-delay: 0.60s; }
+/* Variante lignes (dividers) */
+.ev-reveal-line {
+  opacity: 0;
+  -webkit-transform: scaleX(0);
+  -ms-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transform-origin: center;
+  transform-origin: center;
+  -webkit-transition: opacity 0.7s ease, -webkit-transform 0.7s ease;
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.ev-reveal-line.ev-visible {
+  opacity: 1 !important;
+  -webkit-transform: scaleX(1) !important;
+  -ms-transform: scaleX(1) !important;
+  transform: scaleX(1) !important;
+}
+
+/* ── 3. BREATHING — SECTIONS PRINCIPALE ──────────────────────── */
+/* Override --ev-gap (déjà utilisé dans les règles !important plus haut) */
+/* Toutes les sections standards */
+.es-section,
+.date-chapter,
+.countdown-chapter,
+.story2-chapter,
+.program-chapter,
+.dress-chapter,
+.gifts-chapter,
+.thanks-chapter,
+.final-chapter,
+.places-chapter {
+  padding-top:    var(--ev-gap) !important;
+  padding-bottom: var(--ev-gap) !important;
+}
+
+/* ── 4. SECTIONS SPÉCIALES — PADDING DÉDIÉ ───────────────────── */
+/* RSVP : layout rideau — conserver le positionnement curtain */
+#rsvp.rsvp-chapter {
+  padding: 0 0 clamp(60px, 8vw, 100px) !important;
+}
+
+/* Notre Histoire : section narrative, pas .es-section */
+.story {
+  padding-top:    var(--ev-gap) !important;
+  padding-bottom: var(--ev-gap) !important;
+}
+.story-intro {
+  padding-bottom: clamp(40px, 5vw, 64px) !important;
+}
+.chapter {
+  padding-top:    clamp(28px, 4vw, 50px) !important;
+  padding-bottom: clamp(28px, 4vw, 50px) !important;
+}
+.photo-frame-wrap {
+  margin-top:    clamp(28px, 4vw, 50px) !important;
+  margin-bottom: clamp(28px, 4vw, 50px) !important;
+}
+.sacred {
+  padding-top:    clamp(40px, 6vw, 72px) !important;
+  padding-bottom: clamp(40px, 6vw, 72px) !important;
+}
+
+/* Remerciements & Final : rester compacts */
+.thanks-chapter {
+  padding-top:    clamp(60px, 7vw, 90px) !important;
+  padding-bottom: clamp(40px, 5vw, 60px) !important;
+}
+.final-chapter {
+  padding-top:    clamp(20px, 3vw, 40px) !important;
+  padding-bottom: clamp(40px, 5vw, 60px) !important;
+}
+
+/* v54-tight : légèrement plus compact */
+.es-section.v54-tight {
+  padding-top:    var(--ev-gap-medium) !important;
+  padding-bottom: var(--ev-gap-medium) !important;
+}
+
+/* ── 5. INNER CONTAINERS — LARGEUR ───────────────────────────── */
+.es-inner {
+  width: var(--ev-inner) !important;
+  max-width: 960px !important;
+}
+/* RSVP inner : garder layout rideau étroit */
+#rsvp .es-inner {
+  width: clamp(218px, 55vw, 344px) !important;
+  max-width: 344px !important;
+}
+
+/* ── 6. TYPOGRAPHIE — RAFFINEMENTS ───────────────────────────── */
+.es-kicker {
+  letter-spacing: 0.44em !important;
+  margin-bottom: 20px !important;
+  font-size: clamp(9px, 1.8vw, 11.5px) !important;
+}
+.es-title {
+  font-size: clamp(38px, 8.5vw, 70px) !important;
+  line-height: 1.05 !important;
+  letter-spacing: -0.01em !important;
+  margin-bottom: 0 !important;
+}
+.es-copy {
+  font-size: clamp(16px, 3.2vw, 22px) !important;
+  line-height: 1.80 !important;
+  max-width: 720px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  margin-bottom: 32px !important;
+}
+
+/* ── 7. SÉPARATEURS DORÉS — RAFFINÉS ─────────────────────────── */
+.date-title-line-main, .line-main {
+  width: clamp(100px, 18vw, 160px) !important;
+  height: 1px !important;
+  margin: 20px auto 5px !important;
+}
+.date-title-line-secondary, .line-sec {
+  width: clamp(50px, 9vw, 80px) !important;
+  margin: 0 auto 32px !important;
+}
+
+/* ── 8. ESPACEMENT INTERNE DES SECTIONS ──────────────────────── */
+/* Places */
+.places-grid.v09 {
+  margin-top: clamp(32px, 5vw, 56px) !important;
+  gap: clamp(24px, 4vw, 48px) !important;
+}
+.place-v09 {
+  margin-bottom: clamp(20px, 3vw, 36px) !important;
+}
+/* Hébergements */
+.c3-wrap {
+  margin-top: clamp(32px, 5vw, 56px) !important;
+}
+/* Activités */
+.act-tabs {
+  margin-top: clamp(24px, 4vw, 44px) !important;
+}
+/* Cadeaux */
+.gifts-accord {
+  margin-top: clamp(28px, 4vw, 48px) !important;
+  gap: 0 !important;
+}
+.gift-accord-item + .gift-accord-item {
+  margin-top: 12px !important;
+}
+/* Countdown */
+.countdown-inner {
+  max-width: 960px !important;
+}
+.countdown-lustre {
+  margin-bottom: clamp(16px, 3vw, 32px) !important;
+}
+/* Enveloppe/Empreintes */
+.envelope-v13-host, .master-envelope-wrap {
+  margin-top: clamp(32px, 5vw, 56px) !important;
+}
+/* Scratch/Médaillons */
+.scratch-frame {
+  margin-top: clamp(24px, 4vw, 40px) !important;
+}
+/* Programme timeline */
+.timeline-exact-wrapper {
+  margin-top: clamp(24px, 4vw, 40px) !important;
+}
+/* Presence phrase */
+.gifts-presence-phrase {
+  margin-bottom: clamp(16px, 3vw, 28px) !important;
+  margin-top: clamp(20px, 3vw, 36px) !important;
+}
+
+/* ── 9. IMAGES — HOVER & TRANSITIONS ─────────────────────────── */
+.place-slide {
+  -webkit-transition: -webkit-transform 0.55s ease, opacity 0.3s ease !important;
+  transition: transform 0.55s ease, opacity 0.3s ease !important;
+}
+.act-photo {
+  -webkit-transition: -webkit-transform 0.5s ease !important;
+  transition: transform 0.5s ease !important;
+}
+.act-photo:hover {
+  -webkit-transform: scale(1.04) !important;
+  -ms-transform: scale(1.04) !important;
+  transform: scale(1.04) !important;
+}
+.c3-photo {
+  -webkit-transition: -webkit-transform 0.5s ease !important;
+  transition: transform 0.5s ease !important;
+}
+
+/* ── 10. SECTION BORNES — SÉPARATION SUBTILE ─────────────────── */
+.es-section::after,
+.date-chapter::after,
+.countdown-chapter::after,
+.story::after,
+.places-chapter::after,
+.program-chapter::after,
+.dress-chapter::after {
+  content: '' !important;
+  display: block !important;
+  width: clamp(60px, 12vw, 100px) !important;
+  height: 1px !important;
+  background: -webkit-linear-gradient(left, transparent, rgba(196,165,90,0.30), transparent) !important;
+  background: linear-gradient(90deg, transparent, rgba(196,165,90,0.30), transparent) !important;
+  margin: 0 auto !important;
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 50% !important;
+  -webkit-transform: translateX(-50%) !important;
+  -ms-transform: translateX(-50%) !important;
+  transform: translateX(-50%) !important;
+  pointer-events: none !important;
+}
+
+/* ── 11. BOUTONS — REFINEMENT TDY ────────────────────────────── */
+.gold-btn, .rsvp-submit, .place-btn, .act-btn {
+  -webkit-transition: -webkit-transform 0.3s ease, -webkit-box-shadow 0.3s ease, opacity 0.3s ease !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease !important;
+}
+.place-btn {
+  border: 1px solid rgba(196, 165, 90, 0.60) !important;
+  background: transparent !important;
+  color: var(--ev-brown) !important;
+  padding: 12px 28px !important;
+  border-radius: 999px !important;
+  font-family: var(--ev-font-kicker) !important;
+  font-size: 10px !important;
+  letter-spacing: 0.28em !important;
+  text-transform: uppercase !important;
+  -webkit-transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease !important;
+  transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease !important;
+}
+.place-btn:hover {
+  background: var(--ev-gold-tdy) !important;
+  color: #fff !important;
+  border-color: var(--ev-gold-tdy) !important;
+}
+
+/* ── 12. RESPONSIVE — TABLET ─────────────────────────────────── */
+@media (max-width: 1024px) {
+  :root {
+    --ev-gap: clamp(70px, 10vw, 110px);
+  }
+  .es-inner {
+    width: min(94vw, 860px) !important;
+    max-width: 860px !important;
+  }
+}
+
+/* ── 13. RESPONSIVE — MOBILE ─────────────────────────────────── */
+@media (max-width: 768px) {
+  :root {
+    --ev-gap: clamp(60px, 10vw, 90px);
+  }
+  .es-inner {
+    width: min(94vw, 680px) !important;
+    max-width: 680px !important;
+  }
+  .es-title {
+    font-size: clamp(30px, 9.5vw, 54px) !important;
+    line-height: 1.06 !important;
+  }
+  .es-copy {
+    font-size: clamp(15px, 4.5vw, 20px) !important;
+    line-height: 1.70 !important;
+  }
+  .story {
+    padding-top: clamp(60px, 10vw, 90px) !important;
+    padding-bottom: clamp(60px, 10vw, 90px) !important;
+  }
+  .chapter {
+    padding-top:    clamp(20px, 4vw, 36px) !important;
+    padding-bottom: clamp(20px, 4vw, 36px) !important;
+  }
+  .sacred {
+    padding-top:    clamp(30px, 6vw, 52px) !important;
+    padding-bottom: clamp(30px, 6vw, 52px) !important;
+  }
+  .places-grid.v09 {
+    gap: clamp(20px, 5vw, 32px) !important;
+  }
+  .date-title-line-main, .line-main {
+    width: clamp(80px, 22vw, 130px) !important;
+    margin: 16px auto 4px !important;
+  }
+  .date-title-line-secondary, .line-sec {
+    margin: 0 auto 24px !important;
+  }
+  .es-kicker {
+    letter-spacing: 0.36em !important;
+    margin-bottom: 14px !important;
+  }
+}
+
+/* ── 14. RESPONSIVE — MOBILE PORTRAIT ───────────────────────── */
+@media (max-width: 480px) {
+  :root {
+    --ev-gap: clamp(50px, 12vw, 72px);
+  }
+  .es-inner {
+    width: min(96vw, 440px) !important;
+    max-width: 440px !important;
+  }
+  .es-title {
+    font-size: clamp(26px, 10vw, 44px) !important;
+  }
+  .es-copy {
+    font-size: clamp(14px, 4.8vw, 18px) !important;
+    line-height: 1.65 !important;
+  }
+  .story {
+    padding-top: clamp(44px, 12vw, 64px) !important;
+    padding-bottom: clamp(44px, 12vw, 64px) !important;
+  }
+  .places-grid.v09 {
+    -webkit-flex-direction: column !important;
+    flex-direction: column !important;
+  }
+  .gifts-accord {
+    margin-top: clamp(20px, 5vw, 36px) !important;
+  }
+  .thanks-chapter {
+    padding-top: clamp(44px, 10vw, 64px) !important;
+    padding-bottom: clamp(28px, 7vw, 44px) !important;
+  }
+}
+
+/* ── 15. SMOOTH SCROLL GLOBAL ────────────────────────────────── */
+html {
+  scroll-behavior: smooth !important;
+}
+
+/* ── 16. PERFORMANCES — WILL-CHANGE LIMITÉ ───────────────────── */
+.ev-reveal {
+  will-change: opacity, transform;
+}
+.ev-reveal.ev-visible {
+  will-change: auto;
+}
+</style>
+
+<script id="eventia-scroll-reveal-tdy">
+/* ── Eventia TDY Premium — Scroll Reveal System ── */
+(function() {
+  'use strict';
+
+  /* Sélecteurs animés au scroll */
+  var ANIMATED = [
+    '.es-kicker',
+    '.es-title',
+    '.date-title-line-main',
+    '.date-title-line-secondary',
+    '.es-copy',
+    '#notre-histoire .kicker',
+    '#notre-histoire .inner .title',
+    '#notre-histoire .ornament',
+    '#notre-histoire .chapter-label',
+    '#notre-histoire .story-text',
+    '#notre-histoire .para-wrap',
+    '#notre-histoire .sacred',
+    '.place-v09',
+    '.c3-item.is-active',
+    '.c3-nav',
+    '.act-tabs',
+    '.gift-accord-item',
+    '.countdown-lustre',
+    '.countdown-title',
+    '.countdown-text',
+    '.gifts-presence-phrase',
+    '.dress-wrap',
+    '.timeline-exact-wrapper, .timeline-exact-frame',
+    '.scratch-frame',
+    '.countdown-frame',
+    '.envelope-v13-host',
+    '.final-couple',
+    '.final-affection',
+    '.final-h-names',
+    '.final-date-display',
+    '.replay-experience',
+    '.thanks-copy-main',
+    '.thanks-copy-sub'
+  ].join(', ');
+
+  function getStaggerDelay(el) {
+    var parent = el.closest('.es-inner, .date-inner, .countdown-inner, .inner, .places-inner, .es-section, .date-chapter, .countdown-chapter, .story, .thanks-chapter, .final-chapter');
+    if (!parent) return 0;
+    var siblings = Array.prototype.slice.call(parent.querySelectorAll(
+      '.es-kicker, .es-title, .date-title-line-main, .es-copy, .place-v09, .gift-accord-item, .thanks-copy-main, .thanks-copy-sub'
+    ));
+    var idx = siblings.indexOf(el);
+    return Math.min(Math.max(idx, 0) * 90, 450);
+  }
+
+  function initReveal() {
+    if (!('IntersectionObserver' in window)) {
+      /* Fallback navigateurs anciens : tout visible */
+      document.querySelectorAll(ANIMATED).forEach(function(el) {
+        el.style.opacity = '';
+        el.style.transform = '';
+      });
+      return;
+    }
+
+    var elements = document.querySelectorAll(ANIMATED);
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (!entry.isIntersecting) return;
+        var el = entry.target;
+        var delay = el._evDelay || 0;
+        if (delay > 0) {
+          setTimeout(function() { el.classList.add('ev-visible'); }, delay);
+        } else {
+          el.classList.add('ev-visible');
+        }
+        observer.unobserve(el);
+      });
+    }, {
+      threshold: 0.08,
+      rootMargin: '0px 0px -48px 0px'
+    });
+
+    elements.forEach(function(el) {
+      /* Ne pas animer les éléments déjà dans le viewport au chargement */
+      var rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight * 0.92 && rect.bottom > 0) {
+        return; /* déjà visible — laisser tel quel */
+      }
+      el._evDelay = getStaggerDelay(el);
+      el.classList.add('ev-reveal');
+      observer.observe(el);
+    });
+  }
+
+  /* Lancer après le rendu initial */
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function() {
+      setTimeout(initReveal, 120);
+    });
+  } else {
+    setTimeout(initReveal, 120);
+  }
 })();
 </script>
 
