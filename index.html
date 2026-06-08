@@ -11772,8 +11772,23 @@ section#remerciements {
 
 /* ── Nav buttons — plus petit, icônes forcées visibles ── */
 #topnav #lang-sw,#lang-sw{height:28px!important;font-size:9px!important;}
-#topnav #mus-btn,#mus-btn{width:28px!important;height:28px!important;font-size:0!important;color:#9a7133!important;}
-#mus-btn svg,#topnav #mus-btn svg{width:16px!important;height:16px!important;display:block!important;fill:#9a7133!important;color:#9a7133!important;flex-shrink:0!important;}
+#topnav #mus-btn,#mus-btn{width:36px!important;height:36px!important;font-size:0!important;color:#9a7133!important;background:rgba(247,239,227,.85)!important;border:1px solid rgba(154,113,51,.4)!important;}
+/* IDs directs = spécificité [1,0,0,0] — rien ne peut les battre */
+#mus-icon-on,#mus-icon-off{
+  width:18px!important;height:18px!important;
+  min-width:18px!important;max-width:18px!important;
+  min-height:18px!important;max-height:18px!important;
+  display:block!important;
+  fill:#9a7133!important;
+  color:#9a7133!important;
+  flex-shrink:0!important;
+  overflow:visible!important;
+}
+#mus-icon-on path,#mus-icon-off path,#mus-icon-off line{
+  fill:#9a7133!important;
+  stroke:#9a7133!important;
+}
+#mus-icon-on path[fill="none"]{fill:none!important;}
 
 /* ── Breathing global réduit ── */
 .es-section,.date-chapter,.countdown-chapter,.story2-chapter,.places-chapter,.program-chapter,.dress-chapter,.gifts-chapter,.rsvp-chapter,.thanks-chapter,.final-chapter{padding-top:var(--ev-gap)!important;padding-bottom:var(--ev-gap)!important;}
@@ -11783,9 +11798,14 @@ section#hebergements.es-section,section#autour.es-section{padding-top:var(--ev-g
 #dresscode + #hebergements,#dresscode+#hebergements{margin-top:0!important;padding-top:var(--ev-gap)!important;}
 
 /* ── Notre Histoire — Parole sacrée forcée visible ── */
-#notre-histoire .sacred{opacity:1!important;visibility:visible!important;transform:none!important;}
+#notre-histoire .sacred{opacity:1!important;visibility:visible!important;transform:none!important;background:transparent!important;}
 #notre-histoire .sacred .kicker{opacity:1!important;visibility:visible!important;}
-#notre-histoire .verse{opacity:1!important;visibility:visible!important;color:#F3D58A!important;-webkit-text-fill-color:#F3D58A!important;}
+/* Texte doré foncé + ombre forte pour contraste sur fond ivoire */
+#notre-histoire .verse{
+  opacity:1!important;visibility:visible!important;
+  color:#8B6914!important;-webkit-text-fill-color:#8B6914!important;
+  text-shadow:0 1px 0 rgba(255,255,255,.6),0 2px 8px rgba(0,0,0,.12)!important;
+}
 /* Spécificité [0,1,2,0] > base .sweep-line [0,0,1,0] → opacity:1 gagne même avec !important */
 #notre-histoire .verse .sweep-line{
   opacity:1!important;
@@ -11794,7 +11814,17 @@ section#hebergements.es-section,section#autour.es-section{padding-top:var(--ev-g
   animation:none!important;
   display:inline!important;
 }
-#notre-histoire .ref{color:#B99048!important;-webkit-text-fill-color:#B99048!important;text-transform:uppercase!important;letter-spacing:.45em!important;opacity:1!important;visibility:visible!important;}
+#notre-histoire .ref{color:#7A5B10!important;-webkit-text-fill-color:#7A5B10!important;text-transform:uppercase!important;letter-spacing:.45em!important;opacity:1!important;visibility:visible!important;}
+/* Final-verse sur la photo : texte blanc pour lisibilité sur fond foncé/image */
+#notre-histoire .final-verse .verse{
+  color:#F3D58A!important;-webkit-text-fill-color:#F3D58A!important;
+  text-shadow:0 2px 12px rgba(0,0,0,.7),0 0 28px rgba(0,0,0,.5)!important;
+}
+#notre-histoire .final-verse .ref{color:#E8C97A!important;-webkit-text-fill-color:#E8C97A!important;text-shadow:0 1px 8px rgba(0,0,0,.6)!important;}
+/* Overlay de la photo finale : garder côté sombre, éviter la bande blanche */
+#notre-histoire .final-photo-wrap::before{
+  background:linear-gradient(180deg,rgba(0,0,0,.45) 0%,rgba(0,0,0,.25) 35%,rgba(0,0,0,.38) 60%,rgba(0,0,0,.55) 100%)!important;
+}
 
 /* ── Dress Code v3 — silhouettes sur podium ── */
 #dresscode .dress-wrap{overflow:visible!important;max-width:min(960px,100vw)!important;margin:0 auto!important;position:relative!important;}
