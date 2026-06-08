@@ -11917,6 +11917,24 @@ window.setLang = (function(){
     }
   }, true);
 })();
+/* FIX 2 — Hero : éviter que les boucles du Y de Yann soient coupées */
+#hero,
+#hero .hero-content,
+#hero .hero-names,
+#hero .names,
+#hero .hero-title,
+#hero [class*="name"] {
+  overflow: visible !important;
+}
+
+#hero .hero-names,
+#hero .names,
+#hero .hero-title,
+#hero [class*="name"] {
+  line-height: 1.32 !important;
+  padding-bottom: .22em !important;
+  margin-bottom: .08em !important;
+}
 </script>
 
 </body>
