@@ -11825,6 +11825,38 @@ section#remerciements.thanks-chapter,
   padding-top: 2em !important;
   margin-top: 0 !important;
 }
+/* FIX — consigne scratch centrée sous les médaillons */
+#notre-date .date-instruction {
+  display: block !important;
+  width: 100% !important;
+  max-width: 520px !important;
+  margin: 14px auto 0 !important;
+  text-align: center !important;
+  white-space: normal !important;
+  overflow: visible !important;
+  line-height: 1.7 !important;
+  letter-spacing: .32em !important;
+  padding: 0 14px !important;
+  box-sizing: border-box !important;
+}
+/* FIX 2 — Hero : éviter que les boucles du Y de Yann soient coupées */
+#hero,
+#hero .hero-content,
+#hero .hero-names,
+#hero .names,
+#hero .hero-title,
+#hero [class*="name"] {
+  overflow: visible !important;
+}
+
+#hero .hero-names,
+#hero .names,
+#hero .hero-title,
+#hero [class*="name"] {
+  line-height: 1.32 !important;
+  padding-bottom: .22em !important;
+  margin-bottom: .08em !important;
+}
 </style>
 
 <script id="eventia-v33-js">
