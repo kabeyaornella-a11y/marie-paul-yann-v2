@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Cahier des Charges — Invitations Digitales Eventia</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;500&family=Tenor+Sans&display=swap" rel="stylesheet"/>
+<style>
+/* ── RESET & BASE ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --ivory:   #F8F3EC;
+  --cream:   #FDF9F4;
+  --gold:    #C4A55A;
+  --gold-d:  #9A7A38;
+  --gold-l:  #E8D08A;
+  --brown:   #3A1F10;
+  --brown-m: #5C3D26;
+  --brown-l: #8A6040;
+  --black:   #1A1008;
+  --red:     #8B2020;
+  --green:   #1A5C3A;
+  --blue:    #1A3A5C;
+  --r: 'Cormorant Garamond', serif;
+  --s: 'Tenor Sans', sans-serif;
+  --k: 'Cinzel', serif;
+  --gap: 56px;
+}
+html { background: var(--ivory); color: var(--brown); font-family: var(--r); font-size: 16px; line-height: 1.6; }
+body { max-width: 860px; margin: 0 auto; padding: 60px 40px 100px; }
+
+/* ── TYPOGRAPHIE ── */
+h1 { font-family: var(--r); font-weight: 300; font-size: clamp(36px, 7vw, 64px); line-height: 1.05; letter-spacing: -0.01em; color: var(--brown); margin-bottom: 8px; }
+h2 { font-family: var(--r); font-weight: 300; font-size: clamp(26px, 4.5vw, 40px); line-height: 1.1; color: var(--brown); margin-top: 64px; margin-bottom: 6px; }
+h3 { font-family: var(--k); font-size: 11px; letter-spacing: 0.42em; text-transform: uppercase; color: var(--gold-d); margin-top: 40px; margin-bottom: 14px; font-weight: 400; }
+h4 { font-family: var(--k); font-size: 10px; letter-spacing: 0.36em; text-transform: uppercase; color: var(--brown-l); margin-top: 28px; margin-bottom: 10px; font-weight: 400; }
+p { font-family: var(--r); font-size: 18px; line-height: 1.75; color: var(--brown-m); margin-bottom: 14px; }
+p.intro { font-size: 20px; font-style: italic; line-height: 1.80; color: var(--brown-m); }
+strong { font-weight: 600; color: var(--brown); }
+em { font-style: italic; }
+code { font-family: 'Courier New', monospace; font-size: 13px; background: rgba(196,165,90,0.10); padding: 2px 6px; border-radius: 3px; color: var(--brown); }
+pre { background: #1A1008; color: #F3D391; border-radius: 8px; padding: 22px 26px; overflow-x: auto; margin: 20px 0; font-size: 12.5px; line-height: 1.65; border: 1px solid rgba(196,165,90,0.20); }
+pre code { background: none; padding: 0; color: inherit; font-size: inherit; }
+
+/* ── SEPARATORS ── */
+.gold-line { width: 140px; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); margin: 14px 0 0; }
+.gold-line-sm { width: 70px; height: 1px; background: linear-gradient(90deg, transparent, rgba(196,165,90,0.6), transparent); margin: 4px 0 28px; }
+.section-divider { width: 100%; height: 1px; background: linear-gradient(90deg, transparent, rgba(196,165,90,0.25), transparent); margin: 60px 0; }
+
+/* ── COVER PAGE ── */
+.cover { text-align: center; padding: 80px 0 60px; border-bottom: 1px solid rgba(196,165,90,0.20); margin-bottom: 72px; }
+.cover .tag { font-family: var(--k); font-size: 10px; letter-spacing: 0.5em; text-transform: uppercase; color: var(--gold-d); margin-bottom: 32px; display: block; }
+.cover h1 { font-size: clamp(32px, 6vw, 56px); }
+.cover .subtitle { font-family: var(--r); font-size: 20px; font-style: italic; color: var(--brown-l); margin-top: 12px; }
+.cover .version { font-family: var(--s); font-size: 11px; letter-spacing: 0.2em; color: var(--gold-d); margin-top: 40px; display: block; }
+.cover .gold-line { margin: 16px auto 4px; }
+.cover .gold-line-sm { margin: 0 auto 0; }
+
+/* ── TOC ── */
+.toc { background: rgba(196,165,90,0.06); border: 1px solid rgba(196,165,90,0.18); border-radius: 8px; padding: 32px 36px; margin-bottom: 60px; }
+.toc h3 { margin-top: 0; color: var(--gold-d); }
+.toc ol { list-style: none; padding: 0; counter-reset: toc; }
+.toc ol li { counter-increment: toc; display: flex; align-items: baseline; gap: 12px; padding: 5px 0; border-bottom: 1px solid rgba(196,165,90,0.10); font-family: var(--r); font-size: 17px; color: var(--brown-m); }
+.toc ol li::before { content: "0" counter(toc); font-family: var(--k); font-size: 10px; letter-spacing: 0.2em; color: var(--gold-d); min-width: 28px; }
+.toc ol li:last-child { border-bottom: none; }
+
+/* ── NUMBERED SECTIONS ── */
+.section-num { display: flex; align-items: center; gap: 18px; margin-top: 72px; margin-bottom: 0; }
+.section-num .num { font-family: var(--k); font-size: 10px; letter-spacing: 0.3em; color: var(--gold); }
+.section-num h2 { margin-top: 0; }
+
+/* ── TAGS — STATUTS ── */
+.tag-grid { display: flex; flex-wrap: wrap; gap: 10px; margin: 16px 0 24px; }
+.badge { display: inline-block; font-family: var(--s); font-size: 10.5px; letter-spacing: 0.12em; padding: 5px 14px; border-radius: 999px; }
+.badge.obligatoire { background: rgba(26, 92, 58, 0.10); color: var(--green); border: 1px solid rgba(26,92,58,0.25); }
+.badge.optionnel    { background: rgba(26, 58, 92, 0.10); color: var(--blue);  border: 1px solid rgba(26,58,92,0.25); }
+.badge.interdit     { background: rgba(139,32,32,0.10);   color: var(--red);   border: 1px solid rgba(139,32,32,0.25); }
+.badge.gold         { background: rgba(196,165,90,0.12);  color: var(--gold-d);border: 1px solid rgba(196,165,90,0.30); }
+
+/* ── TABLES ── */
+table { width: 100%; border-collapse: collapse; margin: 20px 0 32px; font-size: 15.5px; }
+thead th { font-family: var(--k); font-size: 9.5px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--gold-d); padding: 10px 14px; border-bottom: 2px solid rgba(196,165,90,0.30); text-align: left; }
+tbody td { padding: 11px 14px; border-bottom: 1px solid rgba(196,165,90,0.12); vertical-align: top; font-family: var(--r); color: var(--brown-m); line-height: 1.55; }
+tbody tr:last-child td { border-bottom: none; }
+tbody tr:hover td { background: rgba(196,165,90,0.04); }
+td.label { font-family: var(--k); font-size: 10px; letter-spacing: 0.25em; color: var(--brown); text-transform: uppercase; white-space: nowrap; }
+td.yes { color: var(--green); font-family: var(--s); font-size: 13px; font-weight: bold; }
+td.no  { color: var(--red);   font-family: var(--s); font-size: 13px; font-weight: bold; }
+
+/* ── CALLOUT BOXES ── */
+.callout { border-radius: 6px; padding: 18px 22px; margin: 20px 0; }
+.callout.warning { background: rgba(139,32,32,0.07); border-left: 3px solid var(--red); }
+.callout.info    { background: rgba(196,165,90,0.08); border-left: 3px solid var(--gold); }
+.callout.success { background: rgba(26,92,58,0.07);  border-left: 3px solid var(--green); }
+.callout p { margin: 0; font-size: 16px; }
+.callout strong { color: inherit; }
+
+/* ── CHECKLIST ── */
+.checklist { list-style: none; padding: 0; margin: 16px 0 28px; }
+.checklist li { display: flex; align-items: flex-start; gap: 12px; padding: 8px 0; border-bottom: 1px solid rgba(196,165,90,0.09); font-family: var(--r); font-size: 17px; color: var(--brown-m); line-height: 1.5; }
+.checklist li::before { content: '□'; font-size: 16px; color: var(--gold); min-width: 18px; margin-top: 1px; }
+.checklist li.critical::before { content: '◆'; color: var(--red); }
+.checklist li:last-child { border-bottom: none; }
+
+/* ── COLOR SWATCHES ── */
+.swatches { display: flex; flex-wrap: wrap; gap: 12px; margin: 16px 0 24px; }
+.swatch { display: flex; align-items: center; gap: 10px; font-family: var(--s); font-size: 12px; color: var(--brown-m); }
+.swatch-dot { width: 32px; height: 32px; border-radius: 50%; border: 1px solid rgba(0,0,0,0.08); flex-shrink: 0; }
+
+/* ── FONT PAIR ── */
+.font-pair { background: rgba(196,165,90,0.06); border: 1px solid rgba(196,165,90,0.18); border-radius: 8px; padding: 24px 28px; margin: 12px 0; }
+.font-pair .sample-title { font-family: var(--r); font-weight: 300; font-size: 36px; color: var(--brown); letter-spacing: -0.01em; margin-bottom: 6px; }
+.font-pair .sample-body  { font-family: var(--s); font-size: 14px; color: var(--brown-l); letter-spacing: 0.06em; }
+.font-pair .meta { font-family: var(--s); font-size: 11px; color: var(--gold-d); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 10px; }
+
+/* ── SECTION ANATOMY ── */
+.anatomy { background: #1A1008; border-radius: 10px; padding: 30px 34px; margin: 20px 0 30px; position: relative; overflow: hidden; }
+.anatomy::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+.anatomy h4 { color: var(--gold); margin-top: 0; margin-bottom: 16px; }
+.anatomy-row { display: flex; align-items: baseline; gap: 16px; padding: 6px 0; border-bottom: 1px solid rgba(196,165,90,0.10); }
+.anatomy-row:last-child { border-bottom: none; }
+.anatomy-el { font-family: var(--k); font-size: 9px; letter-spacing: 0.3em; color: var(--gold-l); min-width: 160px; text-transform: uppercase; }
+.anatomy-val { font-family: 'Courier New', monospace; font-size: 12px; color: rgba(243,211,145,0.85); }
+.anatomy-desc { font-family: var(--s); font-size: 11px; color: rgba(255,255,255,0.45); margin-left: auto; }
+
+/* ── SCALE TABLE ── */
+.scale-table { background: rgba(196,165,90,0.05); border-radius: 8px; padding: 20px 24px; margin: 16px 0 28px; }
+.scale-row { display: flex; align-items: center; gap: 16px; padding: 7px 0; border-bottom: 1px solid rgba(196,165,90,0.10); }
+.scale-row:last-child { border-bottom: none; }
+.scale-name { font-family: var(--k); font-size: 9px; letter-spacing: 0.3em; color: var(--gold-d); min-width: 120px; text-transform: uppercase; }
+.scale-css  { font-family: 'Courier New', monospace; font-size: 12px; color: var(--brown-m); flex: 1; }
+.scale-preview { font-family: var(--r); color: var(--brown); }
+
+/* ── PRINT ── */
+@media print {
+  body { padding: 30px 40px; max-width: 100%; }
+  .cover { padding: 40px 0 40px; }
+  h2, .section-num { page-break-before: auto; }
+  pre, .anatomy { page-break-inside: avoid; }
+  .toc { page-break-after: always; }
+  @page { margin: 20mm 22mm; size: A4; }
+}
+
+/* ── FOOTER ── */
+.doc-footer { text-align: center; margin-top: 100px; padding-top: 40px; border-top: 1px solid rgba(196,165,90,0.20); }
+.doc-footer p { font-size: 13px; color: var(--brown-l); font-family: var(--s); letter-spacing: 0.06em; }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════════
+     COVER
+══════════════════════════════════════════════════════ -->
+<div class="cover">
+  <span class="tag">Eventia Signature · Studio de faire-part digital</span>
+  <h1>Cahier des Charges<br>Invitation Digitale de Mariage</h1>
+  <p class="subtitle">Standard qualité The Digital Yes<br>Applicable à toutes les invitations</p>
+  <div class="gold-line"></div>
+  <div class="gold-line-sm"></div>
+  <span class="version">Version 1.0 · Juin 2026 · Confidentiel</span>
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     TABLE DES MATIÈRES
+══════════════════════════════════════════════════════ -->
+<div class="toc">
+  <h3>Sommaire</h3>
+  <ol>
+    <li>Philosophie & Positionnement</li>
+    <li>Système de Design Universel</li>
+    <li>Architecture des Sections</li>
+    <li>Standards Techniques Obligatoires</li>
+    <li>Animations & Interactions</li>
+    <li>Responsive — Règles Strictes</li>
+    <li>Ce qu'on supprime absolument</li>
+    <li>Ce qu'on ajoute systématiquement</li>
+    <li>Checklist Qualité avant livraison</li>
+    <li>Template CSS de base</li>
+  </ol>
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     01 — PHILOSOPHIE
+══════════════════════════════════════════════════════ -->
+<div class="section-num"><span class="num">01</span><h2>Philosophie &amp; Positionnement</h2></div>
+<div class="gold-line"></div><div class="gold-line-sm"></div>
+
+<p class="intro">Une invitation digitale n'est pas un flyer numérisé. C'est une <strong>expérience</strong> — la première que vivra l'invité avant le mariage. Elle doit provoquer une émotion, pas seulement transmettre une information.</p>
+
+<h3>Les 3 piliers inviolables</h3>
+<div class="callout info">
+  <p><strong>ÉMOTION D'ABORD.</strong> Chaque décision de design — espacement, typographie, animation — doit se justifier par l'émotion qu'elle produit. Si ça ne fait pas "WOW", c'est à retravailler.</p>
+</div>
+<div class="callout success">
+  <p><strong>MOBILE PARFAIT.</strong> 95 % des invités ouvriront l'invitation sur smartphone. Le design mobile n'est pas une version dégradée — c'est la version principale.</p>
+</div>
+<div class="callout warning">
+  <p><strong>ZÉRO COMPROMIS SUR LA QUALITÉ.</strong> Un seul élément cassé (texte coupé, bouton invisible, image floue) détruit la perception de toute l'invitation. Tester sur 5 appareils minimum avant livraison.</p>
+</div>
+
+<h3>Ce que The Digital Yes fait et que nous devons reproduire</h3>
+<table>
+  <thead><tr><th>Principe TDY</th><th>Traduction concrète</th></tr></thead>
+  <tbody>
+    <tr><td class="label">Respiration</td><td>Chaque section respire : padding 90–140px vertical. Le blanc n'est pas du vide, c'est du luxe.</td></tr>
+    <tr><td class="label">Un message par section</td><td>Une section = une seule idée. Pas de surcharge d'information.</td></tr>
+    <tr><td class="label">Typographie souveraine</td><td>Les titres dominent. Grande taille, poids léger (300), Cormorant Garamond.</td></tr>
+    <tr><td class="label">Scroll comme narration</td><td>Chaque scroll révèle quelque chose. Les animations au scroll sont des transitions émotionnelles, pas des effets.</td></tr>
+    <tr><td class="label">Or cohérent</td><td>La couleur or (#C4A55A) apparaît dans les mêmes contextes partout : séparateurs, kickers, accents CTA.</td></tr>
+    <tr><td class="label">Image premium</td><td>Les photos ont une présentation soignée : cadres, fondus, transitions douces.</td></tr>
+  </tbody>
+</table>
+
+<div class="section-divider"></div>
+
+<!-- ══════════════════════════════════════════════════════
+     02 — SYSTÈME DE DESIGN
+══════════════════════════════════════════════════════ -->
+<div class="section-num"><span class="num">02</span><h2>Système de Design Universel</h2></div>
+<div class="gold-line"></div><div class="gold-line-sm"></div>
+
+<h3>2.1 — Typographie</h3>
+<p>Deux Google Fonts maximum par invitation. La combinaison obligatoire :</p>
+
+<div class="font-pair">
+  <p class="meta">Font Display — Titres, Noms des mariés</p>
+  <p class="sample-title">Cormorant Garamond</p>
+  <p class="sample-body">Usage : h1, h2, es-title, noms des mariés, citations · Weight 300 (light italic)</p>
+</div>
+<div class="font-pair">
+  <p class="meta">Font Kicker — Labels, Boutons, Navigation</p>
+  <p class="sample-title" style="font-family:'Cinzel',serif;font-size:22px;letter-spacing:0.3em;font-weight:400">CINZEL</p>
+  <p class="sample-body">Usage : kickers, étiquettes, uppercase labels, numéros romains · Weight 400</p>
+</div>
+<div class="font-pair">
+  <p class="meta">Font Corps — Textes courants, Sous-titres</p>
+  <p class="sample-title" style="font-family:'Tenor Sans',sans-serif;font-size:22px;font-weight:400">Tenor Sans</p>
+  <p class="sample-body">Usage : paragraphes, descriptions, boutons CTA · Weight 400</p>
+</div>
+
+<div class="callout warning">
+  <p><strong>Interdiction absolue :</strong> Ne jamais utiliser plus de 3 familles de polices dans une même invitation. Pas d'Arial, pas de Roboto, pas de Open Sans — trop génériques, détruisent le prestige.</p>
+</div>
+
+<h3>2.2 — Échelle typographique</h3>
+<div class="scale-table">
+  <div class="scale-row"><span class="scale-name">H1 — Noms</span><span class="scale-css">clamp(42px, 10.5vw, 80px)</span><span class="scale-preview" style="font-size:28px">Marie-Paul &amp; Yann</span></div>
+  <div class="scale-row"><span class="scale-name">H2 — Section title</span><span class="scale-css">clamp(38px, 8.5vw, 70px)</span><span class="scale-preview" style="font-size:22px">Les lieux de notre promesse</span></div>
+  <div class="scale-row"><span class="scale-name">Kicker</span><span class="scale-css">clamp(9px, 1.8vw, 11.5px) · 0.44em</span><span class="scale-preview" style="font-family:'Cinzel',serif;font-size:10px;letter-spacing:0.4em;text-transform:uppercase">LES LIEUX</span></div>
+  <div class="scale-row"><span class="scale-name">Body copy</span><span class="scale-css">clamp(16px, 3.2vw, 22px)</span><span class="scale-preview" style="font-size:16px;font-style:italic">Votre présence est notre plus beau cadeau.</span></div>
+  <div class="scale-row"><span class="scale-name">Button label</span><span class="scale-css">10–12px · 0.22em letter-spacing</span><span class="scale-preview" style="font-family:'Tenor Sans',sans-serif;font-size:11px;letter-spacing:0.22em;text-transform:uppercase">VENEZ JUSQU'À NOUS</span></div>
+  <div class="scale-row"><span class="scale-name">Caption / note</span><span class="scale-css">13–14px · Tenor Sans</span><span class="scale-preview" style="font-family:'Tenor Sans',sans-serif;font-size:13px;color:#8A6040">Prix indicatif · à vérifier</span></div>
+</div>
+
+<h3>2.3 — Palette de couleurs</h3>
+<p>Chaque template peut avoir sa propre palette chromatique, mais les <strong>tons neutres de base</strong> restent constants :</p>
+
+<div class="swatches">
+  <div class="swatch"><div class="swatch-dot" style="background:#F8F3EC"></div><span>#F8F3EC — Ivoire principal<br><em>Background dominant</em></span></div>
+  <div class="swatch"><div class="swatch-dot" style="background:#C4A55A"></div><span>#C4A55A — Or TDY<br><em>Séparateurs, accents, kickers</em></span></div>
+  <div class="swatch"><div class="swatch-dot" style="background:#3A1F10"></div><span>#3A1F10 — Brun profond<br><em>Titres, textes forts</em></span></div>
+  <div class="swatch"><div class="swatch-dot" style="background:#5C3D26"></div><span>#5C3D26 — Brun moyen<br><em>Body text, paragraphes</em></span></div>
+  <div class="swatch"><div class="swatch-dot" style="background:#D8AE67"></div><span>#D8AE67 — Or clair<br><em>Boutons, highlights</em></span></div>
+  <div class="swatch"><div class="swatch-dot" style="background:#F3D391"></div><span>#F3D391 — Or pâle<br><em>Gradients boutons</em></span></div>
+</div>
+
+<p><strong>Variables CSS obligatoires à déclarer dans chaque invitation :</strong></p>
+<pre><code>:root {
+  /* Palette fixe universelle */
+  --ev-ivory:      #F7EFE3;
+  --ev-gold:       #C4A55A;
+  --ev-gold-deep:  #9A7A38;
+  --ev-gold-pale:  #F3D391;
+  --ev-brown:      #3A1F10;
+  --ev-brown-m:    #5C3D26;
+  --ev-brown-l:    #8A6040;
+
+  /* Espacements — NE JAMAIS valeur fixe */
+  --ev-gap:        clamp(90px, 11vw, 140px);   /* Sections standard */
+  --ev-gap-medium: clamp(60px,  8vw, 100px);   /* Sections secondaires */
+  --ev-gap-tight:  clamp(40px,  6vw,  70px);   /* Sections compactes */
+
+  /* Containers */
+  --ev-inner:      min(92vw, 960px);
+  --ev-inner-sm:   min(92vw, 720px);
+
+  /* Polices */
+  --ev-font-d:     'Cormorant Garamond', serif;
+  --ev-font-k:     'Cinzel', serif;
+  --ev-font-b:     'Tenor Sans', sans-serif;
+
+  /* Transitions */
+  --ev-ease:       cubic-bezier(0.16, 1, 0.3, 1);
+  --ev-dur-slow:   0.9s;
+  --ev-dur-mid:    0.6s;
+  --ev-dur-fast:   0.3s;
+}</code></pre>
+
+<h3>2.4 — Spacings</h3>
+<table>
+  <thead><tr><th>Contexte</th><th>Valeur CSS</th><th>Usage</th></tr></thead>
+  <tbody>
+    <tr><td class="label">Section standard</td><td><code>clamp(90px, 11vw, 140px)</code></td><td>Lieux, Cadeaux, Hébergements, etc.</td></tr>
+    <tr><td class="label">Section narrative</td><td><code>clamp(80px, 10vw, 130px)</code></td><td>Notre Histoire, Remerciements</td></tr>
+    <tr><td class="label">Section spéciale</td><td>Défini au cas par cas</td><td>RSVP avec rideau, Final, Date grattable</td></tr>
+    <tr><td class="label">Entre kicker et titre</td><td><code>18–20px</code></td><td>Toujours, sans exception</td></tr>
+    <tr><td class="label">Entre titre et séparateur</td><td><code>16–20px</code></td><td>Séparateur or après chaque h2</td></tr>
+    <tr><td class="label">Entre séparateur et copy</td><td><code>28–36px</code></td><td>Air entre la ligne et le texte</td></tr>
+    <tr><td class="label">Between paragraphes</td><td><code>14–18px</code></td><td>line-height 1.75 minimum</td></tr>
+    <tr><td class="label">Padding latéral mobile</td><td><code>clamp(16px, 5vw, 40px)</code></td><td>Sur tous les containers</td></tr>
+  </tbody>
+</table>
+
+<div class="section-divider"></div>
+
+<!-- ══════════════════════════════════════════════════════
+     03 — ARCHITECTURE DES SECTIONS
+══════════════════════════════════════════════════════ -->
+<div class="section-num"><span class="num">03</span><h2>Architecture des Sections</h2></div>
+<div class="gold-line"></div><div class="gold-line-sm"></div>
+
+<p class="intro">Voici la structure complète d'une invitation premium. Chaque section est classée <span class="badge obligatoire">OBLIGATOIRE</span>, <span class="badge optionnel">OPTIONNELLE</span> ou <span class="badge interdit">DÉCONSEILLÉE</span>.</p>
+
+<h3>Structure complète recommandée</h3>
+<table>
+  <thead><tr><th>Ordre</th><th>Section</th><th>Statut</th><th>Objectif</th></tr></thead>
+  <tbody>
+    <tr>
+      <td style="font-family:'Cinzel',serif;font-size:11px;color:var(--gold-d)">00</td>
+      <td><strong>Porte d'entrée</strong><br><small>Splash animé, vidéo ou image plein écran avec CTA "Vivre l'expérience"</small></td>
+      <td><span class="badge obligatoire">OBLIGATOIRE</span></td>
+      <td>Créer le WOW immédiat. C'est la première impression — irremplaçable.</td>
+    </tr>
+    <tr>
+      <td style="font-family:'Cinzel',serif;font-size:11px;color:var(--gold-d)">01</td>
+      <td><strong>Hero</strong><br><small>Photo couple + noms animés + citation + musique</small></td>
+      <td><span class="badge obligatoire">OBLIGATOIRE</span></td>
+      <td>Identité visuelle du mariage. Noms en grand, photo immersive, 100vh.</td>
+    </tr>
+    <tr>
+      <td style="font-family:'Cinzel',serif;font-size:11px;color:var(--gold-d)">02</td>
+      <td><strong>Notre Date</strong><br><small>Révélation de la date (médaillon grattable, animation, flipclock)</small></td>
+      <td><span class="badge obligatoire">OBLIGATOIRE</span></td>
+      <td>Moment d'interaction et de surprise. Rend l'invité acteur.</td>
+    </tr>
+    <tr>
+      <td style="font-family:'Cinzel',serif;font-size:11px;color:var(--gold-d)">03</td>
+      <td><strong>Compte à rebours</strong><br><small>Jours/heures/minutes/secondes avec déco</small></td>
+      <td><span class="badge obligatoire">OBLIGATOIRE</span></td>
+      <td>Crée l'impatience et l'anticipation. Urgent et émotionnel.</td>
+    </tr>
+    <tr>
+      <td style="font-family:'Cinzel',serif;font-size:11px;color:var(--gold-d)">04</td>
+      <td><strong>Notre Histoire</strong><br><small>Récit narratif, photos, citations bibliques ou personnelles</small></td>
+      <td><span class="badge obligatoire">OBLIGATOIRE</span></td>
+      <td>Donne l'âme à l'invitation. Sans histoire, c'est juste une convocation.</td>
+    </tr>
+    <tr>
+      <td style="font-family:'Cinzel',serif;font-size:11px;color:var(--gold-d)">05</td>
+      <td><strong>Les Lieux</strong><br><small>Mairie, cérémonie, réception avec photos carousel + bouton Maps</small></td>
+      <td><span class="badge obligatoire">OBLIGATOIRE</span></td>
+      <td>Informations pratiques mais présentées avec élégance.</td>
+    </tr>
+    <tr>
+      <td style="font-family:'Cinzel',serif;font-size:11px;color:var(--gold-d)">06</td>
+      <td><strong>Programme</strong><br><small>Timeline illustrée de la journée avec horaires</small></td>
+      <td><span class="badge obligatoire">OBLIGATOIRE</span></td>
+      <td>Guide l'invité. Réduit les questions pratiques.</td>
+    </tr>
+    <tr>
+      <td style="font-family:'Cinzel',serif;font-size:11px;color:var(--gold-d)">07</td>
+      <td><strong>Dress Code</strong><br><small>Palette de couleurs avec silhouettes, palettes, description</small></td>
+      <td><span class="badge obligatoire">OBLIGATOIRE</span></td>
+      <td>Évite les erreurs vestimentaires. Renforce l'univers visuel.</td>
+    </tr>
+    <tr>
+      <td style="font-family:'Cinzel',serif;font-size:11px;color:var(--gold-d)">08</td>
+      <td><strong>Hébergements</strong><br><small>2–3 hôtels recommandés avec prix et distance</small></td>
+      <td><span class="badge optionnel">OPTIONNELLE</span></td>
+      <td>Indispensable si des invités viennent de loin. Sinon à enlever.</td>
+    </tr>
+    <tr>
+      <td style="font-family:'Cinzel',serif;font-size:11px;color:var(--gold-d)">09</td>
+      <td><strong>Activités à faire</strong><br><small>3 activités/visites recommandées autour du lieu</small></td>
+      <td><span class="badge optionnel">OPTIONNELLE</span></td>
+      <td>Enrichit le séjour des invités extérieurs. Premium et attentionné.</td>
+    </tr>
+    <tr>
+      <td style="font-family:'Cinzel',serif;font-size:11px;color:var(--gold-d)">10</td>
+      <td><strong>Empreintes / Livre d'or</strong><br><small>Enveloppe interactive, partage photos, mots, musiques</small></td>
+      <td><span class="badge optionnel">OPTIONNELLE</span></td>
+      <td>Engagement interactif fort. Signature visuelle haute valeur.</td>
+    </tr>
+    <tr>
+      <td style="font-family:'Cinzel',serif;font-size:11px;color:var(--gold-d)">11</td>
+      <td><strong>Cadeaux</strong><br><small>Liste mariage + cagnotte + virement — accordéon élégant</small></td>
+      <td><span class="badge optionnel">OPTIONNELLE</span></td>
+      <td>Discret mais nécessaire. Accordéon = élégance sans imposer.</td>
+    </tr>
+    <tr>
+      <td style="font-family:'Cinzel',serif;font-size:11px;color:var(--gold-d)">12</td>
+      <td><strong>RSVP</strong><br><small>Formulaire complet avec confirmation animée</small></td>
+      <td><span class="badge obligatoire">OBLIGATOIRE</span></td>
+      <td>Fonction critique. Doit être parfait et mémorable.</td>
+    </tr>
+    <tr>
+      <td style="font-family:'Cinzel',serif;font-size:11px;color:var(--gold-d)">13</td>
+      <td><strong>Remerciements + Photo finale</strong><br><small>Message émouvant + belle photo couple avec noms animés</small></td>
+      <td><span class="badge obligatoire">OBLIGATOIRE</span></td>
+      <td>Clôture émotionnelle. Le dernier souvenir que l'invité emporte.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>Structure interne de chaque section (anatomie)</h3>
+<div class="anatomy">
+  <h4>Anatomie universelle d'une section standard</h4>
+  <div class="anatomy-row"><span class="anatomy-el">kicker</span><span class="anatomy-val">CINZEL · 10px · 0.44em · uppercase · --ev-gold-deep</span><span class="anatomy-desc">Label de section</span></div>
+  <div class="anatomy-row"><span class="anatomy-el">h2 / es-title</span><span class="anatomy-val">Cormorant · 300 · clamp(38px,8.5vw,70px)</span><span class="anatomy-desc">Titre principal</span></div>
+  <div class="anatomy-row"><span class="anatomy-el">line-main</span><span class="anatomy-val">1px · gradient or · 100–160px · margin 20px auto</span><span class="anatomy-desc">Séparateur or principal</span></div>
+  <div class="anatomy-row"><span class="anatomy-el">line-secondary</span><span class="anatomy-val">1px · gradient or léger · 50–80px · margin 0 auto 32px</span><span class="anatomy-desc">Sous-séparateur</span></div>
+  <div class="anatomy-row"><span class="anatomy-el">es-copy / p.intro</span><span class="anatomy-val">Cormorant italic · clamp(16px,3.2vw,22px) · line-height 1.80</span><span class="anatomy-desc">Paragraphe introductif</span></div>
+  <div class="anatomy-row"><span class="anatomy-el">contenu principal</span><span class="anatomy-val">Grid, carousel, form, iframe, etc.</span><span class="anatomy-desc">Corps de section</span></div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ══════════════════════════════════════════════════════
+     04 — STANDARDS TECHNIQUES
+══════════════════════════════════════════════════════ -->
+<div class="section-num"><span class="num">04</span><h2>Standards Techniques Obligatoires</h2></div>
+<div class="gold-line"></div><div class="gold-line-sm"></div>
+
+<h3>4.1 — Structure HTML</h3>
+<div class="callout info">
+  <p><strong>Règle absolue :</strong> Une invitation = 1 fichier HTML, 1 bloc &lt;style&gt; consolidé, 1 bloc &lt;script&gt; principal. Pas de CSS éparpillé en 8 blocs. Pas de !important sans raison documentée.</p>
+</div>
+
+<table>
+  <thead><tr><th>Élément</th><th>Standard requis</th><th></th></tr></thead>
+  <tbody>
+    <tr><td class="label">DOCTYPE</td><td><code>&lt;!DOCTYPE html&gt;&lt;html lang="fr"&gt;</code></td><td class="yes">✓</td></tr>
+    <tr><td class="label">Viewport</td><td><code>width=device-width, initial-scale=1, maximum-scale=5, viewport-fit=cover</code></td><td class="yes">✓</td></tr>
+    <tr><td class="label">Meta OG</td><td>og:title, og:description, og:image, og:locale · Twitter card</td><td class="yes">✓</td></tr>
+    <tr><td class="label">Lang ARIA</td><td>data-i18n sur tous les textes traduits, aria-label sur nav et sections</td><td class="yes">✓</td></tr>
+    <tr><td class="label">Images ALT</td><td>Toutes les images déoratives = <code>alt=""</code>. Photos couple = description.</td><td class="yes">✓</td></tr>
+    <tr><td class="label">CSS blocs</td><td>1 seul bloc &lt;style&gt; au maximum · variables :root en tête</td><td class="yes">✓</td></tr>
+    <tr><td class="label">JS blocs</td><td>1 script principal + scripts fonctionnels dédiés (carousel, tabs, etc.)</td><td class="yes">✓</td></tr>
+    <tr><td class="label">-webkit- préfixes</td><td>Obligatoires sur transform, transition, animation, flexbox, background-clip</td><td class="yes">✓</td></tr>
+  </tbody>
+</table>
+
+<h3>4.2 — Images : standard Cloudinary</h3>
+<pre><code>/* URL format recommandé : optimisé, WebP automatique */
+https://res.cloudinary.com/{cloud_name}/image/upload/
+  q_auto,f_auto,w_auto,dpr_auto/
+  {dossier}/{fichier}.jpg
+
+/* Attributs HTML obligatoires sur toutes les images */
+&lt;img
+  src="https://res.cloudinary.com/..."
+  alt="Description précise"
+  loading="lazy"           /* hors viewport */
+  decoding="async"
+  width="800" height="600" /* éviter layout shift */
+/&gt;
+
+/* Ne jamais uploader une image &gt; 1.5 MB */
+/* Toujours livrer en WebP (.webp) ou en auto via Cloudinary */</code></pre>
+
+<h3>4.3 — Cache Netlify</h3>
+<pre><code># netlify.toml — Configuration obligatoire
+[build]
+  publish = "."
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# JS/CSS versionnés peuvent être cachés plus longtemps
+[[headers]]
+  for = "*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=86400, stale-while-revalidate=3600"</code></pre>
+
+<h3>4.4 — Performance — Règles strictes</h3>
+<ul class="checklist">
+  <li>Toutes les images hors viewport ont <code>loading="lazy"</code></li>
+  <li>La photo hero et les images above-the-fold ont <code>loading="eager"</code></li>
+  <li>Les iframes (timeline, countdown, scratch) ont <code>loading="lazy"</code></li>
+  <li>Pas d'animation <code>will-change</code> sur plus de 5 éléments simultanément</li>
+  <li class="critical">Aucune animation CSS sur <code>width</code>, <code>height</code>, <code>top</code>, <code>left</code> — uniquement <code>transform</code> et <code>opacity</code></li>
+  <li>Police chargée via Google Fonts avec <code>display=swap</code></li>
+  <li>Musique : <code>preload="none"</code> — chargement uniquement au clic</li>
+</ul>
+
+<div class="section-divider"></div>
+
+<!-- ══════════════════════════════════════════════════════
+     05 — ANIMATIONS & INTERACTIONS
+══════════════════════════════════════════════════════ -->
+<div class="section-num"><span class="num">05</span><h2>Animations &amp; Interactions</h2></div>
+<div class="gold-line"></div><div class="gold-line-sm"></div>
+
+<h3>5.1 — Scroll Reveal (OBLIGATOIRE sur toutes les invitations)</h3>
+<p>La signature visuelle de TDY. Chaque contenu entre dans l'écran avec une transition douce. <strong>Ce système doit être présent dans 100% des invitations.</strong></p>
+
+<pre><code>/* CSS — États du scroll reveal */
+.ev-reveal {
+  opacity: 0;
+  transform: translateY(36px);
+  transition:
+    opacity  0.9s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+.ev-reveal.ev-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* Délais de stagger pour groupe d'éléments */
+.ev-d1 { transition-delay: 0.10s; }
+.ev-d2 { transition-delay: 0.20s; }
+.ev-d3 { transition-delay: 0.32s; }
+.ev-d4 { transition-delay: 0.46s; }</code></pre>
+
+<pre><code>/* JS — IntersectionObserver (à inclure dans chaque invitation) */
+(function() {
+  'use strict';
+  var TARGETS = '.es-kicker, .es-title, .date-title-line-main, ' +
+    '.es-copy, .place-v09, .c3-item.is-active, .gift-accord-item, ' +
+    '.countdown-title, .gifts-presence-phrase, .final-couple, ' +
+    '.thanks-copy-main, .act-tabs';
+
+  function init() {
+    if (!('IntersectionObserver' in window)) return;
+    var obs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (!e.isIntersecting) return;
+        var delay = e.target._evDelay || 0;
+        setTimeout(function() {
+          e.target.classList.add('ev-visible');
+        }, delay);
+        obs.unobserve(e.target);
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -48px 0px' });
+
+    document.querySelectorAll(TARGETS).forEach(function(el) {
+      var rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight * 0.92) return; /* déjà visible */
+      el._evDelay = 0; /* calculer si nécessaire */
+      el.classList.add('ev-reveal');
+      obs.observe(el);
+    });
+  }
+
+  document.readyState === 'loading'
+    ? document.addEventListener('DOMContentLoaded', function() { setTimeout(init, 120); })
+    : setTimeout(init, 120);
+})();</code></pre>
+
+<h3>5.2 — Catalogue d'animations autorisées</h3>
+<table>
+  <thead><tr><th>Animation</th><th>Usage autorisé</th><th>Durée recommandée</th></tr></thead>
+  <tbody>
+    <tr><td class="label">Fade in + slide up</td><td>Révélation au scroll de tous les éléments</td><td>0.9s ease cubic-bezier(0.16,1,0.3,1)</td></tr>
+    <tr><td class="label">Shimmer or</td><td>Boutons CTA, noms finaux, titres clés</td><td>3–5s linear infinite</td></tr>
+    <tr><td class="label">Sparkles canvas</td><td>Hero uniquement · maximum 1 zone</td><td>Canvas animationFrame</td></tr>
+    <tr><td class="label">Sweep reveal</td><td>Citations sacrées, versets bibliques</td><td>0.8s par ligne, décalé</td></tr>
+    <tr><td class="label">Float déco</td><td>Éléments botaniques, décorations légères</td><td>6–8s ease-in-out infinite</td></tr>
+    <tr><td class="label">Pulse point</td><td>Points de navigation, indicateurs</td><td>2s ease-in-out infinite</td></tr>
+    <tr><td class="label">Scale hover</td><td>Images, cartes, boutons</td><td>0.5s ease · scale(1.03–1.05)</td></tr>
+    <tr><td class="label">Caroussel auto</td><td>Photos de lieux (si besoin)</td><td>Déclenchement manuel uniquement</td></tr>
+  </tbody>
+</table>
+
+<h3>5.3 — Animations INTERDITES</h3>
+<div class="tag-grid">
+  <span class="badge interdit">Clignotements agressifs</span>
+  <span class="badge interdit">Rotations complètes 360°</span>
+  <span class="badge interdit">Bounce / élastique fort</span>
+  <span class="badge interdit">Animations sur le scroll continu (parallax excessif)</span>
+  <span class="badge interdit">Confettis sur l'ensemble de la page</span>
+  <span class="badge interdit">Pop-ups publicitaires ou modales non demandées</span>
+  <span class="badge interdit">Animations &gt; 5s sur un seul élément</span>
+  <span class="badge interdit">Effets sonores automatiques (sauf musique opt-in)</span>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ══════════════════════════════════════════════════════
+     06 — RESPONSIVE
+══════════════════════════════════════════════════════ -->
+<div class="section-num"><span class="num">06</span><h2>Responsive — Règles Strictes</h2></div>
+<div class="gold-line"></div><div class="gold-line-sm"></div>
+
+<p class="intro">Le responsive n'est pas une option. C'est la version principale. <strong>Le design se conçoit d'abord pour iPhone 14 Pro (390px), puis s'adapte vers le haut.</strong></p>
+
+<h3>6.1 — Breakpoints obligatoires</h3>
+<pre><code>/* Mobile portrait — point de départ (390px) */
+/* AUCUN media query = design mobile */
+
+/* Tablette */
+@media (min-width: 768px) {
+  /* 2 colonnes possibles, padding augmenté */
+}
+
+/* Laptop / Desktop */
+@media (min-width: 1024px) {
+  /* Layouts 2-3 colonnes, max-width 960px centré */
+}
+
+/* Grand écran */
+@media (min-width: 1280px) {
+  /* Rarement nécessaire — max-width suffit */
+}</code></pre>
+
+<h3>6.2 — Typographie fluide — TOUJOURS clamp()</h3>
+<div class="callout warning">
+  <p><strong>Règle stricte :</strong> Aucune taille de police fixe sur les titres, kickers, ou copy. Tout doit utiliser <code>clamp(min, valeur-fluide, max)</code>. Une taille fixe en px = un bug sur un autre écran.</p>
+</div>
+<pre><code>/* ✓ BON — adaptatif */
+.es-title { font-size: clamp(30px, 8.5vw, 70px); }
+.es-copy  { font-size: clamp(15px, 3.2vw, 22px); }
+.es-kicker{ font-size: clamp(9px,  1.8vw, 11.5px); }
+
+/* ✗ MAUVAIS — fixe, cassera sur un autre écran */
+.es-title { font-size: 48px; }
+.es-copy  { font-size: 18px; }</code></pre>
+
+<h3>6.3 — Tableaux de tests obligatoires</h3>
+<table>
+  <thead><tr><th>Appareil</th><th>Largeur</th><th>Points à vérifier</th></tr></thead>
+  <tbody>
+    <tr><td class="label">iPhone SE</td><td>375px</td><td>Noms héros non coupés · Boutons cliquables (min 44px) · RSVP utilisable</td></tr>
+    <tr><td class="label">iPhone 14 Pro</td><td>390px</td><td>Version de référence · Tout parfait ici</td></tr>
+    <tr><td class="label">Samsung Galaxy</td><td>412px</td><td>Scroll smooth · Animations fluides · Aucun débordement</td></tr>
+    <tr><td class="label">iPad Mini</td><td>768px</td><td>Grilles 2 colonnes · Carousel fonctionnel</td></tr>
+    <tr><td class="label">MacBook Pro</td><td>1440px</td><td>Max-width respecté · Centrage correct · Respiration maximale</td></tr>
+    <tr><td class="label">Samsung Internet</td><td>—</td><td>Préfixes -webkit- présents · Flexbox OK · Gradients OK</td></tr>
+    <tr><td class="label">Safari iOS</td><td>—</td><td>viewport-fit=cover · Aucun élément coupé par l'encoche · Audio OK</td></tr>
+  </tbody>
+</table>
+
+<div class="section-divider"></div>
+
+<!-- ══════════════════════════════════════════════════════
+     07 — CE QU'ON SUPPRIME
+══════════════════════════════════════════════════════ -->
+<div class="section-num"><span class="num">07</span><h2>Ce qu'on supprime absolument</h2></div>
+<div class="gold-line"></div><div class="gold-line-sm"></div>
+
+<p>Ces erreurs reviennent dans toutes les premières versions. Les identifier et les éliminer avant livraison :</p>
+
+<ul class="checklist">
+  <li class="critical"><strong>CSS fragmenté en 5+ blocs &lt;style&gt;</strong> — chaque session ajoute un nouveau bloc au lieu de modifier l'existant. Résultat : conflits de spécificité, maintenance impossible, fichier ingérable.</li>
+  <li class="critical"><strong>!important sur tout</strong> — quand tout est !important, rien ne l'est. Réserver aux overrides légitimes uniquement (&lt; 10% des règles).</li>
+  <li class="critical"><strong>Sections sans padding vertical suffisant</strong> — padding inférieur à 60px sur une section standard. Le blanc est du luxe, pas du vide à remplir.</li>
+  <li class="critical"><strong>Textes trop petits sur mobile</strong> — toute taille de police &lt; 14px pour du corps de texte sur mobile est une erreur d'accessibilité ET d'élégance.</li>
+  <li><strong>Polices sans fallback</strong> — toujours mettre <code>serif</code> ou <code>sans-serif</code> en fallback après la Google Font.</li>
+  <li><strong>Images sans dimensions</strong> — provoquer du layout shift (CLS) dégradant la note PageSpeed et l'UX perçue.</li>
+  <li><strong>Boutons sans hover/focus state</strong> — un bouton statique semble cassé sur desktop. Toujours une transition au hover.</li>
+  <li><strong>JavaScript dupliqué</strong> — même fonction déclarée 2x dans le même fichier (ex: fitRomans déclarée dans 2 blocs &lt;script&gt; distincts).</li>
+  <li><strong>Sections vides ou placeholders</strong> — jamais livrer avec des "#", des "Lorem ipsum", des boutons qui ne font rien.</li>
+  <li><strong>Scroll horizontal</strong> — tout élément qui dépasse la largeur de l'écran est une erreur critique. Tester avec <code>overflow-x: hidden</code> sur body si nécessaire.</li>
+  <li><strong>Couleurs incohérentes</strong> — utiliser 4 valeurs différentes pour "le gold" dans le même fichier. Tout passe par les variables CSS <code>:root</code>.</li>
+  <li><strong>Animations qui tournent dans le vide</strong> — animations <code>infinite</code> sur des éléments hors viewport qui consomment du CPU inutilement. Utiliser <code>IntersectionObserver</code> pour les activer/désactiver.</li>
+</ul>
+
+<div class="section-divider"></div>
+
+<!-- ══════════════════════════════════════════════════════
+     08 — CE QU'ON AJOUTE
+══════════════════════════════════════════════════════ -->
+<div class="section-num"><span class="num">08</span><h2>Ce qu'on ajoute systématiquement</h2></div>
+<div class="gold-line"></div><div class="gold-line-sm"></div>
+
+<div class="tag-grid">
+  <span class="badge obligatoire">Scroll Reveal IntersectionObserver</span>
+  <span class="badge obligatoire">Variables CSS :root complètes</span>
+  <span class="badge obligatoire">Musique ambient avec bouton on/off</span>
+  <span class="badge obligatoire">Navigation points latérale</span>
+  <span class="badge obligatoire">Bouton langue FR/EN</span>
+  <span class="badge obligatoire">Séparateurs or entre titre et copy</span>
+  <span class="badge obligatoire">Confirmation RSVP animée</span>
+  <span class="badge gold">Animation porte d'entrée</span>
+  <span class="badge gold">Sparkles canvas sur hero</span>
+  <span class="badge gold">Noms finaux avec shimmer or</span>
+  <span class="badge gold">Révélation de date interactive</span>
+  <span class="badge gold">Carousel photos lieux avec cadre</span>
+  <span class="badge gold">Dresscode avec palette couleurs visuelle</span>
+  <span class="badge optionnel">Compte à rebours animé</span>
+  <span class="badge optionnel">Enveloppe interactive livre d'or</span>
+  <span class="badge optionnel">Timeline programme illustrée</span>
+  <span class="badge optionnel">Accordéon cadeaux discret</span>
+</div>
+
+<h3>8.1 — Fonctionnalités premium à proposer systématiquement</h3>
+<table>
+  <thead><tr><th>Feature</th><th>Description</th><th>Impact client</th></tr></thead>
+  <tbody>
+    <tr><td class="label">RSVP connecté</td><td>Formulaire relié à Google Sheets ou Netlify Forms — le couple reçoit les réponses en temps réel</td><td>⭐⭐⭐⭐⭐ — Très demandé</td></tr>
+    <tr><td class="label">Musique personnalisée</td><td>Chanson du couple en fond sonore, contrôlable</td><td>⭐⭐⭐⭐⭐ — Très émotionnel</td></tr>
+    <tr><td class="label">Bilingue FR/EN</td><td>Bouton de langue sur toutes les sections</td><td>⭐⭐⭐⭐ — Si invités étrangers</td></tr>
+    <tr><td class="label">Révélation de date</td><td>Grattage, flip, animation — rend l'invité acteur</td><td>⭐⭐⭐⭐⭐ — Signature forte</td></tr>
+    <tr><td class="label">Ajouter au calendrier</td><td>Bouton .ics — rappel automatique dans l'agenda invité</td><td>⭐⭐⭐⭐ — Pratique</td></tr>
+    <tr><td class="label">Google Maps intégré</td><td>Lien direct Maps pour les lieux</td><td>⭐⭐⭐⭐ — Indispensable</td></tr>
+    <tr><td class="label">Partage WhatsApp</td><td>Bouton de partage en 1 clic</td><td>⭐⭐⭐ — Pratique</td></tr>
+    <tr><td class="label">Livre d'or digital</td><td>Enveloppe interactive : mots, photos, musiques</td><td>⭐⭐⭐⭐ — Différenciant</td></tr>
+  </tbody>
+</table>
+
+<div class="section-divider"></div>
+
+<!-- ══════════════════════════════════════════════════════
+     09 — CHECKLIST QUALITÉ
+══════════════════════════════════════════════════════ -->
+<div class="section-num"><span class="num">09</span><h2>Checklist Qualité — Avant Livraison</h2></div>
+<div class="gold-line"></div><div class="gold-line-sm"></div>
+
+<p>À valider sur <strong>au minimum 3 appareils réels</strong> (iPhone, Android, Desktop) avant tout envoi au client.</p>
+
+<h3>Design &amp; Typographie</h3>
+<ul class="checklist">
+  <li>Tous les titres utilisent Cormorant Garamond, poids 300</li>
+  <li>Tous les kickers utilisent Cinzel, uppercase, letter-spacing 0.4em+</li>
+  <li>La couleur or est partout la même (variable --ev-gold)</li>
+  <li>Chaque section a un séparateur or principal + secondaire sous le titre</li>
+  <li>Le padding vertical de chaque section est ≥ 60px (idéal 90–140px)</li>
+  <li>La largeur max du contenu est ≤ 960px et centré</li>
+  <li class="critical">Aucun texte ne sort de son container (débordement horizontal = BLOQUANT)</li>
+</ul>
+
+<h3>Animations &amp; Scroll</h3>
+<ul class="checklist">
+  <li>Le scroll reveal est activé sur kicker, titre, séparateurs, copy de chaque section</li>
+  <li>Les animations au scroll sont douces (≥ 0.7s, cubic-bezier(0.16,1,0.3,1))</li>
+  <li>La porte d'entrée fonctionne (CTA visible, transition fluide vers le hero)</li>
+  <li>Les sparkles du hero sont visibles mais non envahissants</li>
+  <li>Le shimmer or sur les noms finaux fonctionne sur Safari iOS</li>
+  <li>Les animations d'entrée ne "flashent" pas (pas de FOUC)</li>
+</ul>
+
+<h3>Fonctionnalités</h3>
+<ul class="checklist">
+  <li>La musique se lance au clic et peut être coupée</li>
+  <li>Le changement de langue FR/EN fonctionne sur toutes les sections</li>
+  <li>La navigation dots latérale pointe vers les bonnes sections</li>
+  <li>Les carousels de lieux fonctionnent (flèches, auto-slide si activé)</li>
+  <li>Le carousel hébergements fonctionne</li>
+  <li>Les onglets d'activités basculent correctement</li>
+  <li>L'accordéon cadeaux s'ouvre et se ferme</li>
+  <li class="critical">Le RSVP envoie les données et affiche la confirmation</li>
+  <li>Le bouton "Ajouter au calendrier" télécharge le .ics</li>
+  <li>Tous les liens Maps s'ouvrent (tester sur mobile)</li>
+</ul>
+
+<h3>Responsive</h3>
+<ul class="checklist">
+  <li class="critical">Aucun scroll horizontal sur iPhone SE (375px)</li>
+  <li>Tous les boutons ont une zone cliquable ≥ 44×44px</li>
+  <li>Les images ne débordent pas de leur container</li>
+  <li>Les noms des mariés sont entiers et lisibles sur 375px</li>
+  <li>Le formulaire RSVP est utilisable sur mobile</li>
+  <li>Les onglets/tabs s'affichent correctement sur petit écran</li>
+  <li>La police ne rétrécit pas sous 14px sur mobile (iOS text-size-adjust: 100%)</li>
+</ul>
+
+<h3>Performance &amp; Technique</h3>
+<ul class="checklist">
+  <li>Toutes les images hors viewport ont loading="lazy"</li>
+  <li>Le fichier HTML fait moins de 1 MB (idéal &lt; 700 KB hors images)</li>
+  <li>netlify.toml est présent avec les Cache-Control corrects</li>
+  <li>Le titre HTML contient le numéro de version (ex: · v30)</li>
+  <li class="critical">Aucun chemin d'image cassé (404)</li>
+  <li>Les iframes (timeline, countdown, scratch) chargent correctement</li>
+  <li>Le site fonctionne sans JS (contenu visible, pas d'écran blanc)</li>
+</ul>
+
+<div class="section-divider"></div>
+
+<!-- ══════════════════════════════════════════════════════
+     10 — TEMPLATE CSS DE BASE
+══════════════════════════════════════════════════════ -->
+<div class="section-num"><span class="num">10</span><h2>Template CSS de Base</h2></div>
+<div class="gold-line"></div><div class="gold-line-sm"></div>
+
+<p>Ce bloc CSS est le point de départ de chaque nouvelle invitation. Il définit le socle commun inviolable.</p>
+
+<pre><code>/* ================================================================
+   EVENTIA INVITATION — CSS FONDATION v1
+   À copier en tête de chaque nouvelle invitation
+   ================================================================ */
+
+/* 1. RESET */
+*, *::before, *::after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* 2. VARIABLES DESIGN */
+:root {
+  --ev-ivory:      #F7EFE3;
+  --ev-gold:       #C4A55A;
+  --ev-gold-deep:  #9A7A38;
+  --ev-gold-pale:  #F3D391;
+  --ev-brown:      #3A1F10;
+  --ev-brown-m:    #5C3D26;
+  --ev-brown-l:    #8A6040;
+
+  --ev-gap:        clamp(90px, 11vw, 140px);
+  --ev-gap-m:      clamp(60px,  8vw, 100px);
+  --ev-inner:      min(92vw, 960px);
+  --ev-inner-sm:   min(92vw, 720px);
+
+  --ev-font-d:     'Cormorant Garamond', serif;
+  --ev-font-k:     'Cinzel', serif;
+  --ev-font-b:     'Tenor Sans', sans-serif;
+
+  --ev-ease:       cubic-bezier(0.16, 1, 0.3, 1);
+  --ev-dur:        0.9s;
+}
+
+/* 3. BASE HTML */
+html {
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scroll-behavior: smooth;
+  background: var(--ev-ivory);
+}
+body {
+  font-family: var(--ev-font-d);
+  color: var(--ev-brown);
+  background: var(--ev-ivory);
+  overflow-x: hidden;
+  min-height: 100%;
+  width: 100%;
+}
+
+/* 4. SECTIONS */
+.es-section {
+  position: relative;
+  background: var(--ev-ivory);
+  overflow: hidden;
+  padding-top:    var(--ev-gap);
+  padding-bottom: var(--ev-gap);
+  padding-left:   clamp(16px, 5vw, 40px);
+  padding-right:  clamp(16px, 5vw, 40px);
+}
+
+/* 5. INNER CONTAINER */
+.es-inner {
+  width: var(--ev-inner);
+  max-width: 960px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+/* 6. TYPOGRAPHIE SECTIONS */
+.es-kicker {
+  font-family: var(--ev-font-k);
+  font-size: clamp(9px, 1.8vw, 11.5px);
+  letter-spacing: 0.44em;
+  text-transform: uppercase;
+  color: var(--ev-gold-deep);
+  margin-bottom: 18px;
+  display: block;
+}
+.es-title {
+  font-family: var(--ev-font-d);
+  font-weight: 300;
+  font-size: clamp(38px, 8.5vw, 70px);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  color: var(--ev-brown);
+  margin-bottom: 0;
+}
+.es-copy {
+  font-family: var(--ev-font-d);
+  font-style: italic;
+  font-size: clamp(16px, 3.2vw, 22px);
+  line-height: 1.80;
+  color: var(--ev-brown-m);
+  max-width: 720px;
+  margin: 0 auto 32px;
+}
+
+/* 7. SÉPARATEURS OR */
+.line-main {
+  display: block;
+  width: clamp(100px, 18vw, 160px);
+  height: 1px;
+  background: -webkit-linear-gradient(
+    left, transparent, var(--ev-gold-deep), #F3D391, var(--ev-gold-deep), transparent
+  );
+  background: linear-gradient(
+    90deg, transparent, var(--ev-gold-deep), #F3D391, var(--ev-gold-deep), transparent
+  );
+  -webkit-box-shadow: 0 0 10px rgba(155,122,56,.2);
+  box-shadow: 0 0 10px rgba(155,122,56,.2);
+  border: none;
+  margin: 20px auto 5px;
+}
+.line-sec {
+  display: block;
+  width: clamp(50px, 9vw, 80px);
+  height: 1px;
+  background: -webkit-linear-gradient(
+    left, transparent, rgba(196,165,90,0.55), transparent
+  );
+  background: linear-gradient(
+    90deg, transparent, rgba(196,165,90,0.55), transparent
+  );
+  border: none;
+  margin: 0 auto 32px;
+}
+
+/* 8. BOUTONS */
+.btn-gold {
+  display: inline-block;
+  font-family: var(--ev-font-b);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #2A221F;
+  padding: 16px 32px;
+  border-radius: 999px;
+  border: none;
+  background: -webkit-linear-gradient(135deg, #F3D391 0%, #D8AE67 48%, #B68A36 100%);
+  background: linear-gradient(135deg, #F3D391 0%, #D8AE67 48%, #B68A36 100%);
+  -webkit-box-shadow: 0 14px 32px rgba(180,138,50,.28), inset 0 1px 0 rgba(255,255,255,.45);
+  box-shadow: 0 14px 32px rgba(180,138,50,.28), inset 0 1px 0 rgba(255,255,255,.45);
+  cursor: pointer;
+  text-decoration: none;
+  -webkit-transition: -webkit-transform var(--ev-dur-fast) ease, -webkit-box-shadow var(--ev-dur-fast) ease;
+  transition: transform var(--ev-dur-fast) ease, box-shadow var(--ev-dur-fast) ease;
+  white-space: nowrap;
+}
+.btn-gold:hover {
+  -webkit-transform: translateY(-2px);
+  -ms-transform: translateY(-2px);
+  transform: translateY(-2px);
+  -webkit-box-shadow: 0 20px 44px rgba(180,138,50,.38), inset 0 1px 0 rgba(255,255,255,.45);
+  box-shadow: 0 20px 44px rgba(180,138,50,.38), inset 0 1px 0 rgba(255,255,255,.45);
+}
+.btn-outline {
+  display: inline-block;
+  font-family: var(--ev-font-k);
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--ev-brown);
+  padding: 12px 28px;
+  border-radius: 999px;
+  border: 1px solid rgba(196, 165, 90, 0.55);
+  background: transparent;
+  cursor: pointer;
+  text-decoration: none;
+  -webkit-transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+.btn-outline:hover {
+  background: var(--ev-gold);
+  color: #fff;
+  border-color: var(--ev-gold);
+}
+
+/* 9. SCROLL REVEAL */
+.ev-reveal {
+  opacity: 0;
+  -webkit-transform: translateY(36px);
+  -ms-transform: translateY(36px);
+  transform: translateY(36px);
+  -webkit-transition: opacity var(--ev-dur) var(--ev-ease),
+                      -webkit-transform var(--ev-dur) var(--ev-ease);
+  transition: opacity var(--ev-dur) var(--ev-ease),
+              transform var(--ev-dur) var(--ev-ease);
+}
+.ev-reveal.ev-visible {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+  -ms-transform: translateY(0);
+  transform: translateY(0);
+}
+.ev-d1 { -webkit-transition-delay: .10s; transition-delay: .10s; }
+.ev-d2 { -webkit-transition-delay: .20s; transition-delay: .20s; }
+.ev-d3 { -webkit-transition-delay: .32s; transition-delay: .32s; }
+
+/* 10. RESPONSIVE */
+@media (max-width: 1024px) {
+  :root { --ev-gap: clamp(70px, 10vw, 110px); }
+  .es-inner { width: min(94vw, 860px); max-width: 860px; }
+}
+@media (max-width: 768px) {
+  :root { --ev-gap: clamp(60px, 10vw, 90px); }
+  .es-inner { width: min(94vw, 680px); max-width: 680px; }
+  .es-title { font-size: clamp(30px, 9.5vw, 54px); }
+  .es-copy  { font-size: clamp(15px, 4.5vw, 20px); }
+}
+@media (max-width: 480px) {
+  :root { --ev-gap: clamp(50px, 12vw, 72px); }
+  .es-inner { width: min(96vw, 440px); max-width: 440px; }
+  .es-title { font-size: clamp(26px, 10vw, 44px); }
+}</code></pre>
+
+<div class="section-divider"></div>
+
+<!-- ══════════════════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════════════════ -->
+<div class="doc-footer">
+  <div class="gold-line" style="margin: 0 auto 6px;"></div>
+  <div class="gold-line-sm" style="margin: 0 auto 24px;"></div>
+  <p>Eventia Signature · Cahier des Charges Invitations Digitales</p>
+  <p style="margin-top:6px">Version 1.0 · Juin 2026 · Confidentiel · Usage interne</p>
+  <p style="margin-top:6px;font-style:italic;font-family:'Cormorant Garamond',serif;font-size:16px;color:#C4A55A">
+    "Une invitation parfaite ne s'improvise pas. Elle se conçoit."
+  </p>
+</div>
+
+</body>
+</html>
