@@ -9990,15 +9990,6 @@ window.toggleMusic = function() {
   else setTimeout(installSvgName,50);
 })();
 </script>
-<section class="thanks-chapter es-section" id="remerciements">
-<div class="es-inner">
-<div class="es-kicker" data-i18n="thanks_kicker">REMERCIEMENTS</div>
-<h2 class="es-title" data-i18n="thanks_title">Merci de faire partie de notre histoire</h2>
-<div class="date-title-line-main"></div><div class="date-title-line-secondary"></div>
-<p class="es-copy thanks-copy-main" style="opacity:1!important;visibility:visible!important;background:none!important;-webkit-background-clip:unset!important;background-clip:unset!important;-webkit-text-fill-color:#5C3D26!important;color:#5C3D26!important;">Lorsque les lumières s'adouciront, il restera l'essentiel : les souvenirs précieux partagés avec ceux que nous aimons.</p>
-<p class="es-copy thanks-copy-sub" style="margin-top:12px!important;opacity:1!important;visibility:visible!important;-webkit-text-fill-color:#5C3D26!important;color:#5C3D26!important;">Le plus beau chapitre de notre histoire reste encore à écrire.</p>
-</div>
-</section>
 <section class="date-chapter" id="notre-date">
 <div class="date-inner">
 <div class="es-kicker" data-i18n="date_kicker">NOTRE DATE</div>
@@ -10049,14 +10040,13 @@ window.toggleMusic = function() {
     <p class="chapter-label">La promesse</p>
     <div class="para-wrap"><div class="roman">III</div><p class="story-text">Aujourd’hui, il est temps pour nous de consacrer cette promesse devant Dieu et devant ceux que nous aimons. Ce jour marquera bien plus qu’un mariage, il sera la naissance officielle d’une seule et même famille, unie pour toujours dans l’amour, la foi et la fidélité.</p></div>
   </article>
-  <div class="final-photo-wrap">
-    <img class="story-img final-img" src="https://res.cloudinary.com/didid8vcu/image/upload/mpyann/couple-story-5.jpg" alt="Marie-Paul et Yann">
-    <section class="sacred final-verse">
-      <p class="verse"><span class="sweep-line">Que l’amour soit le lien</span><span class="sweep-line">qui nous unit parfaitement.</span></p>
-      <div class="ornament" aria-hidden="true"></div>
-      <p class="ref">COLOSSIENS 3:14</p>
-    </section>
-  </div>
+  <div class="photo-frame-wrap"><img class="story-img" src="https://res.cloudinary.com/didid8vcu/image/upload/mpyann/couple-story-5.jpg" alt="Marie-Paul et Yann"></div>
+  <section class="sacred">
+    <div class="ornament" aria-hidden="true"></div>
+    <p class="verse"><span class="sweep-line">Que l’amour soit le lien</span><span class="sweep-line">qui nous unit parfaitement.</span></p>
+    <div class="ornament" aria-hidden="true"></div>
+    <p class="ref">COLOSSIENS 3:14</p>
+  </section>
 </section>
 <script>
 function fitRomans(){
@@ -10457,6 +10447,15 @@ setTimeout(fitRomans,250);setTimeout(fitRomans,900);
 </div>
 </section>
 
+<section class="thanks-chapter es-section" id="remerciements">
+<div class="es-inner">
+<div class="es-kicker" data-i18n="thanks_kicker">REMERCIEMENTS</div>
+<h2 class="es-title" data-i18n="thanks_title">Merci de faire partie de notre histoire</h2>
+<div class="date-title-line-main"></div><div class="date-title-line-secondary"></div>
+<p class="es-copy thanks-copy-main" style="opacity:1!important;visibility:visible!important;background:none!important;-webkit-background-clip:unset!important;background-clip:unset!important;-webkit-text-fill-color:#5C3D26!important;color:#5C3D26!important;">Lorsque les lumières s'adouciront, il restera l'essentiel : les souvenirs précieux partagés avec ceux que nous aimons.</p>
+<p class="es-copy thanks-copy-sub" style="margin-top:12px!important;opacity:1!important;visibility:visible!important;-webkit-text-fill-color:#5C3D26!important;color:#5C3D26!important;">Le plus beau chapitre de notre histoire reste encore à écrire.</p>
+</div>
+</section>
 <section class="final-chapter es-section" id="photo-finale">
 <div class="es-inner final-inner">
 <div class="final-photo-wrap">
@@ -10820,47 +10819,6 @@ body.eventia-scrolled #lang-sw {
   border-color: rgba(232,201,130,.20) !important;
 }
 
-/* ── DERNIÈRE PHOTO — grisée + fondu bas + verset ── */
-#notre-histoire .final-photo-wrap {
-  position: relative !important; max-width: 760px !important;
-  margin: 18px auto 0 !important; overflow: hidden !important;
-  background: #1d1714 !important; width: 100% !important;
-  border-radius: 0 !important;
-  border: 0 !important; -webkit-box-shadow: none !important; box-shadow: none !important;
-  -webkit-transform: none !important; -ms-transform: none !important; transform: none !important;
-  height: auto !important; min-height: 0 !important;
-}
-#notre-histoire .final-photo-wrap .story-img.final-img {
-  width: 100% !important; max-width: none !important;
-  height: auto !important;
-  -o-object-fit: cover !important;
-  object-fit: cover !important;
-  -o-object-position: center top !important;
-  object-position: center top !important;
-  margin: 0 !important; border: 0 !important; display: block !important;
-  -webkit-filter: grayscale(.42) brightness(.42) contrast(.96) !important;
-  filter: grayscale(.42) brightness(.42) contrast(.96) !important;
-  border-radius: 0 !important;
-  -webkit-transform: none !important; -ms-transform: none !important; transform: none !important;
-  position: relative !important; left: auto !important; top: auto !important;
-}
-#notre-histoire .final-photo-wrap::before {
-  content: '' !important; position: absolute !important;
-  top: 0 !important; left: 0 !important; right: 0 !important; bottom: 0 !important;
-  z-index: 1 !important; pointer-events: none !important; border: 0 !important;
-  background: -webkit-linear-gradient(top,rgba(20,14,10,.28) 0%,rgba(20,14,10,.15) 38%,rgba(247,239,227,.88) 100%) !important;
-  background: linear-gradient(180deg,rgba(20,14,10,.28) 0%,rgba(20,14,10,.15) 38%,rgba(247,239,227,.88) 100%) !important;
-}
-#notre-histoire .final-photo-wrap::after { display: none !important; content: none !important; }
-#notre-histoire .final-photo-wrap .final-verse {
-  position: absolute !important; left: 0 !important; right: 0 !important;
-  top: 50% !important;
-  -webkit-transform: translateY(-50%) !important;
-  -ms-transform: translateY(-50%) !important;
-  transform: translateY(-50%) !important;
-  z-index: 3 !important; padding: 0 24px !important;
-  background: transparent !important; text-align: center !important;
-}
 
 /* ── PAROLE SACRÉE — visible, or doré ── */
 #notre-histoire .verse {
@@ -10874,15 +10832,6 @@ body.eventia-scrolled #lang-sw {
   text-shadow: 0 2px 16px rgba(0,0,0,.45), 0 0 22px rgba(243,213,138,.3) !important;
   background: none !important; background-image: none !important;
   -webkit-background-clip: unset !important; background-clip: unset !important;
-}
-#notre-histoire .final-photo-wrap .verse {
-  color: #F3D58A !important; -webkit-text-fill-color: #F3D58A !important;
-  text-shadow: 0 2px 20px rgba(0,0,0,.7), 0 0 28px rgba(243,213,138,.38) !important;
-  font-size: clamp(22px, 4.8vw, 36px) !important;
-}
-#notre-histoire .final-photo-wrap .ref {
-  color: #D7B56D !important; -webkit-text-fill-color: #D7B56D !important;
-  text-shadow: 0 1px 12px rgba(0,0,0,.6) !important;
 }
 #notre-histoire .ref { color: #B99048 !important; -webkit-text-fill-color: #B99048 !important; }
 
@@ -11822,15 +11771,6 @@ section#hebergements.es-section,section#autour.es-section{padding-top:var(--ev-g
   display:inline!important;
 }
 #notre-histoire .ref{color:#8B6914!important;-webkit-text-fill-color:#8B6914!important;text-transform:uppercase!important;letter-spacing:.45em!important;opacity:1!important;visibility:visible!important;}
-/* Final-verse sur la photo : or clair + ombre forte */
-#notre-histoire .final-verse .verse{
-  color:#F3D58A!important;-webkit-text-fill-color:#F3D58A!important;
-  text-shadow:0 2px 14px rgba(0,0,0,.75),0 0 28px rgba(0,0,0,.5)!important;
-}
-#notre-histoire .final-verse .ref{color:#E8C97A!important;-webkit-text-fill-color:#E8C97A!important;text-shadow:0 1px 8px rgba(0,0,0,.65)!important;}
-#notre-histoire .final-photo-wrap::before{
-  background:linear-gradient(180deg,rgba(0,0,0,.42) 0%,rgba(0,0,0,.22) 35%,rgba(0,0,0,.35) 60%,rgba(0,0,0,.52) 100%)!important;
-}
 
 /* ── Dress Code v3 — silhouettes sur podium ── */
 #dresscode .dress-wrap{overflow:visible!important;max-width:min(960px,100vw)!important;margin:0 auto!important;position:relative!important;}
