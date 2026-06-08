@@ -724,7 +724,13 @@ function initMedal(medalEl) {
     var dx=(p.x-HCX)/HRX, dy=(p.y-HCY)/HRY;
     if (dx*dx + dy*dy > 1.18) return;
     medalEl.classList.add('started');
-    spawnDust(p.cx, p.cy);
+
+var globalInstruction = document.getElementById('scratchGlobalInstruction');
+if (globalInstruction) {
+  globalInstruction.classList.add('is-hidden');
+}
+
+spawnDust(p.cx, p.cy);
     ctx.save();
     ctx.globalCompositeOperation = 'destination-out';
     var r1 = 130 + Math.random()*35;
