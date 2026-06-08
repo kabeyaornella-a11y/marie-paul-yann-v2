@@ -8971,7 +8971,7 @@ section#remerciements{margin-top:-160px!important;padding-top:clamp(20px,4vh,36p
   0%  {transform:translateX(-250%) skewX(-12deg)}
   100%{transform:translateX(320%) skewX(-12deg)}
 }
-.h-names,.final-h-names{position:relative!important;}
+.final-h-names{position:relative!important;}
 .h-names::after,.final-h-names::after{
   content:''!important;
   position:absolute!important;
@@ -10725,14 +10725,14 @@ setTimeout(fitRomans,250);setTimeout(fitRomans,900);
    CORRECTIONS FINALES — haute spécificité — placées EN DERNIER
    =================================================================== */
 
-/* 1. HERO NAMES — position absolue restaurée, centrage garanti */
+/* 1. HERO NAMES — position absolue + largeur 100vw comme l'original */
 #hero .h-names {
   position: absolute !important;
   top: 72% !important;
   left: 50% !important;
   transform: translateX(-50%) !important;
-  width: auto !important;
-  max-width: 92vw !important;
+  width: 100vw !important;
+  max-width: 100vw !important;
   min-width: 0 !important;
   text-align: center !important;
   white-space: nowrap !important;
@@ -10742,6 +10742,14 @@ setTimeout(fitRomans,250);setTimeout(fitRomans,900);
   font-size: clamp(42px, 10.5vw, 78px) !important;
   line-height: 1.22 !important;
   padding: 0 !important;
+}
+/* SVG shimmer : remplissage complet du conteneur */
+#hero .h-names > svg,
+#hero .h-names .eventia-svg-name {
+  width: 100% !important;
+  height: auto !important;
+  display: block !important;
+  overflow: visible !important;
 }
 @media (max-width: 420px) {
   #hero .h-names { font-size: clamp(36px, 10.2vw, 58px) !important; }
@@ -10906,6 +10914,14 @@ setTimeout(fitRomans,250);setTimeout(fitRomans,900);
   -webkit-text-fill-color: #FFF8EC !important;
   border: none !important;
 }
+/* RESET hébergements — restaure le style d'origine de ces boutons */
+#hebergements .gold-btn {
+  background: linear-gradient(135deg, #F3D391 0%, #D8AE67 48%, #B68A36 100%) !important;
+  color: #2A221F !important;
+  -webkit-text-fill-color: #2A221F !important;
+  border: 0 !important;
+  box-shadow: 0 16px 36px rgba(180,138,50,.30), inset 0 1px 0 rgba(255,255,255,.45) !important;
+}
 
 /* 8. PROGRAMME — remonte, affiche le brunch */
 #programme .programme-intro {
@@ -10913,23 +10929,16 @@ setTimeout(fitRomans,250);setTimeout(fitRomans,900);
   padding-bottom: 4px !important;
 }
 .timeline-exact-frame, #timelineExactFrame {
-  height: 1100px !important;
-  min-height: 1100px !important;
-  max-height: 1200px !important;
+  height: 1120px !important;
+  min-height: 1120px !important;
+  max-height: 1160px !important;
   overflow: hidden !important;
 }
-@media (max-width: 640px) {
-  .timeline-exact-frame, #timelineExactFrame {
-    height: 1060px !important;
-    min-height: 1060px !important;
-    max-height: 1100px !important;
-  }
-}
 
-/* 9. REMERCIEMENTS — remonte au maximum */
+/* 9. REMERCIEMENTS — remonte au maximum sans espace vide */
 #remerciements {
-  margin-top: -120px !important;
-  padding-top: clamp(22px, 3vh, 38px) !important;
+  margin-top: 0 !important;
+  padding-top: clamp(16px, 2vh, 24px) !important;
   position: relative !important;
   z-index: 5 !important;
   background: #F7EFE3 !important;
