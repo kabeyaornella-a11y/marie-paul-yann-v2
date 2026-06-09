@@ -11967,6 +11967,24 @@ section#remerciements,#rsvp+#remerciements,section#remerciements.thanks-chapter{
 .es-copy{margin-bottom:16px!important;}
 .es-kicker{margin-bottom:12px!important;}
 
+/* ── Harmonisation typographique globale ── */
+/* 1. Titres — couleur brun unifiée sur toutes les sections */
+.es-title,h2.es-title,section .es-title{color:#452819!important;-webkit-text-fill-color:#452819!important;}
+/* Notre Histoire : .title (différent de .es-title) ramené sur la même teinte */
+#notre-histoire .title,#notre-histoire h1.title,#notre-histoire h2.title{color:#452819!important;-webkit-text-fill-color:#452819!important;}
+
+/* 2. Kickers — référence Dress Code (.kicker = 12px, .35em, #A77A35, Cinzel) */
+.es-kicker,.section-kicker{font-size:clamp(10.5px,2vw,12px)!important;letter-spacing:.36em!important;color:#A77A35!important;-webkit-text-fill-color:#A77A35!important;}
+
+/* 3. Corps de texte — référence paragraphe Compte à rebours */
+.es-copy{font-size:clamp(19px,4.8vw,28px)!important;line-height:1.72!important;}
+/* story-text dans Notre Histoire aligné sur la même référence */
+#notre-histoire .story-text{font-size:clamp(19px,4.8vw,28px)!important;line-height:1.72!important;}
+
+/* 4. Mini-titres Notre Histoire (Le commencement / La promesse / La bénédiction)
+   → même couleur que les titres de section */
+#notre-histoire .chapter-label{color:#452819!important;-webkit-text-fill-color:#452819!important;}
+
 </style>
 
 <script id="eventia-v33-js">
