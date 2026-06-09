@@ -11955,6 +11955,12 @@ section#remerciements.thanks-chapter,
 #rsvp{margin-top:0!important;}
 section#remerciements.thanks-chapter{padding-top:clamp(18px,2.8vw,32px)!important;margin-top:0!important;}
 #remerciements+#photo-finale,section#remerciements+section#photo-finale{margin-top:0!important;padding-top:6px!important;}
+/* ── FIX DÉFINITIF — vide géant RSVP → Remerciements ── */
+/* min-height:clamp(980px,158vw,1200px) sur #rsvp.rsvp-chapter (spécificité ID+class)
+   forçait ~980px même avec le form à ~550px — override avec même spécificité, position plus tard */
+#rsvp.rsvp-chapter{min-height:auto!important;height:auto!important;}
+/* Annuler le margin-top négatif hérité sur remerciements */
+section#remerciements,#rsvp+#remerciements,section#remerciements.thanks-chapter{margin-top:0!important;}
 /* Compte à rebours compact */
 #compte-a-rebours{padding-top:clamp(10px,1.8vw,22px)!important;padding-bottom:clamp(10px,1.8vw,22px)!important;}
 /* Espaces internes es-copy */
