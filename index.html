@@ -11715,8 +11715,9 @@ section#remerciements {
 (function() {
   /* ── Confettis depuis la révélation des médaillons ── */
   window.addEventListener('message', function(e) {
-    if (!e.data || e.data.type !== 'eventia-scratch-complete') return;
-    eventiaScratchConfetti();
+    if (!e.data) return;
+    if (e.data.type === 'eventia-scratch-complete') eventiaScratchConfetti();
+    if (e.data.type === 'eventia-countdown-confetti') eventiaCountdownConfetti();
   });
 
   function eventiaScratchConfetti() {
@@ -11751,6 +11752,54 @@ section#remerciements {
         }
       })();
     }
+  }
+
+  function eventiaCountdownConfetti() {
+    /* Confettis dorés sur la section compte à rebours — même palette que le scratch */
+    var colors = ['#F9E6A8','#E5C36F','#C89A3D','#A86E18','#F6F0DB','#D8B663','#FFF7D6','#fff2bd'];
+    var section = document.getElementById('compte-a-rebours');
+    var rect = section ? section.getBoundingClientRect() : null;
+    var cx = rect ? rect.left + rect.width / 2 : window.innerWidth / 2;
+    var cy = rect ? rect.top + rect.height * .45 : window.innerHeight * .45;
+    var xPoints = [cx - 180, cx - 90, cx, cx + 90, cx + 180];
+    var n = 44;
+    [0, 280, 560].forEach(function(wave) {
+      setTimeout(function() {
+        xPoints.forEach(function(x, i) {
+          setTimeout(function() {
+            for (var j = 0; j < n; j++) {
+              (function() {
+                var p = document.createElement('i');
+                var size = 5 + Math.random() * 6;
+                p.style.cssText = [
+                  'position:fixed',
+                  'pointer-events:none',
+                  'z-index:99999',
+                  'border-radius:' + (Math.random() > .5 ? '2px' : '50%'),
+                  'left:' + Math.max(0, Math.min(98, (x / window.innerWidth * 100) + (Math.random() * 14 - 7))) + 'vw',
+                  'top:' + Math.max(0, (cy / window.innerHeight * 100) - 4) + 'vh',
+                  'width:' + size + 'px',
+                  'height:' + (size * (1.4 + Math.random() * .8)) + 'px',
+                  'background:' + colors[Math.floor(Math.random() * colors.length)]
+                ].join(';');
+                var delay = Math.random() * 900;
+                var dur   = 1400 + Math.random() * 1200;
+                document.body.appendChild(p);
+                if (p.animate) {
+                  p.animate([
+                    {top: (cy / window.innerHeight * 100 - 4) + 'vh', opacity:1, transform:'rotate(' + (Math.random()*60-30) + 'deg)'},
+                    {top: (cy / window.innerHeight * 100 + 45 + Math.random()*20) + 'vh', opacity:0, transform:'rotate(' + (180 + Math.random()*220) + 'deg)'}
+                  ], {duration:dur, delay:delay, fill:'forwards', easing:'cubic-bezier(.12,.72,.14,1)'})
+                  .onfinish = function(){ if (p.parentNode) p.parentNode.removeChild(p); };
+                } else {
+                  setTimeout(function(){ if (p.parentNode) p.parentNode.removeChild(p); }, dur + delay);
+                }
+              })();
+            }
+          }, i * 70);
+        });
+      }, wave);
+    });
   }
 })();
 </script>
