@@ -10497,10 +10497,10 @@ setTimeout(fitRomans,250);setTimeout(fitRomans,900);
 <input min="0" name="enfants" placeholder="Enfants" type="number"/>
 </div>
 <div class="rsvp-field rsvp-row full compact-row">
-<select><option>Choix du menu</option><option>Viande</option><option>Poisson</option><option>Végétarien</option></select>
-<input placeholder="Allergies"/>
+<select name="menu"><option value="">Choix du menu</option><option value="viande">Viande</option><option value="poisson">Poisson</option><option value="vegetarien">Végétarien</option></select>
+<input name="allergies" placeholder="Allergies"/>
 </div>
-<div class="rsvp-field full"><textarea placeholder="Un message pour les mariés"></textarea></div>
+<div class="rsvp-field full"><textarea name="message" placeholder="Un message pour les mariés"></textarea></div>
 <button class="rsvp-submit gold-btn" id="rsvp-btn" onclick="sendRsvp()" type="button">Envoyer ma réponse</button>
 </form>
 </div>
@@ -10735,7 +10735,38 @@ setTimeout(fitRomans,250);setTimeout(fitRomans,900);
       if(e.target && e.target.matches('#rsvp input[name="presence"][value="oui"]')) activateOui(e.target.closest('.presence-pill'));
       if(e.target && e.target.matches('#rsvp input[name="presence"][value="non"]')) resetPresenceStyles();
     },true);
-    window.sendRsvp=function(){ showToast(); return false; };
+    window.sendRsvp=async function(){
+      var form=qs('#rsvp-form');
+      var btn=qs('#rsvp-btn');
+      if(!form||!btn)return;
+      var get=function(n){return(form.querySelector('[name="'+n+'"]')||{}).value||'';};
+      var prenom=get('prenom').trim();
+      var email=get('email').trim();
+      var presence=get('presence');
+      if(!prenom||!email||!presence){showToast();return;}
+      btn.disabled=true;btn.textContent='Envoi en cours…';
+      try{
+        var res=await fetch('/.netlify/functions/rsvp',{
+          method:'POST',
+          headers:{'Content-Type':'application/json'},
+          body:JSON.stringify({
+            prenom:prenom,nom:get('nom').trim(),email:email,
+            telephone:get('telephone').trim(),presence:presence,
+            adultes:get('adultes')||'0',enfants:get('enfants')||'0',
+            menu:get('menu'),allergies:get('allergies').trim(),
+            message:get('message').trim()
+          })
+        });
+        if(res.ok){
+          form.style.display='none';
+          var suc=qs('#rsvp-success');
+          if(suc){suc.style.display='flex';}
+        }else{throw new Error(res.status);}
+      }catch(err){
+        btn.disabled=false;btn.textContent='Envoyer ma réponse';
+        showToast();
+      }
+    };
     var replay=qs('#replay-experience');
     if(replay){ replay.addEventListener('click',function(){ window.scrollTo({top:0,behavior:'smooth'}); }); }
   });
