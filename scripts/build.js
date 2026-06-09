@@ -117,19 +117,19 @@ function applyBlocs(content) {
 }
 
 // ─── Injection CSS univers ────────────────────────────────────────────────────
+// Le CSS est injecté inline juste avant </body> pour qu'il vienne APRÈS tous
+// les blocs :root dispersés dans la template et gagne la cascade CSS.
 function applyUnivers(content) {
   const univers = data._meta?.univers;
   if (!univers) return content;
-  const cssFile = `univers/${univers}.css`;
-  const cssPath = path.join(DIST_DIR, cssFile);
-  if (!fs.existsSync(cssPath)) {
-    console.warn(`  ⚠️  CSS univers introuvable : ${cssFile}`);
+  const cssFile = path.join(TMPL_DIR, 'univers', `${univers}.css`);
+  if (!fs.existsSync(cssFile)) {
+    console.warn(`  ⚠️  CSS univers introuvable : univers/${univers}.css`);
     return content;
   }
-  const tag = `<link rel="stylesheet" href="${cssFile}">`;
-  // Injecter après <head> ou avant le premier <link>
-  // Injecter juste avant le premier <link rel="stylesheet" ou après <head>
-  return content.replace(/<head>/, `<head>\n  ${tag}`);
+  const cssContent = fs.readFileSync(cssFile, 'utf8');
+  const tag = `<style id="ev-univers">\n${cssContent}</style>`;
+  return content.replace('</body>', `${tag}\n</body>`);
 }
 
 // ─── Copie récursive ──────────────────────────────────────────────────────────
