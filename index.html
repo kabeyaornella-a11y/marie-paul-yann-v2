@@ -9804,6 +9804,83 @@ h2{font-size:clamp(28px,6.5vw,46px);font-weight:300;color:#452819;margin-bottom:
 }
 #sparkCanvas{opacity:.62!important;mix-blend-mode:screen!important;}
 </style>
+
+<style id="eventia-targeted-fixes-ornella">
+/* Hero — restauration des prénoms natifs + boucles visibles */
+#hero, #hero .hero-content{overflow:visible!important;}
+#hero .h-names{
+  position:relative!important;
+  z-index:20!important;
+  display:block!important;
+  width:100%!important;
+  max-width:100vw!important;
+  margin:0 auto!important;
+  padding:0 1.5vw .62em!important;
+  box-sizing:border-box!important;
+  text-align:center!important;
+  white-space:nowrap!important;
+  overflow:visible!important;
+  line-height:1.42!important;
+  transform:translateX(-18px)!important;
+  transform-origin:center center!important;
+}
+@media(max-width:480px){
+  #hero .h-names{font-size:clamp(52px,15.2vw,82px)!important;transform:translateX(-24px)!important;}
+}
+
+/* Final — shimmer continu sur les prénoms */
+#photo-finale .final-names,.final-names{
+  overflow:visible!important;
+  background:linear-gradient(105deg,#8a5a1e 0%,#b99048 28%,#f3d391 48%,#b99048 66%,#7a4b19 100%)!important;
+  background-size:260% auto!important;
+  -webkit-background-clip:text!important;background-clip:text!important;
+  color:transparent!important;-webkit-text-fill-color:transparent!important;
+  animation:eventiaFinalNameShimmerClean 3.8s linear infinite!important;
+}
+@keyframes eventiaFinalNameShimmerClean{0%{background-position:220% center}100%{background-position:-220% center}}
+
+/* Espacements ciblés sans casser les sections */
+section#remerciements{padding-top:2em!important;margin-top:0!important;}
+section#hebergements{padding-bottom:2em!important;margin-bottom:0!important;}
+section#autour{padding-top:2em!important;padding-bottom:2em!important;margin-top:0!important;margin-bottom:0!important;}
+section#empreintes{padding-top:2em!important;padding-bottom:2em!important;margin-top:0!important;margin-bottom:0!important;}
+section#cadeaux{padding-top:2em!important;margin-top:0!important;}
+
+/* Enveloppe — vide réduit mais zone interactive conservée */
+#empreintes .es-copy{margin-bottom:.8em!important;}
+#empreintes .envelope-v13-host,#empreintes .master-envelope-wrap{
+  margin-top:0!important;padding-top:0!important;min-height:520px!important;height:auto!important;
+}
+#empreintes .envelope-v13-frame,#empreintes .envelope-frame-v54{
+  height:520px!important;margin-top:-14px!important;margin-bottom:0!important;
+}
+@media(max-width:430px){
+  #empreintes .envelope-v13-host,#empreintes .master-envelope-wrap{min-height:500px!important;}
+  #empreintes .envelope-v13-frame,#empreintes .envelope-frame-v54{height:500px!important;margin-top:-14px!important;}
+}
+
+/* RSVP — descendre le contenu dans l’ouverture du rideau */
+#rsvp .es-inner{transform:translateY(2.2em)!important;}
+@media(max-width:480px){#rsvp .es-inner{transform:translateY(2.8em)!important;}}
+
+/* Parole sacrée — balayage ligne par ligne, sans cacher le verset */
+.story2-citation,.story2-citation *{visibility:visible!important;}
+.story2-cit-text span{
+  display:block!important;
+  opacity:0;
+  clip-path:inset(0 100% 0 0);
+  animation:eventiaSacredSweepClean 1.1s ease forwards!important;
+}
+.story2-cit-text span:nth-child(1){animation-delay:.08s!important;}
+.story2-cit-text span:nth-child(2){animation-delay:.34s!important;}
+.story2-cit-text span:nth-child(3){animation-delay:.60s!important;}
+.story2-cit-text span:nth-child(4){animation-delay:.86s!important;}
+@keyframes eventiaSacredSweepClean{
+  from{opacity:.35;clip-path:inset(0 100% 0 0);}
+  to{opacity:1;clip-path:inset(0 0 0 0);}
+}
+</style>
+
 </head>
 <body class="eventia-show-lang">
 <div id="progress-bar"></div>
@@ -9864,8 +9941,7 @@ window.toggleMusic = function() {
   <canvas id="sparkCanvas"></canvas>
   <div class="hero-content">
     <div class="h-intro">VOUS ÊTES CONVIÉS À LA CÉLÉBRATION DU MARIAGE DE</div>
- <div class="h-names h-names-original">Marie-Paul &amp; Yann</div>
-<div class="h-names-fixed">Marie-Paul &amp; Yann</div>
+ <div class="h-names">Marie-Paul &amp; Yann</div>
     <div class="h-line"></div>
     <div class="h-q-wrap">
       <span class="h-q1">Deux âmes, une promesse :</span>
@@ -11859,38 +11935,6 @@ section#remerciements.thanks-chapter,
   margin-bottom: .08em !important;
 }
 
-/* FIX HERO FINAL — remplacer les prénoms coupés par une couche propre */
-#hero .h-names-original {
-  opacity: 0 !important;
-  visibility: hidden !important;
-  pointer-events: none !important;
-}
-
-#hero .h-names-fixed {
-  position: relative !important;
-  z-index: 25 !important;
-  display: block !important;
-  width: 100% !important;
-  max-width: 100vw !important;
-  margin: 0 auto !important;
-  padding: 0 3vw .55em !important;
-  box-sizing: border-box !important;
-  text-align: center !important;
-  white-space: nowrap !important;
-  overflow: visible !important;
-  font-family: 'ChopinScript','Great Vibes',cursive !important;
-  font-size: clamp(46px, 14vw, 92px) !important;
-  line-height: 1.45 !important;
-  color: #8B5F2D !important;
-  -webkit-text-fill-color: #8B5F2D !important;
-  transform: none !important;
-}
-
-#hero,
-#hero::before,
-#hero::after {
-  overflow: visible !important;
-}
 </style>
 
 <script id="eventia-v33-js">
