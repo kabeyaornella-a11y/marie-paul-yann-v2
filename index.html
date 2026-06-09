@@ -11845,7 +11845,7 @@ section#hebergements.es-section,section#autour.es-section{padding-top:var(--ev-g
 #dresscode .silhouettes-img{position:absolute!important;left:-6%!important;right:-6%!important;bottom:9%!important;width:112%!important;max-width:none!important;z-index:2!important;transform:none!important;}
 
 /* ── Sections masquées temporairement ── */
-#hebergements,#autour{display:none!important;}
+#hebergements,#autour,#empreintes,#cadeaux{display:none!important;}
 
 /* ── RSVP — OUI AVEC JOIE commence blanc ── */
 #rsvp .presence-oui-gold{
@@ -11937,6 +11937,29 @@ section#remerciements.thanks-chapter,
   padding-bottom: .22em !important;
   margin-bottom: .08em !important;
 }
+
+/* ── Réduction maximale des espaces vides ── */
+:root{--ev-gap:clamp(14px,2.2vw,26px);}
+.es-section,.date-chapter,.countdown-chapter,.story2-chapter,.places-chapter,.program-chapter,.dress-chapter,.gifts-chapter,.thanks-chapter,.final-chapter{padding-top:clamp(14px,2.2vw,26px)!important;padding-bottom:clamp(14px,2.2vw,26px)!important;}
+.story{padding-top:clamp(14px,2.2vw,26px)!important;padding-bottom:clamp(14px,2.2vw,26px)!important;}
+/* Notre Histoire interne */
+.sacred{padding-top:clamp(14px,2.2vw,26px)!important;padding-bottom:clamp(14px,2.2vw,26px)!important;}
+#notre-histoire .photo-frame-wrap{margin-top:clamp(8px,1.4vw,16px)!important;margin-bottom:clamp(8px,1.4vw,16px)!important;}
+.story-intro{padding-bottom:clamp(10px,1.6vw,20px)!important;}
+.chapter{padding-top:clamp(8px,1.2vw,14px)!important;padding-bottom:clamp(8px,1.2vw,14px)!important;}
+/* Remerciements & finale */
+.thanks-chapter{padding-top:clamp(20px,3vw,36px)!important;padding-bottom:clamp(14px,2vw,24px)!important;}
+.final-chapter{padding-top:clamp(6px,1vw,12px)!important;padding-bottom:clamp(20px,3vw,36px)!important;}
+/* Transitions critiques */
+#dresscode{padding-bottom:0!important;margin-bottom:0!important;}
+#rsvp{margin-top:0!important;}
+section#remerciements.thanks-chapter{padding-top:clamp(18px,2.8vw,32px)!important;margin-top:0!important;}
+#remerciements+#photo-finale,section#remerciements+section#photo-finale{margin-top:0!important;padding-top:6px!important;}
+/* Compte à rebours compact */
+#compte-a-rebours{padding-top:clamp(10px,1.8vw,22px)!important;padding-bottom:clamp(10px,1.8vw,22px)!important;}
+/* Espaces internes es-copy */
+.es-copy{margin-bottom:16px!important;}
+.es-kicker{margin-bottom:12px!important;}
 
 </style>
 
