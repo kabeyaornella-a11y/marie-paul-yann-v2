@@ -10070,36 +10070,7 @@ window.toggleMusic = function() {
 <iframe class="countdown-frame" src="countdown/index.html" title="Compte à rebours"></iframe>
 </div>
 </section>
-<section class="story" id="notre-histoire">
-  <div class="inner story-intro">
-    <p class="kicker">Notre Histoire</p>
-    <h1 class="title">L’évidence</h1>
-    <div class="ornament" aria-hidden="true"></div>
-  </div>
-  <article class="chapter">
-    <p class="chapter-label">Le commencement</p>
-    <div class="para-wrap"><div class="roman">I</div><p class="story-text">Il y a plusieurs années, deux chemins se sont rencontrés pour ne plus jamais se quitter. Au fil des saisons, notre amour a grandi dans la tendresse, les épreuves, les éclats de rire et les rêves partagés.</p></div>
-  </article>
-  <div class="photo-frame-wrap"><img class="story-img" src="{{CDN_BASE}}/{{PHOTO_HISTOIRE_1}}" alt="{{PRENOMS_ET}}"></div>
-  <section class="sacred">
-    <div class="ornament" aria-hidden="true"></div>
-    <p class="kicker">Parole sacrée</p>
-    <p class="verse"><span class="sweep-line">« Ainsi ils ne sont plus deux, mais une seule chair.</span><span class="sweep-line">Que l'homme donc ne sépare pas ce que Dieu a uni. »</span></p>
-    <p class="ref">MATTHIEU 19:6</p>
-    <div class="ornament" aria-hidden="true"></div>
-  </section>
-  <div class="photo-frame-wrap"><img class="story-img" src="{{CDN_BASE}}/{{PHOTO_HISTOIRE_2}}" alt="{{PRENOMS_ET}}"></div>
-  <article class="chapter">
-    <p class="chapter-label">La bénédiction</p>
-    <div class="para-wrap"><div class="roman">II</div><p class="story-text">De cette histoire est née la plus précieuse des bénédictions : notre enfant, symbole vivant de notre union et de l’amour qui nous lie. Entourés de nos familles, nous avons déjà célébré notre engagement selon nos traditions et nos racines.</p></div>
-  </article>
-  <div class="photo-frame-wrap"><img class="story-img" src="{{CDN_BASE}}/{{PHOTO_HISTOIRE_3}}" alt="{{PRENOMS_ET}}"></div>
-  <article class="chapter">
-    <p class="chapter-label">La promesse</p>
-    <div class="para-wrap"><div class="roman">III</div><p class="story-text">Aujourd’hui, il est temps pour nous de consacrer cette promesse devant Dieu et devant ceux que nous aimons. Ce jour marquera bien plus qu’un mariage, il sera la naissance officielle d’une seule et même famille, unie pour toujours dans l’amour, la foi et la fidélité.</p></div>
-  </article>
-  <div class="photo-frame-wrap"><img class="story-img" src="{{CDN_BASE}}/{{PHOTO_HISTOIRE_4}}" alt="{{PRENOMS_ET}}"></div>
-</section>
+<!-- BLOC:notre-histoire:END -->
 <script>
 function fitRomans(){
   document.querySelectorAll('.para-wrap').forEach(function(w){
@@ -10182,123 +10153,8 @@ setTimeout(fitRomans,250);setTimeout(fitRomans,900);
 <iframe class="timeline-exact-frame" id="timelineExactFrame" loading="lazy" scrolling="no" src="timeline-b-v15c.html" style="width:100%;height:720px;border:0;background:transparent;display:block;overflow:hidden;" title="Programme du mariage"></iframe>
 </div>
 </section>
-<section class="dress-chapter es-section" id="dresscode">
-<div class="page">
-  <div class="kicker">Dress Code</div>
-  <h2>L'élégance attendue</h2>
-  <div class="goldline"></div>
-  <p class="subtitle">Nous vous invitons à privilégier des tenues élégantes dans des nuances ivoire de cour, champagne royal, bronze héritage et noir velours.</p>
-  <div class="palette">
-    <div class="sw"><i style="background:#fff8df"></i>Ivoire de Cour</div>
-    <div class="sw"><i style="background:#d8b46f"></i>Champagne Royal</div>
-    <div class="sw"><i style="background:#6a421d"></i>Bronze Héritage</div>
-    <div class="sw"><i style="background:#090807"></i>Noir Velours</div>
-  </div>
-  <div class="dress-wrap" id="dressWrap">
-    <img class="podium-img" src="{{CDN_BASE}}/{{PHOTO_DRESSCODE_PODIUM}}" alt="">
-    <img class="silhouettes-img" src="{{CDN_BASE}}/{{PHOTO_DRESSCODE_SILHOUETTES}}" alt="">
-    <div class="spotlights">
-      <div class="spot-1"></div>
-      <div class="spot-2"></div>
-      <div class="spot-floor"></div>
-    </div>
-    <canvas id="particleCanvas"></canvas>
-  </div>
-</div>
-<script>
-(function(){
-  var canvas = document.getElementById('particleCanvas');
-  var wrap = document.getElementById('dressWrap');
-  var ctx = canvas.getContext('2d');
-  var particles = [];
-
-  function resize(){
-    canvas.width = wrap.offsetWidth;
-    canvas.height = wrap.offsetHeight;
-  }
-  resize();
-  window.addEventListener('resize', resize);
-
-  var COLORS = ['rgba(255,248,210,', 'rgba(243,213,138,', 'rgba(255,255,235,', 'rgba(216,174,103,'];
-
-  function spawn(){
-    return {
-      x: Math.random() * canvas.width,
-      y: -8,
-      size: 0.8 + Math.random() * 2.2,
-      speedY: 0.18 + Math.random() * 0.45,
-      speedX: (Math.random() - 0.5) * 0.4,
-      opacity: 0,
-      maxOpacity: 0.4 + Math.random() * 0.55,
-      color: COLORS[Math.floor(Math.random() * COLORS.length)],
-      life: 0,
-      maxLife: 260 + Math.random() * 220,
-      twinkleSpeed: 0.02 + Math.random() * 0.04
-    };
-  }
-
-  for(var i = 0; i < 28; i++){
-    var p = spawn();
-    p.y = Math.random() * canvas.height;
-    p.life = Math.random() * p.maxLife;
-    particles.push(p);
-  }
-
-  function draw(){
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    // Spawn new particles
-    if(particles.length < 35 && Math.random() < 0.15){
-      particles.push(spawn());
-    }
-
-    for(var i = particles.length - 1; i >= 0; i--){
-      var p = particles[i];
-      p.life++;
-      p.y += p.speedY;
-      p.x += p.speedX + Math.sin(p.life * 0.04) * 0.3;
-
-      // Fade in/out
-      var lifeRatio = p.life / p.maxLife;
-      if(lifeRatio < 0.15) p.opacity = (lifeRatio / 0.15) * p.maxOpacity;
-      else if(lifeRatio > 0.75) p.opacity = ((1 - lifeRatio) / 0.25) * p.maxOpacity;
-      else p.opacity = p.maxOpacity;
-
-      // Twinkle
-      p.opacity *= (0.7 + 0.3 * Math.sin(p.life * p.twinkleSpeed * Math.PI * 2));
-
-      ctx.save();
-      ctx.globalAlpha = Math.max(0, p.opacity);
-
-      // Draw as 4-pointed star sparkle
-      ctx.fillStyle = p.color + p.opacity + ')';
-      ctx.shadowColor = p.color + '0.8)';
-      ctx.shadowBlur = p.size * 3;
-      ctx.translate(p.x, p.y);
-      ctx.beginPath();
-      var s = p.size;
-      ctx.moveTo(0, -s*2.2);
-      ctx.lineTo(s*0.4, -s*0.4);
-      ctx.lineTo(s*2.2, 0);
-      ctx.lineTo(s*0.4, s*0.4);
-      ctx.lineTo(0, s*2.2);
-      ctx.lineTo(-s*0.4, s*0.4);
-      ctx.lineTo(-s*2.2, 0);
-      ctx.lineTo(-s*0.4, -s*0.4);
-      ctx.closePath();
-      ctx.fill();
-      ctx.restore();
-
-      if(p.life >= p.maxLife || p.y > canvas.height + 10){
-        particles.splice(i, 1);
-      }
-    }
-    requestAnimationFrame(draw);
-  }
-  draw();
-})();
-</script>
-</section>
+<!-- BLOC:dresscode:END -->
+<!-- BLOC:hebergements:START -->
 <section class="es-section" id="hebergements">
   <div class="es-inner">
     <span class="es-kicker">HÉBERGEMENTS</span>
@@ -10366,7 +10222,9 @@ setTimeout(fitRomans,250);setTimeout(fitRomans,900);
     </div>
   </div>
 </section>
+<!-- BLOC:hebergements:END -->
 
+<!-- BLOC:autour:START -->
 <section class="es-section" id="autour">
   <div class="es-inner">
     <span class="es-kicker">ACTIVITÉS</span>
@@ -10419,7 +10277,9 @@ setTimeout(fitRomans,250);setTimeout(fitRomans,900);
     </div>
   </div>
 </section>
+<!-- BLOC:autour:END -->
 
+<!-- BLOC:empreintes:START -->
 <section class="es-section v54-tight" id="empreintes">
 <div class="es-inner">
 <span class="es-kicker">VOS EMPREINTES DANS NOTRE HISTOIRE</span>
@@ -10429,50 +10289,7 @@ setTimeout(fitRomans,250);setTimeout(fitRomans,900);
 <div class="envelope-v13-host master-envelope-wrap"><iframe class="envelope-v13-frame envelope-frame-v54" loading="lazy" scrolling="no" src="envelope-v13.html" style="width:min(430px,94vw);height:min(640px,calc(94vw * 1748 / 1240));border:0;background:transparent;display:block;margin:0 auto;overflow:hidden;" title="Enveloppe interactive {{PRENOMS_ET}}"></iframe></div>
 </div>
 </section>
-<section class="gifts-chapter es-section" id="cadeaux">
-<div class="es-inner">
-<div class="es-kicker" data-i18n="gifts_kicker">POUR ORNER NOTRE UNION</div>
-<h2 class="es-title" data-i18n="gifts_title">Une petite attention</h2>
-<div class="date-title-line-main"></div><div class="date-title-line-secondary"></div>
-<p class="gifts-presence-phrase">Votre présence est notre plus beau cadeau.</p>
-<p class="es-copy" data-i18n="gifts_copy">Pour ceux qui souhaitent accompagner notre nouvelle vie d'une délicate attention, quelques possibilités ont été préparées avec tendresse.</p>
-<div class="gifts-accord">
-<div class="gift-accord-item">
-<button aria-expanded="false" class="gift-accord-header" onclick="this.setAttribute('aria-expanded',this.getAttribute('aria-expanded')==='true'?'false':'true');this.nextElementSibling.classList.toggle('open')">
-<span class="gift-accord-icon-wrap"><img alt="Liste de mariage" class="gift-accord-icon" src="icone-cadeaux.svg"/></span>
-<span class="gift-accord-title">Liste de mariage</span>
-<span class="gift-accord-arrow">›</span>
-</button>
-<div class="gift-accord-body">
-<p class="gift-accord-desc">Une sélection pensée avec soin, pour accompagner les premiers instants de notre vie commune.</p>
-<a class="gold-btn gift-trio-btn" href="#">Découvrir</a>
-</div>
-</div>
-<div class="gift-accord-item">
-<button aria-expanded="false" class="gift-accord-header" onclick="this.setAttribute('aria-expanded',this.getAttribute('aria-expanded')==='true'?'false':'true');this.nextElementSibling.classList.toggle('open')">
-<span class="gift-accord-icon-wrap"><img alt="Cagnotte voyage de noces" class="gift-accord-icon" src="icone-avion-voyage.svg"/></span>
-<span class="gift-accord-title">Cagnotte voyage de noces</span>
-<span class="gift-accord-arrow">›</span>
-</button>
-<div class="gift-accord-body">
-<p class="gift-accord-desc">Une attention délicate pour accompagner notre premier voyage de noces et écrire nos premiers souvenirs de jeunes mariés.</p>
-<a class="gold-btn gift-trio-btn" href="#">Participer</a>
-</div>
-</div>
-<div class="gift-accord-item">
-<button aria-expanded="false" class="gift-accord-header" onclick="this.setAttribute('aria-expanded',this.getAttribute('aria-expanded')==='true'?'false':'true');this.nextElementSibling.classList.toggle('open')">
-<span class="gift-accord-icon-wrap"><img alt="Virement bancaire" class="gift-accord-icon" src="icone-iban.svg"/></span>
-<span class="gift-accord-title">Virement bancaire</span>
-<span class="gift-accord-arrow">›</span>
-</button>
-<div class="gift-accord-body">
-<p class="gift-accord-desc">Les coordonnées restent voilées, révélées en douceur sur simple demande.</p>
-<a class="gold-btn gift-trio-btn" href="mailto:eventia.signature@yahoo.com">Nous contacter</a>
-</div>
-</div>
-</div>
-</div>
-</section>
+<!-- BLOC:cadeaux:END -->
 <section class="rsvp-chapter es-section" id="rsvp">
 <div class="es-inner">
 <div class="es-kicker">RSVP</div>

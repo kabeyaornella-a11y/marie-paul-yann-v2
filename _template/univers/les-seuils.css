@@ -1,0 +1,42 @@
+/**
+ * Eventia Signature — Univers : LES SEUILS
+ * Ivoire chaud, or profond, brun-vanille. L'invitation existante Marie-Paul & Yann.
+ * Ambiance : portes, seuils, passages — quelque chose commence ici.
+ */
+:root {
+  /* Couleurs principales */
+  --ev-accent:        #A77A35;
+  --ev-accent-deep:   #7A4E18;
+  --ev-accent-light:  #F3D391;
+  --ev-bg:            #FAF7F2;
+  --ev-bg-section:    #F5EFE6;
+  --ev-text:          #1A0E05;
+  --ev-text-soft:     #452819;
+  --ev-text-muted:    #6B6B6B;
+
+  /* Typographies */
+  --ev-font-title:    'Cormorant Garamond', serif;
+  --ev-font-kicker:   'Cinzel', serif;
+  --ev-font-body:     'Cormorant Garamond', serif;
+  --ev-font-script:   'Great Vibes', cursive;
+
+  /* Tailles */
+  --ev-title-size:    clamp(38px, 8.5vw, 68px);
+  --ev-kicker-size:   12px;
+  --ev-kicker-spacing: 0.36em;
+  --ev-body-size:     clamp(19px, 4.8vw, 28px);
+
+  /* Espacements sections */
+  --ev-gap:           clamp(14px, 2.2vw, 26px);
+
+  /* Motif de fond */
+  --ev-pattern:       none;
+
+  /* Hero gradient */
+  --ev-hero-gradient: linear-gradient(
+    to bottom,
+    rgba(250,247,242,0) 0%,
+    rgba(250,247,242,0.6) 60%,
+    rgba(250,247,242,1) 100%
+  );
+}

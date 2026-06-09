@@ -1,0 +1,77 @@
+{
+  "_comment": "Définition des paliers Eventia Signature — socle inclus + options disponibles",
+
+  "blocs_toujours_actifs": [
+    "opening",
+    "hero",
+    "notre-date",
+    "compte-a-rebours",
+    "les-lieux",
+    "programme",
+    "rsvp",
+    "remerciements",
+    "photo-finale"
+  ],
+
+  "paliers": {
+    "essentielle": {
+      "prix_base": 179,
+      "label": "L'Essentielle",
+      "blocs_inclus": []
+    },
+    "signature": {
+      "prix_base": 269,
+      "label": "La Signature",
+      "blocs_inclus": [
+        "notre-histoire",
+        "dresscode",
+        "empreintes"
+      ]
+    },
+    "exception": {
+      "prix_base": 549,
+      "label": "L'Exception",
+      "blocs_inclus": [
+        "notre-histoire",
+        "dresscode",
+        "empreintes",
+        "hebergements",
+        "autour",
+        "cadeaux"
+      ]
+    }
+  },
+
+  "options": {
+    "notre-histoire": {
+      "label": "Notre Histoire",
+      "description": "Section storytelling du couple — photos + mini-titres (Le commencement, La promesse...)",
+      "prix": 20
+    },
+    "dresscode": {
+      "label": "Dress Code",
+      "description": "Section dress code avec podium et silhouettes animées",
+      "prix": 15
+    },
+    "empreintes": {
+      "label": "Nos Empreintes",
+      "description": "Enveloppe animée avec message caché",
+      "prix": 15
+    },
+    "hebergements": {
+      "label": "Hébergements",
+      "description": "Carousel 3D avec les hôtels à proximité",
+      "prix": 20
+    },
+    "autour": {
+      "label": "Activités",
+      "description": "Onglets interactifs avec activités autour du lieu",
+      "prix": 20
+    },
+    "cadeaux": {
+      "label": "Liste de cadeaux",
+      "description": "Section accordéon avec options cadeaux/liste de mariage",
+      "prix": 15
+    }
+  }
+}
