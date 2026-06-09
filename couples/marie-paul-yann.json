@@ -1,0 +1,97 @@
+{
+  "_meta": {
+    "id": "marie-paul-yann",
+    "tier": "signature",
+    "univers": "les-seuils",
+    "created": "2026-06-09",
+    "slug": "marie-paul-yann-2027"
+  },
+
+  "couple": {
+    "PRENOM_1": "Marie-Paul",
+    "PRENOM_2": "Yann",
+    "PRENOMS": "Marie-Paul & Yann",
+    "PRENOMS_ET": "Marie-Paul et Yann",
+    "PRENOMS_HTML": "Marie-Paul &amp; Yann",
+    "ANNEE_MARIAGE": "2027"
+  },
+
+  "date": {
+    "DATE_ISO": "2027-04-17",
+    "DATE_ISO_DATETIME": "2027-04-17T15:00:00",
+    "DATE_ICS": "20270522",
+    "DATE_ICS_END": "20270523",
+    "DATE_ICS_START_FULL": "20270522T110000Z",
+    "DATE_ICS_END_FULL": "20270522T215900Z",
+    "DATE_RSVP_LIMITE": "22 décembre 2026",
+    "DATE_LONGUE": "samedi 22 mai 2027",
+    "DATE_COURTE": "22.05.2027",
+    "ICS_UID": "marie-paul-yann-20270522@eventiasignature.fr",
+    "ICS_SUMMARY": "Mariage de Marie-Paul et Yann",
+    "ICS_DESCRIPTION": "Mariage civil à la Mairie de Gennevilliers. Bénédiction et réception au Domaine des Rois. Journée entière du samedi 22 mai 2027.",
+    "ICS_DESCRIPTION_LONG": "13h00 - Cérémonie civile à la Mairie de Gennevilliers. Bénédiction nuptiale et réception au Domaine des Rois. Samedi 22 mai 2027.",
+    "ICS_LOCATION": "Mairie de Gennevilliers puis Domaine des Rois",
+    "ICS_DOWNLOAD_FILE": "mariage-marie-paul-yann-22-05-2027.ics",
+    "CAL_BTN_DOWNLOAD": "mariage-marie-paul-yann-22-05-2027.ics"
+  },
+
+  "lieux": {
+    "LIEU_CIVIL_NOM": "Mairie de Gennevilliers",
+    "LIEU_CIVIL_MAPS": "https://maps.app.goo.gl/3pwRhroAQNu8L7ns8?g_st=ic",
+    "LIEU_CIVIL_ALT_1": "Mairie de Gennevilliers",
+    "LIEU_CIVIL_ALT_2": "Salle des mariages",
+    "LIEU_CIVIL_ALT_3": "Escalier d'honneur",
+    "LIEU_RECEPTION_NOM": "Domaine des Rois",
+    "LIEU_RECEPTION_MAPS": "https://maps.app.goo.gl/6nWRTcQzJziX74Ra8?g_st=ic",
+    "LIEU_RECEPTION_DISTANCE": "Échouboulains et Fontainebleau",
+    "LIEU_RECEPTION_REGION": "entre Échouboulains et Fontainebleau"
+  },
+
+  "media": {
+    "CDN_BASE": "https://res.cloudinary.com/didid8vcu/image/upload",
+    "CDN_VIDEO_BASE": "https://res.cloudinary.com/didid8vcu/video/upload",
+    "PHOTO_PORTE": "mpyann/door-entrance.jpeg",
+    "VIDEO_OUVERTURE": "q_auto/f_auto/v1780082988/2026-05-29_21_29_06_aciw5j.mp4",
+    "PHOTO_HERO": "mpyann/couple-hero.png",
+    "PHOTO_LUSTRE": "mpyann/lustre-principal.webp",
+    "PHOTO_HISTOIRE_1": "mpyann/couple-story-1.jpg",
+    "PHOTO_HISTOIRE_2": "mpyann/couple-story-2.jpg",
+    "PHOTO_HISTOIRE_3": "mpyann/couple-story-4.jpg",
+    "PHOTO_HISTOIRE_4": "mpyann/couple-story-5.jpg",
+    "PHOTO_CIVIL_1": "mpyann/mairie-civile-1.jpg",
+    "PHOTO_CIVIL_2": "mpyann/mairie-civile-2.jpg",
+    "PHOTO_CIVIL_3": "mpyann/mairie-civile-3.jpg",
+    "PHOTO_RECEPTION_1": "mpyann/salle3.webp",
+    "PHOTO_RECEPTION_2": "mpyann/salle4.webp",
+    "PHOTO_RECEPTION_3": "mpyann/salle2.webp",
+    "PHOTO_RECEPTION_4": "mpyann/salle.webp",
+    "PHOTO_DRESSCODE_PODIUM": "mpyann/dresscode-podium.png",
+    "PHOTO_DRESSCODE_SILHOUETTES": "mpyann/dresscode-silhouettes.png",
+    "PHOTO_ACTIVITE_1": "mpyann/assets/parrot-world.jpg",
+    "PHOTO_FINALE": "mpyann/couple-cadre-baroque.png",
+    "AUDIO_SRC": "musique.m4a",
+    "OG_IMAGE": "https://res.cloudinary.com/didid8vcu/image/upload/mpyann/couple-hero.png"
+  },
+
+  "seo": {
+    "META_TITLE": "Marie-Paul &amp; Yann · Mariage 2027",
+    "META_DESCRIPTION": "Vous êtes cordialement invités à célébrer le mariage de Marie-Paul &amp; Yann. Deux âmes, une promesse : une éternité à écrire ensemble.",
+    "META_TITLE_TWITTER": "Marie-Paul &amp; Yann · Mariage"
+  },
+
+  "rsvp": {
+    "RSVP_SUCCESS_MSG": "Votre réponse a bien été reçue.",
+    "RSVP_MSG_CONFIRME": "Votre présence vient d'être ajoutée à cette belle célébration.<br>{{PRENOMS}} vous remercient chaleureusement et se réjouissent de vivre ce moment à vos côtés.",
+    "RSVP_MSG_DECLINE": "Votre réponse a bien été reçue.<br>{{PRENOMS}} vous remercient chaleureusement pour votre retour. Même si vous ne pourrez pas être présent, une pensée pour eux accompagnera cette belle journée.",
+    "RSVP_MSG_GENERIQUE": "Votre réponse a bien été reçue.<br>{{PRENOMS}} vous remercient du fond du cœur."
+  },
+
+  "blocs_actifs": {
+    "notre-histoire": true,
+    "dresscode": true,
+    "hebergements": false,
+    "autour": false,
+    "empreintes": true,
+    "cadeaux": false
+  }
+}

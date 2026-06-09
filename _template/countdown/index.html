@@ -1,0 +1,487 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Eventia Signature · Compte à rebours</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Great+Vibes&family=Tenor+Sans&display=swap" rel="stylesheet">
+<style>
+:root{
+  --gold-deep:#7a4519;
+  --gold-mid:#b97828;
+  --gold-light:#f2d58a;
+  --gold-soft:#d9ad55;
+  --brown:#6b3f1c;
+  --line:rgba(176,124,52,.62);
+  --gold-text:linear-gradient(115deg,#5b2f12 0%,#9a5a1f 12%,#f9dc8d 28%,#b87627 43%,#fff4bd 52%,#c88a31 62%,#7b4317 75%,#edc96e 88%,#5a2d10 100%);
+}
+
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;min-height:100%;background:transparent;color:var(--brown);overflow:hidden;}
+body{display:grid;place-items:start center;padding-top:12vh;}
+.stage{
+  width:min(1040px,100vw);
+  padding:34px clamp(14px,3vw,28px) 8px;
+  position:relative;
+  isolation:isolate;
+  background:transparent;
+}
+.stage::before{
+  content:"";
+  position:absolute;
+  left:2%;right:2%;top:8%;height:62%;
+  z-index:-2;
+  background:radial-gradient(ellipse at center,rgba(255,243,218,.58) 0%,rgba(255,248,236,.25) 42%,rgba(255,255,255,0) 72%);
+  filter:blur(8px);
+  opacity:.82;
+  animation:haloBreath 7s ease-in-out infinite alternate;
+}
+@keyframes haloBreath{from{opacity:.48;transform:scale(.99)}to{opacity:.88;transform:scale(1.015)}}
+.counter{
+  display:grid;
+  grid-template-columns:minmax(176px,1fr) 1px minmax(150px,1fr) 1px minmax(150px,1fr) 1px minmax(150px,1fr);
+  align-items:center;
+  width:100%;
+  max-width:980px;
+  margin:0 auto;
+}
+.sep{
+  width:1px;
+  height:96px;
+  justify-self:center;
+  background:linear-gradient(180deg,transparent 0%,rgba(217,173,85,.45) 18%,rgba(116,68,28,.7) 50%,rgba(217,173,85,.45) 82%,transparent 100%);
+  opacity:.74;
+}
+.unit{
+  min-width:0;
+  text-align:center;
+  padding:0 18px;
+  position:relative;
+}
+.value{
+  height:116px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:clamp(7px,1.2vw,15px);
+  overflow:visible;
+  white-space:nowrap;
+}
+.digit{
+  position:relative;
+  display:inline-grid;
+  place-items:center;
+  min-width:clamp(48px,7vw,78px);
+  height:116px;
+  padding:10px 2px 12px;
+  overflow:visible;
+  perspective:900px;
+  transform-style:preserve-3d;
+}
+.digit span{
+  display:block;
+  font-family:'Chopin Script','ChopinScript','Great Vibes','Cormorant Garamond',serif;
+  font-size:clamp(88px,12vw,138px);
+  line-height:1;
+  font-weight:400;
+  letter-spacing:.025em;
+  padding:.03em .02em .08em;
+  overflow:visible;
+  color:transparent;
+  background:
+    var(--gold-text);
+  -webkit-background-clip:text;
+  background-clip:text;
+  filter:drop-shadow(0 2px 1px rgba(91,47,14,.24)) drop-shadow(0 0 20px rgba(211,154,58,.58)) brightness(1.1);
+  text-shadow:0 0 1px rgba(255,244,196,.8),0 0 18px rgba(255,229,148,.5),0 0 32px rgba(188,130,46,.42),0 0 48px rgba(244,212,139,.22);
+  transform-origin:center 54%;
+  animation:goldBreath 5.8s ease-in-out infinite;
+}
+.digit::after{
+  content:"";
+  position:absolute;
+  inset:18% 14%;
+  background:linear-gradient(100deg,transparent 0%,rgba(255,238,177,.0) 32%,rgba(255,241,184,.42) 48%,rgba(255,241,184,.0) 64%,transparent 100%);
+  mix-blend-mode:screen;
+  opacity:.36;
+  transform:translateX(-12%);
+  pointer-events:none;
+  animation:sheen 9.5s ease-in-out infinite;
+}
+@keyframes sheen{0%,100%{opacity:.28;transform:translateX(-18%)}45%{opacity:.46;transform:translateX(0)}70%{opacity:.68;transform:translateX(22%)}88%{opacity:.34;transform:translateX(38%)}}
+@keyframes goldBreath{0%,100%{filter:drop-shadow(0 2px 1px rgba(91,47,14,.22)) drop-shadow(0 0 17px rgba(207,153,69,.44)) brightness(1.06);transform:translateY(0) scale(1)}50%{filter:drop-shadow(0 2px 1px rgba(91,47,14,.24)) drop-shadow(0 0 30px rgba(221,174,83,.7)) brightness(1.18);transform:translateY(-1px) scale(1.012)}}
+.digit.flipping span{
+  animation:goldBreath 5.8s ease-in-out infinite, elegantFlip .78s cubic-bezier(.18,.74,.14,1) 1;
+}
+@keyframes elegantFlip{
+  0%{transform:rotateX(0deg) translateY(0) scale(1)}
+  30%{transform:rotateX(-42deg) translateY(-3px) scale(.99)}
+  62%{transform:rotateX(24deg) translateY(2px) scale(1.006)}
+  100%{transform:rotateX(0deg) translateY(0) scale(1)}
+}
+.label{
+  font-family:'Tenor Sans',serif;
+  font-size:clamp(9px,1.05vw,12px);
+  line-height:1.12;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:rgba(104,64,29,.78);
+  text-shadow:0 0 7px rgba(191,135,53,.13);
+  font-weight:500;
+  margin-top:-2px;
+}
+.heartWrap{
+  position:relative;
+  width:100%;
+  max-width:980px;
+  margin:18px auto 0;
+  height:28px;
+  pointer-events:none;
+}
+.goldHeart{
+  position:absolute;
+  left:50%;
+  top:50%;
+  width:30px;
+  height:30px;
+  overflow:visible;
+  transform:translate(-50%,-50%);
+  transform-origin:center 58%;
+  filter:
+    drop-shadow(0 2px 1px rgba(91,47,14,.28))
+    drop-shadow(0 9px 9px rgba(92,52,17,.16))
+    drop-shadow(0 0 18px rgba(224,174,78,.55))
+    brightness(1.12) saturate(1.12);
+  animation:heartBounce 3.6s cubic-bezier(.22,.76,.28,1) infinite;
+}
+@keyframes heartBounce{
+  0%,100%{transform:translate(-50%,-50%) translateY(0) scale(.98);opacity:.95;filter:drop-shadow(0 2px 1px rgba(91,47,14,.26)) drop-shadow(0 9px 9px rgba(92,52,17,.14)) drop-shadow(0 0 16px rgba(224,174,78,.48)) brightness(1.08) saturate(1.08)}
+  38%{transform:translate(-50%,-50%) translateY(-7px) scale(1.07);opacity:1;filter:drop-shadow(0 4px 2px rgba(91,47,14,.24)) drop-shadow(0 15px 13px rgba(92,52,17,.13)) drop-shadow(0 0 26px rgba(245,202,105,.72)) brightness(1.2) saturate(1.18)}
+  58%{transform:translate(-50%,-50%) translateY(2px) scale(.96)}
+  72%{transform:translate(-50%,-50%) translateY(-2px) scale(1.01)}
+}
+50%{transform:translate(-50%,-50%) scale(1.045);opacity:1}}
+.particles{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:-1;}
+.p{
+  position:absolute;
+  width:2px;height:2px;border-radius:50%;
+  background:rgba(173,116,38,.42);
+  box-shadow:0 0 8px rgba(214,166,80,.38);
+  opacity:0;
+  animation:float var(--d) linear infinite;
+}
+.p:nth-child(3n){width:1.5px;height:1.5px;background:rgba(112,65,23,.28)}
+.p:nth-child(4n){width:2.5px;height:2.5px;background:rgba(218,173,86,.35)}
+@keyframes float{
+  0%{transform:translateY(36px) translateX(0) scale(.8);opacity:0}
+  20%{opacity:.42}
+  70%{opacity:.34}
+  100%{transform:translateY(-130px) translateX(var(--x)) scale(1.05);opacity:0}
+}
+@media(max-width:640px){
+  body{padding-top:12vh;}
+  .stage{
+    width:100vw;
+    max-width:100vw;
+    padding:26px 12px 36px;
+    overflow:visible;
+  }
+  .stage::before{left:0;right:0;top:10%;height:52%;filter:blur(7px)}
+  .counter{
+    width:100%;
+    max-width:calc(100vw - 18px);
+    grid-template-columns:minmax(128px,1.38fr) 1px minmax(76px,1fr) 1px minmax(76px,1fr) 1px minmax(80px,1fr);
+    column-gap:0;
+    overflow:visible;
+  }
+  .unit{padding:0 8px;overflow:visible;}
+  .unit-0{padding-left:4px;padding-right:28px;}
+  .unit-1,.unit-2{padding-left:13px;padding-right:13px;}
+  .unit-3{padding-left:14px;padding-right:2px;}
+  .sep{height:76px;align-self:center;transform:translateY(-2px);}
+  .value{height:108px;gap:4px;overflow:visible;}
+  .unit-0 .value{gap:6px;justify-content:center;}
+  .unit-1 .value,.unit-2 .value,.unit-3 .value{justify-content:center;}
+  .digit{
+    min-width:32px;
+    height:108px;
+    padding:16px 1px 18px;
+    overflow:visible;
+  }
+  .unit-0 .digit{min-width:33px;}
+  .digit span{
+    font-size:clamp(56px,14.7vw,74px);
+    letter-spacing:.012em;
+    padding:.09em .07em .16em;
+    line-height:1.16;
+    overflow:visible;
+  }
+  .label{font-size:8px;letter-spacing:.13em;margin-top:-3px;white-space:nowrap;}
+  .heartWrap{margin-top:12px;max-width:calc(100vw - 18px);height:24px;}
+  .goldHeart{width:22px;height:22px;}
+}
+@media(max-width:390px){
+  .stage{padding-left:10px;padding-right:10px;}
+  .counter{max-width:calc(100vw - 16px);grid-template-columns:minmax(122px,1.38fr) 1px minmax(72px,1fr) 1px minmax(72px,1fr) 1px minmax(76px,1fr);}
+  .heartWrap{max-width:calc(100vw - 16px);height:24px;}
+  .unit{padding-left:6px;padding-right:6px;}
+  .unit-0{padding-left:3px;padding-right:26px;}
+  .unit-1,.unit-2{padding-left:11px;padding-right:11px;}
+  .unit-3{padding-left:12px;padding-right:1px;}
+  .digit{min-width:30px;height:104px;}
+  .unit-0 .digit{min-width:31px;}
+  .digit span{font-size:clamp(52px,14.2vw,66px);padding:.1em .075em .17em;line-height:1.18;}
+  .label{font-size:7.5px;letter-spacing:.12em;}
+  .sep{height:70px;}
+}
+@media(max-width:360px){
+  .counter{grid-template-columns:minmax(115px,1.34fr) 1px minmax(66px,1fr) 1px minmax(66px,1fr) 1px minmax(70px,1fr);}
+  .unit-0{padding-right:23px;}
+  .unit-1,.unit-2{padding-left:9px;padding-right:9px;}
+  .unit-3{padding-left:10px;}
+  .digit{min-width:28px;height:100px;}
+  .unit-0 .digit{min-width:29px;}
+  .digit span{font-size:48px;line-height:1.18;padding:.1em .075em .17em;}
+  .label{font-size:7px;letter-spacing:.1em;}
+}
+
+/* EVENTIA V6 COMPACT: garder seulement un saut de ligne après le cœur */
+.stage{padding-bottom:8px!important;}
+.heartWrap{margin-bottom:0!important;}
+</style>
+</head>
+<body>
+<section class="stage" aria-label="Compte à rebours Eventia Signature">
+  <div class="particles" id="particles"></div>
+  <div class="counter" id="counter"></div>
+  <div class="heartWrap" aria-hidden="true">
+    <svg class="goldHeart" viewBox="0 0 64 58" role="img">
+      <defs>
+        <linearGradient id="heartGold" x1="12" y1="3" x2="54" y2="57" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stop-color="#fff8ce"/>
+          <stop offset=".12" stop-color="#ffe9a4"/>
+          <stop offset=".25" stop-color="#d99a34"/>
+          <stop offset=".40" stop-color="#8a4c18"/>
+          <stop offset=".53" stop-color="#fff0b2"/>
+          <stop offset=".66" stop-color="#d99b36"/>
+          <stop offset=".82" stop-color="#7b4215"/>
+          <stop offset="1" stop-color="#f3cf74"/>
+        </linearGradient>
+        <radialGradient id="heartShine" cx="22" cy="13" r="25" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stop-color="#fffbe2" stop-opacity=".96"/>
+          <stop offset=".30" stop-color="#fff1b4" stop-opacity=".44"/>
+          <stop offset=".58" stop-color="#fff1b4" stop-opacity=".12"/>
+          <stop offset="1" stop-color="#fff1b4" stop-opacity="0"/>
+        </radialGradient>
+        <linearGradient id="heartEdge" x1="7" y1="8" x2="58" y2="56" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stop-color="#fff3b8" stop-opacity=".9"/>
+          <stop offset=".30" stop-color="#b46b21" stop-opacity=".7"/>
+          <stop offset=".62" stop-color="#fff2b5" stop-opacity=".85"/>
+          <stop offset="1" stop-color="#6f3812" stop-opacity=".9"/>
+        </linearGradient>
+        <filter id="heartInset" x="-20%" y="-20%" width="140%" height="140%">
+          <feGaussianBlur in="SourceAlpha" stdDeviation="1.1" result="blur"/>
+          <feOffset dx="0" dy="1" result="offset"/>
+          <feComposite in="offset" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="innerShadow"/>
+          <feColorMatrix in="innerShadow" type="matrix" values="0 0 0 0 0.42 0 0 0 0 0.22 0 0 0 0 0.06 0 0 0 .45 0"/>
+          <feBlend in="SourceGraphic" mode="multiply"/>
+        </filter>
+      </defs>
+      <path d="M32 56C23.1 47.5 6 34.3 6 19.5C6 10.9 12.4 4.5 20.7 4.5C25.5 4.5 29.4 6.9 32 10.5C34.6 6.9 38.5 4.5 43.3 4.5C51.6 4.5 58 10.9 58 19.5C58 34.3 40.9 47.5 32 56Z" fill="url(#heartGold)" filter="url(#heartInset)"/>
+      <path d="M32 56C23.1 47.5 6 34.3 6 19.5C6 10.9 12.4 4.5 20.7 4.5C25.5 4.5 29.4 6.9 32 10.5C34.6 6.9 38.5 4.5 43.3 4.5C51.6 4.5 58 10.9 58 19.5C58 34.3 40.9 47.5 32 56Z" fill="url(#heartShine)"/>
+      <path d="M32 56C23.1 47.5 6 34.3 6 19.5C6 10.9 12.4 4.5 20.7 4.5C25.5 4.5 29.4 6.9 32 10.5C34.6 6.9 38.5 4.5 43.3 4.5C51.6 4.5 58 10.9 58 19.5C58 34.3 40.9 47.5 32 56Z" fill="none" stroke="url(#heartEdge)" stroke-width="1.7" opacity=".72"/>
+      <path d="M18.8 10.2C13.3 11.7 10.5 15.9 11 21.1" fill="none" stroke="#fff8d2" stroke-width="3.2" stroke-linecap="round" opacity=".78"/>
+      <path d="M40.8 9.4C46.7 9.9 52.3 14.7 52.2 21.1" fill="none" stroke="#7b4215" stroke-width="1.8" stroke-linecap="round" opacity=".2"/>
+    </svg>
+  </div>
+</section>
+<script>
+// Modifie cette ligne pour programmer le compteur sur la date souhaitée.
+const target = new Date('{{DATE_ISO_DATETIME}}');
+const labels = ['JOURS','HEURES','MINUTES','SECONDES'];
+let previous = [];
+const counter = document.getElementById('counter');
+function splitDigits(v, min){return String(v).padStart(min,'0').split('')}
+function values(){
+  const diff = Math.max(0, target - new Date());
+  const s = Math.floor(diff/1000);
+  return [Math.floor(s/86400), Math.floor((s%86400)/3600), Math.floor((s%3600)/60), s%60];
+}
+function render(){
+  const vals = values();
+  counter.innerHTML = '';
+  vals.forEach((val,i)=>{
+    const unit = document.createElement('div');
+    unit.className = 'unit unit-' + i;
+    const value = document.createElement('div');
+    value.className = 'value';
+    const chars = splitDigits(val, i===0 ? 3 : 2);
+    chars.forEach((ch,idx)=>{
+      const d = document.createElement('div');
+      d.className = 'digit';
+      if(previous[i] && previous[i][idx] !== ch) d.classList.add('flipping');
+      const sp = document.createElement('span');
+      sp.textContent = ch;
+      d.appendChild(sp);
+      value.appendChild(d);
+    });
+    const lab = document.createElement('div');
+    lab.className = 'label';
+    lab.textContent = labels[i];
+    unit.appendChild(value);
+    unit.appendChild(lab);
+    counter.appendChild(unit);
+    if(i < 3){
+      const sep = document.createElement('div');
+      sep.className = 'sep';
+      counter.appendChild(sep);
+    }
+  });
+  previous = vals.map((v,i)=>splitDigits(v, i===0 ? 3 : 2));
+}
+function makeParticles(){
+  const wrap = document.getElementById('particles');
+  const total = window.innerWidth < 640 ? 26 : 34;
+  for(let i=0;i<total;i++){
+    const p = document.createElement('i');
+    p.className = 'p';
+    p.style.left = (4 + Math.random()*92) + '%';
+    p.style.top = (24 + Math.random()*32) + '%';
+    p.style.setProperty('--d', (12 + Math.random()*10) + 's');
+    p.style.setProperty('--x', (-22 + Math.random()*44) + 'px');
+    p.style.animationDelay = (-Math.random()*14) + 's';
+    wrap.appendChild(p);
+  }
+}
+makeParticles();
+render();
+setInterval(render,1000);
+
+/* ── Confettis dorés — un seul tir à l'affichage ── */
+(function(){
+  var fired = false;
+  var canvas, ctx, particles = [], raf = null, last = 0;
+  var palette = ['#F9E6A8','#E5C36F','#C89A3D','#A86E18','#F6F0DB','#D8B663','#B78220','#FFF7D6','#fff2bd'];
+
+  function ensureCanvas(){
+    if(canvas) return;
+    canvas = document.createElement('canvas');
+    canvas.style.cssText = 'position:fixed;inset:0;width:100vw;height:100vh;pointer-events:none;z-index:9500;overflow:hidden;';
+    document.body.appendChild(canvas);
+    ctx = canvas.getContext('2d',{alpha:true});
+    resize();
+    window.addEventListener('resize',resize,{passive:true});
+  }
+
+  function resize(){
+    if(!canvas) return;
+    var dpr = Math.min(window.devicePixelRatio||1,2);
+    canvas.width  = Math.round(window.innerWidth*dpr);
+    canvas.height = Math.round(window.innerHeight*dpr);
+    canvas._dpr = dpr;
+  }
+
+  function spawnBurst(cx,cy,count){
+    var dpr = canvas._dpr||1;
+    for(var i=0;i<count;i++){
+      var typeR = Math.random();
+      var type = typeR<.52?'foil':typeR<.74?'spark':typeR<.90?'dust':'round';
+      var angle = -Math.PI + Math.random()*Math.PI*2;
+      var speed = 140 + Math.random()*200;
+      var size  = type==='dust'?(0.8+Math.random()*1.8):type==='spark'?(1.2+Math.random()*2.2):(2.4+Math.random()*5.2);
+      particles.push({
+        x:cx*dpr, y:cy*dpr,
+        vx:Math.cos(angle)*speed*dpr,
+        vy:(Math.sin(angle)*speed*.7 - 65 - Math.random()*60)*dpr,
+        g:310*dpr,
+        life:0, ttl:0.9+Math.random()*0.8,
+        rot:Math.random()*Math.PI*2, vr:(Math.random()-.5)*11,
+        size:size*dpr, type:type,
+        color:palette[Math.floor(Math.random()*palette.length)],
+        alpha:0.88+Math.random()*.12
+      });
+    }
+  }
+
+  function startLoop(){
+    if(raf) return;
+    last = performance.now();
+    raf = requestAnimationFrame(tick);
+  }
+
+  function tick(now){
+    var dt = Math.min((now-last)/1000,.033);
+    last = now;
+    var dpr = canvas._dpr||1;
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    ctx.save();
+    for(var i=particles.length-1;i>=0;i--){
+      var p=particles[i];
+      p.life+=dt;
+      if(p.life>=p.ttl){particles.splice(i,1);continue;}
+      p.vy+=p.g*dt; p.vx*=.993;
+      p.x+=p.vx*dt; p.y+=p.vy*dt; p.rot+=p.vr*dt;
+      var t=p.life/p.ttl;
+      var a=p.alpha*(1-Math.max(0,(t-.65)/.35));
+      ctx.globalAlpha=a;
+      ctx.translate(p.x,p.y); ctx.rotate(p.rot);
+      ctx.fillStyle=p.color;
+      ctx.shadowColor=p.color; ctx.shadowBlur=p.type==='dust'?7*dpr:3*dpr;
+      if(p.type==='foil'){
+        var w=p.size*(2.1+Math.sin(p.rot)*.2), h=p.size*.6;
+        var g=ctx.createLinearGradient(-w/2,-h/2,w/2,h/2);
+        g.addColorStop(0,'#fff7d2'); g.addColorStop(.45,p.color); g.addColorStop(1,'#7a4e10');
+        ctx.fillStyle=g;
+        ctx.beginPath();
+        ctx.moveTo(-w*.48,-h*.35);ctx.lineTo(w*.48,-h*.18);ctx.lineTo(w*.36,h*.42);ctx.lineTo(-w*.42,h*.28);ctx.closePath();
+        ctx.fill();
+      } else if(p.type==='spark'){
+        ctx.fillStyle='#fff2bd';
+        ctx.fillRect(-p.size*.17,-p.size*2.3,p.size*.34,p.size*4.6);
+      } else {
+        ctx.beginPath();
+        ctx.arc(0,0,p.size*(p.type==='dust'?.55:.70),0,Math.PI*2);
+        ctx.fill();
+      }
+      ctx.setTransform(1,0,0,1,0,0);
+    }
+    ctx.restore();
+    if(particles.length){ raf=requestAnimationFrame(tick); }
+    else { raf=null; ctx.clearRect(0,0,canvas.width,canvas.height); }
+  }
+
+  function fireCountdownConfetti(){
+    if(fired) return;
+    fired = true;
+    ensureCanvas();
+    var vw = window.innerWidth, vh = window.innerHeight;
+    var points = [
+      [vw*.15, vh*.35], [vw*.30, vh*.25], [vw*.50, vh*.20],
+      [vw*.70, vh*.25], [vw*.85, vh*.35]
+    ];
+    points.forEach(function(pt, i){
+      setTimeout(function(){
+        spawnBurst(pt[0], pt[1], 48);
+        startLoop();
+      }, i*80);
+    });
+    /* deuxième vague décalée */
+    setTimeout(function(){
+      points.forEach(function(pt, i){
+        setTimeout(function(){
+          spawnBurst(pt[0], pt[1]+vh*.08, 32);
+        }, i*60);
+      });
+    }, 380);
+    /* signal au parent pour double-couche */
+    try{ if(window.parent && window.parent!==window) window.parent.postMessage({type:'eventia-countdown-confetti'},'*'); }catch(e){}
+  }
+
+  /* Déclencher après le premier rendu des chiffres */
+  window.addEventListener('load', function(){
+    setTimeout(fireCountdownConfetti, 1600);
+  });
+})();
+</script>
+</body>
+</html>
