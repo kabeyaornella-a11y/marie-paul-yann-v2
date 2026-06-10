@@ -1,0 +1,77 @@
+/**
+ * Eventia Signature — Univers : ROYAL — Ivoire royal, or impérial, noir velours, bordeaux. Majestueux.
+ */
+:root {
+  --ev-accent:         #C49A3A;
+  --ev-accent-deep:    #8B6A1A;
+  --ev-accent-light:   #E7D8C3;
+  --ev-bg:             #F8F1E6;
+  --ev-bg-section:     #EDE6DB;
+  --ev-text:           #15110F;
+  --ev-text-soft:      #5B1F2A;
+  --ev-text-muted:     #8A6060;
+
+  --ev-font-title:     'Cormorant Garamond', serif;
+  --ev-font-kicker:    'Cinzel', serif;
+  --ev-font-body:      'Cormorant Garamond', serif;
+  --ev-font-script:    'Great Vibes', cursive;
+
+  --ev-title-size:     clamp(38px, 8.5vw, 68px);
+  --ev-kicker-size:    12px;
+  --ev-kicker-spacing: 0.36em;
+  --ev-body-size:      clamp(19px, 4.8vw, 28px);
+  --ev-gap:            clamp(14px, 2.2vw, 26px);
+  --ev-pattern:        none;
+
+  --ev-hero-gradient: linear-gradient(
+    to bottom,
+    rgba(248,241,230,0) 0%,
+    rgba(248,241,230,0.6) 60%,
+    rgba(248,241,230,1) 100%
+  );
+}
+
+:root {
+  --eventia-gold-btn: linear-gradient(105deg, #3A1A08 0%, #8B6A1A 22%, #C49A3A 48%, #E7D8C3 68%, #8B6A1A 100%);
+  --ev24-btn:         linear-gradient(105deg, #3A1A08 0%, #8B6A1A 22%, #C49A3A 48%, #E7D8C3 68%, #8B6A1A 100%);
+  --ev25-btn:         linear-gradient(105deg, #8B6A1A 0%, #C49A3A 42%, #E7D8C3 64%, #8B6A1A 100%);
+}
+
+/* ── Bridge aliases ── */
+:root {
+  --gold: var(--ev-accent); --or: var(--ev-accent); --dore: var(--ev-accent);
+  --color-gold: var(--ev-accent); --eventia-gold: var(--ev-accent);
+  --ev24-gold: var(--ev-accent); --ev25-gold: var(--ev-accent);
+  --v22-gold: var(--ev-accent); --invite-gold: var(--ev-accent);
+  --ev-gold: var(--ev-accent); --es-gold: var(--ev-accent); --ev-gold-tdy: var(--ev-accent);
+  --brown: var(--ev-text-soft);
+  --or-sombre: var(--ev-accent-deep); --dore-profond: var(--ev-accent-deep);
+  --or-deep: var(--ev-accent-deep); --ev-gold-deep: var(--ev-accent-deep);
+  --or-clair: var(--ev-accent-light); --or-l: var(--ev-accent-light);
+  --dore-clair: var(--ev-accent-light); --dore-lumine: var(--ev-accent-light);
+  --color-gold-light: var(--ev-accent-light); --or-light: var(--ev-accent-light);
+  --invite-gold-light: var(--ev-accent-light); --ev-gold-2: var(--ev-accent-light);
+  --eventia-champ: var(--ev-accent-light); --eventia-light-gold: var(--ev-accent-light);
+  --ivoire: var(--ev-bg); --fond: var(--ev-bg); --creme: var(--ev-bg);
+  --color-ivoire: var(--ev-bg); --eventia-bg: var(--ev-bg); --eventia-cream: var(--ev-bg);
+  --eventia-page-bg: var(--ev-bg); --eventia-ivory: var(--ev-bg); --eventia-soft: var(--ev-bg);
+  --ev24-bg: var(--ev-bg); --ev25-bg: var(--ev-bg); --v22-bg: var(--ev-bg);
+  --ev-cream: var(--ev-bg); --ev-ivory: var(--ev-bg); --es-bg: var(--ev-bg);
+  --gold2: var(--ev-bg-section); --soft: var(--ev-bg-section);
+  --color-brun: var(--ev-text-soft); --color-brun-m: var(--ev-text-soft);
+  --color-brun-mid: var(--ev-text-soft); --brun: var(--ev-text-soft);
+  --eventia-brown: var(--ev-text-soft); --eventia-ink: var(--ev-text-soft);
+  --ev24-brown: var(--ev-text-soft); --ev25-brown: var(--ev-text-soft);
+  --v22-brown: var(--ev-text-soft); --invite-brown: var(--ev-text-soft);
+  --ev-brown: var(--ev-text-soft); --es-brown: var(--ev-text-soft);
+  --eventia-brown-dark: var(--ev-text-soft);
+  --brun-text: var(--ev-text-muted); --brun-soft: var(--ev-text-muted);
+  --color-brun-soft: var(--ev-text-muted); --color-brun-s: var(--ev-text-muted);
+  --ev-brown-soft: var(--ev-text-muted); --es-brown-soft: var(--ev-text-muted);
+  --v22-soft: var(--ev-text-muted); --ev25-soft: var(--ev-text-muted);
+  --nuit: var(--ev-text-muted);
+  --font-display: var(--ev-font-title); --font-title: var(--ev-font-title);
+  --font-titre: var(--ev-font-title); --roman: var(--ev-font-title);
+  --font-caps: var(--ev-font-kicker);
+  --font-script: var(--ev-font-script); --font-body: var(--ev-font-body);
+}

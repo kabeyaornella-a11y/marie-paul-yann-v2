@@ -1,5 +1,5 @@
 {
-  "_comment": "Définition des paliers Eventia Signature — socle inclus + options disponibles",
+  "_comment": "Eventia Signature — 20 blocs (Bible V2.1) + paliers et options tarifées",
 
   "blocs_toujours_actifs": [
     "opening",
@@ -45,7 +45,7 @@
   "options": {
     "notre-histoire": {
       "label": "Notre Histoire",
-      "description": "Section storytelling du couple — photos + mini-titres (Le commencement, La promesse...)",
+      "description": "Section storytelling du couple — photos + mini-titres (Le commencement, La promesse…)",
       "prix": 20
     },
     "dresscode": {
@@ -55,7 +55,7 @@
     },
     "empreintes": {
       "label": "Nos Empreintes",
-      "description": "Enveloppe animée avec message caché",
+      "description": "Enveloppe interactive avec message caché",
       "prix": 15
     },
     "hebergements": {
@@ -72,6 +72,36 @@
       "label": "Liste de cadeaux",
       "description": "Section accordéon avec options cadeaux/liste de mariage",
       "prix": 15
+    },
+    "transport": {
+      "label": "Transport & Accès",
+      "description": "Cartes accès avec parking, gare, taxi, navette et distances",
+      "prix": 15
+    },
+    "menu": {
+      "label": "Menu",
+      "description": "Carte du menu style restaurant — entrée, plat, dessert ou choix invité",
+      "prix": 15
+    },
+    "photos-galerie": {
+      "label": "Galerie Photos",
+      "description": "Galerie polaroïds ou carrousel avec photos du couple et famille",
+      "prix": 20
+    },
+    "faq": {
+      "label": "FAQ",
+      "description": "Accordéon élégant avec questions fréquentes des invités",
+      "prix": 15
+    },
+    "playlist": {
+      "label": "Playlist",
+      "description": "Bouton Spotify/Deezer et suggestion de chanson pour les mariés",
+      "prix": 15
+    },
+    "livre-audio": {
+      "label": "Messages Audio",
+      "description": "Module dictaphone doré — les invités laissent un message vocal",
+      "prix": 20
     }
   }
 }
