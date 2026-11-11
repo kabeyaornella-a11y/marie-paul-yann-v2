@@ -21,3 +21,15 @@
   for = "*.js"
   [headers.values]
     Cache-Control = "public, max-age=0, must-revalidate"
+
+[[redirects]]
+  from = "/api/rsvp"
+  to = "/.netlify/functions/carnet"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/api/rsvp/read"
+  to = "/.netlify/functions/carnet/read"
+  status = 200
+  force = true
